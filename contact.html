@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact • MyVenturePartners</title>
+  <meta name="description" content="Contact MyVenturePartners.">
+  <style>
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; }
+body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:#0b1220; background:#0b1220; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display:block; }
+:root {
+  --navy: #0b1220;
+  --navy-600: #111b30;
+  --ink: #0f172a;
+  --muted: #94a3b8;
+  --card: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.08);
+  --stroke: rgba(255,255,255,0.14);
+  --bg: #0b1220;
+  --gold: #d4af37;
+  --gold-600: #c49b1f;
+  --shadow: 0 12px 40px rgba(2, 6, 23, 0.5);
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.btn {
+  display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius: 999px;
+  border:1px solid var(--stroke); background: linear-gradient(180deg, var(--gold), var(--gold-600));
+  color:#0b1220; font-weight:800; letter-spacing:.2px; box-shadow: 0 10px 24px rgba(212,175,55,.25); transition: transform .08s ease, filter .2s ease;
+}
+.btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+.btn.ghost { background: transparent; color:#e2e8f0; border-color: var(--stroke); box-shadow: none; font-weight:700; }
+.btn.ghost:hover { background: rgba(255,255,255,.06); }
+.header { position: sticky; top:0; z-index:100; background: rgba(11,18,32,.6); backdrop-filter: blur(10px); border-bottom: 1px solid var(--stroke); }
+.nav { height:76px; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:12px; color:#e2e8f0; font-weight:900; letter-spacing:.4px; }
+.logo-badge {
+  width:40px; height:40px; border-radius: 12px; display:grid; place-items:center; color:#0b1220; font-weight:900;
+  background: linear-gradient(135deg, var(--gold), var(--gold-600)); box-shadow:0 6px 18px rgba(212,175,55,.35);
+}
+.nav-links { display:flex; gap:16px; align-items:center; }
+.nav-links a { color:#cbd5e1; font-weight:700; padding:10px 12px; border-radius:10px; }
+.nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,.06); color:#e2e8f0; }
+.nav-toggle { display:none; background:transparent; border:0; font-size:28px; color:#e2e8f0; }
+@media (max-width: 960px) {
+  .nav-links { display:none; position:absolute; top:76px; left:0; right:0; padding:12px 16px 20px; background: rgba(11,18,32,.96); border-bottom:1px solid var(--stroke); flex-direction:column; align-items:flex-start; }
+  .nav-links.open { display:flex; }
+  .nav-toggle { display:block; }
+}
+.hero {
+  position: relative; overflow: hidden;
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(212,175,55,0.12), transparent 60%),
+              radial-gradient(700px 400px at 10% 10%, rgba(255,255,255,0.06), transparent 60%);
+  border-bottom:1px solid var(--stroke);
+}
+.hero::after { content:""; position:absolute; inset: -2px; pointer-events:none; background:
+  radial-gradient(500px 300px at 70% 10%, rgba(212,175,55,.08), transparent 60%);
+}
+.hero-inner { display:grid; grid-template-columns: 1.2fr 1fr; gap:40px; padding:70px 0; align-items:center; }
+.hero h1 { color:#eef2ff; font-size: clamp(36px, 5vw, 56px); line-height:1.05; margin:0 0 14px; letter-spacing:-.8px; }
+.hero p { color:#cbd5e1; font-size:18px; margin:0 0 20px; }
+.hero-card {
+  border:1px solid var(--stroke); background: var(--glass); padding:22px; border-radius:18px; box-shadow: var(--shadow);
+  transform: translateY(8px); animation: float 6s ease-in-out infinite alternate;
+}
+@keyframes float { from { transform: translateY(8px);} to { transform: translateY(-4px);} } 
+.stats { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:18px; }
+.stat { text-align:center; padding:14px; border-radius:14px; background: rgba(255,255,255,.04); border:1px solid var(--stroke); color:#e2e8f0; }
+.stat b { display:block; font-size:22px; color: var(--gold); }
+@media (max-width: 960px) { .hero-inner { grid-template-columns: 1fr; } }
+.section { padding: 64px 0; background: var(--bg); }
+.section.alt { background: linear-gradient(180deg, #0b1220, #0e172d); }
+.section h2 { color:#e2e8f0; font-size: 28px; margin:0 0 8px; letter-spacing:-.2px; }
+.section p.sub { color:#94a3b8; margin:0 0 24px; }
+.grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
+.grid-2 { display:grid; grid-template-columns: repeat(2,1fr); gap:18px; }
+.card { background: var(--glass); border:1px solid var(--stroke); border-radius:16px; padding:18px; box-shadow: var(--shadow); color:#e2e8f0; }
+.card h3 { margin:6px 0 6px; color:#f1f5f9; }
+.badge { display:inline-block; padding:6px 10px; font-size:12px; border-radius:999px; background: rgba(212,175,55,.14); color:#f1f5f9; border:1px solid var(--stroke); }
+.kicker { color: var(--gold); font-weight:900; font-size:12px; letter-spacing:.6px; text-transform:uppercase; }
+.reveal { opacity: 0; transform: translateY(12px); transition: all .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.footer { background:#070b14; color:#94a3b8; border-top:1px solid var(--stroke); }
+.footer a { color:#cbd5e1; }
+.footer-inner { padding: 42px 0; display:grid; grid-template-columns: 1.2fr .8fr .8fr; gap:24px; }
+.footer .logo { color:#e2e8f0; }
+.footer small { color:#64748b; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding: 18px 0; font-size: 14px; color:#64748b; }
+@media (max-width: 960px) { .footer-inner { grid-template-columns: 1fr; } }
+.input, textarea, select {
+  width: 100%; padding: 12px 14px; border-radius: 12px; border:1px solid var(--stroke); background: rgba(255,255,255,.06); color:#e2e8f0; font-size: 16px;
+}
+textarea { min-height: 140px; }
+.form-row { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .form-row { grid-template-columns: 1fr; } }
+.table { width: 100%; border-collapse: collapse; color:#e2e8f0; }
+.table th, .table td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--stroke); }
+.alert { background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.3); padding: 10px 12px; border-radius: 12px; color: #a7f3d0; }
+.error { background: rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.3); color:#fecaca; }
+blockquote.quote {
+  margin: 0; padding: 16px 18px; border-left: 3px solid var(--gold); background: rgba(255,255,255,.04); border-radius: 8px;
+  color:#e2e8f0;
+}
+</style>
+</head>
+<body>
+  
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html" aria-label="Home">
+      <span class="logo-badge">MVP</span>
+      <span>MyVenturePartners</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="team.html">Team</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html" class="btn">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  
+<section class="section hero">
+  <div class="container">
+    <h1>Contact</h1>
+    <p class="sub">Tell us about your goals. We’ll respond within 1 business day.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div id="form-alert" class="alert" style="display:none;"></div>
+    <form id="contact-form" class="card">
+      <div class="form-row">
+        <div><label>Name*</label><input class="input" type="text" name="name" required></div>
+        <div><label>Email*</label><input class="input" type="email" name="email" required></div>
+      </div>
+      <div class="form-row">
+        <div><label>Company</label><input class="input" type="text" name="company"></div>
+        <div><label>Role</label><input class="input" type="text" name="role"></div>
+      </div>
+      <div class="form-row">
+        <div><label>Budget (₹)</label><input class="input" type="number" name="budget" min="0"></div>
+        <div><label>Timeline</label>
+          <select name="timeline" class="input">
+            <option value="">Select</option>
+            <option>0-3 months</option><option>3-6 months</option><option>6+ months</option>
+          </select>
+        </div>
+      </div>
+      <div><label>What do you want to achieve?*</label><textarea class="input" name="message" required></textarea></div>
+      <div style="display:flex; gap:10px; margin-top:10px;">
+        <button class="btn" type="submit">Send message</button>
+        <a class="btn ghost" href="services.html">See services</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+  
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-badge">MVP</span><span>MyVenturePartners</span></a>
+      <p style="margin:10px 0 14px;">A world-class management consulting partner helping leaders unlock durable growth through strategy, operations, and execution—at scale.</p>
+      <div><a href="privacy.html">Privacy Policy</a> • <a href="contact.html">Contact</a></div>
+    </div>
+    <div>
+      <h4 style="color:#e2e8f0;">Practices</h4>
+      <ul style="list-style:none; padding:0; margin:8px 0 0;">
+        <li><a href="services.html#strategy">Corporate Strategy</a></li>
+        <li><a href="services.html#ops">Operations Excellence</a></li>
+        <li><a href="services.html#gtm">Go-To-Market</a></li>
+        <li><a href="services.html#analytics">Analytics & BI</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color:#e2e8f0;">Company</h4>
+      <ul style="list-style:none; padding:0; margin:8px 0 0;">
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Leadership</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="insights.html">Insights</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div>&copy; <span id="year"></span> MyVenturePartners. All rights reserved.</div>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+  <script>
+document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+  document.querySelector('.nav-links')?.classList.toggle('open');
+});
+const path = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(a => {
+  if (a.getAttribute('href') === path) a.classList.add('active');
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('[data-count]').forEach(el => {
+  const target = Number(el.getAttribute('data-count'));
+  let current = 0;
+  const step = Math.max(1, Math.round(target / 60));
+  const tick = () => {
+    current += step;
+    if (current >= target) current = target;
+    el.textContent = current.toLocaleString();
+    if (current < target) requestAnimationFrame(tick);
+  };
+  tick();
+});
+const contactForm = document.querySelector('#contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(contactForm).entries());
+    const required = ['name','email','message'];
+    const missing = required.filter(k => !String(data[k]||'').trim());
+    const alertEl = document.querySelector('#form-alert');
+    alertEl.classList.remove('error');
+    if (missing.length) {
+      alertEl.textContent = 'Please fill all required fields.';
+      alertEl.classList.add('error');
+      alertEl.style.display = 'block';
+      return;
+    }
+    alertEl.textContent = 'Thanks! Your message has been received. We’ll get back within 1 business day.';
+    alertEl.style.display = 'block';
+    contactForm.reset();
+  });
+}
+const slots = document.querySelectorAll('.carousel .slot');
+if (slots.length) {
+  let i = 0;
+  setInterval(() => {
+    slots.forEach((s, idx) => s.style.display = idx === i ? 'block' : 'none');
+    i = (i + 1) % slots.length;
+  }, 3600);
+}
+</script>
+</body>
+</html>
