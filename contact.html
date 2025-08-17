@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Contact • MyVenturePartners</title>
+  <meta name="description" content="Book a discovery call with MVP.">
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="assets/mvp-logo.svg" type="image/svg+xml"/>
+<meta name="theme-color" content="#0e1020" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="MyVenturePartners Home">
+      <img src="assets/mvp-logo.svg" alt="MVP logo" width="36" height="36" />
+      <span class="brand-name">MyVenture<span>Partners</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="navMenu">
+        <li><a href="about.html">About</a></li>
+        <li class="has-sub">
+          <button class="sub-toggle" aria-expanded="false" aria-controls="subServices">Services</button>
+          <ul id="subServices" class="submenu">
+            <li><a href="services.html#brand">Brand Building</a></li>
+            <li><a href="services.html#strategy">Growth Strategy</a></li>
+            <li><a href="services.html#digital">Digital & AI</a></li>
+            <li><a href="services.html#operations">Operations</a></li>
+          </ul>
+        </li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a class="cta small" href="contact.html">Book a Call</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+  <section class="page-hero"><div class="container"><h1>Talk to MVP</h1><p>Tell us a bit — we’ll reply within a day.</p></div></section>
+
+  <section class="container split">
+    <div>
+      <form id="contactForm" class="form" novalidate>
+        <label>Name <input type="text" name="name" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Company <input type="text" name="company"></label>
+        <label>How can we help?
+          <textarea name="message" rows="5" required placeholder="Brand, growth, scale…"></textarea>
+        </label>
+        <button type="submit" class="cta">Send</button>
+        <p class="tiny">Prefer email? <a href="mailto:hello@myventurepartners.com">hello@myventurepartners.com</a></p>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Book a Call</h3>
+      <p>We can jump on Google Meet or Zoom. We work IST-friendly hours.</p>
+      <a class="cta block" href="#">Pick a slot</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+  <div class="container foot-grid">
+    <div>
+      <a class="brand" href="index.html">
+        <img src="assets/mvp-logo.svg" alt="MVP logo" width="32" height="32"/>
+        <span class="brand-name">MyVenture<span>Partners</span></span>
+      </a>
+      <p>We build brands and help businesses grow — strategy, digital, and execution under one roof.</p>
+      <div class="social">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="X">𝕏</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Work</h4>
+      <ul>
+        <li><a href="services.html#brand">Brand</a></li>
+        <li><a href="services.html#strategy">Growth</a></li>
+        <li><a href="services.html#digital">Digital & AI</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in Touch</h4>
+      <p>Book a discovery call or write to us.</p>
+      <a class="cta" href="contact.html">Talk to MVP</a>
+    </div>
+  </div>
+  <div class="container tiny">
+    <p>© 2025 MyVenturePartners (MVP). Made with care.</p>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
