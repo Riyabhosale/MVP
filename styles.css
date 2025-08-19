@@ -140,6 +140,10 @@ a:hover{opacity:.95}
 }
 
 
+.navbar-logo img {
+  height: 70px;   /* adjust size */
+  width: auto;
+}
 
 
 
