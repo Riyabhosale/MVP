@@ -688,174 +688,125 @@
 
 
 
-
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced MyVenture Partners Logo</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 40px;
-            background: #f8fafc;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<a href="index.html" class="logo" style="display:flex; align-items:center;">
+  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:540px; height:auto;">
+    <defs>
+      <!-- Enhanced gradient with more depth -->
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+        <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:1" />
+        <stop offset="70%" style="stop-color:#0284c7;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
+      </linearGradient>
 
 ```
-    .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        transition: transform 0.2s ease;
-    }
+  <!-- Enhanced drop shadow for better quality -->
+  <filter id="dropshadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+    <feOffset dx="3" dy="6" result="offset"/>
+    <feFlood flood-color="#0f172a" flood-opacity="0.2"/>
+    <feComposite in2="offset" operator="in"/>
+    <feMerge> 
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/> 
+    </feMerge>
+  </filter>
+  
+  <!-- Subtle inner highlight for circles -->
+  <radialGradient id="circleGrad1" cx="40%" cy="30%">
+    <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+  </radialGradient>
+  
+  <radialGradient id="circleGrad2" cx="40%" cy="30%">
+    <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
+    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+  </radialGradient>
+  
+  <radialGradient id="circleGrad3" cx="40%" cy="30%">
+    <stop offset="0%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1" />
+    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+  </radialGradient>
+</defs>
 
-    .logo:hover {
-        transform: scale(1.02);
-    }
+<!-- Main logo -->
+<g transform="translate(50, 100)">
+  <!-- Enhanced circles with gradients and better shadows -->
+  <circle cx="60" cy="70" r="26" fill="#0891b2" filter="url(#dropshadow)"/>
+  <circle cx="60" cy="70" r="26" fill="url(#circleGrad1)"/>
+  
+  <circle cx="90" cy="70" r="26" fill="#06b6d4" filter="url(#dropshadow)"/>
+  <circle cx="90" cy="70" r="26" fill="url(#circleGrad2)"/>
+  
+  <circle cx="120" cy="70" r="26" fill="#0e7490" filter="url(#dropshadow)"/>
+  <circle cx="120" cy="70" r="26" fill="url(#circleGrad3)"/>
+  
+  <!-- Letters with enhanced styling -->
+  <text x="60" y="79" text-anchor="middle" fill="white" 
+        font-family="Arial, sans-serif" font-size="18" font-weight="800" 
+        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">M</text>
+  <text x="90" y="79" text-anchor="middle" fill="white" 
+        font-family="Arial, sans-serif" font-size="18" font-weight="800"
+        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">V</text>
+  <text x="120" y="79" text-anchor="middle" fill="white" 
+        font-family="Arial, sans-serif" font-size="18" font-weight="800"
+        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">P</text>
+  
+  <!-- Company name with enhanced typography -->
+  <text x="170" y="58" fill="#1e293b" 
+        font-family="Arial, sans-serif" font-size="32" font-weight="800" 
+        letter-spacing="-0.8px" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">myventure</text>
+  <text x="170" y="88" fill="#64748b" 
+        font-family="Arial, sans-serif" font-size="32" font-weight="400" 
+        letter-spacing="-0.8px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.03);">partners</text>
+  
+  <!-- Tagline with improved spacing and style -->
+  <text x="170" y="108" fill="#06b6d4" 
+        font-family="Arial, sans-serif" font-size="13" font-weight="600" 
+        letter-spacing="2px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.1);">STRONGER TOGETHER</text>
+</g>
+```
 
-    /* High-quality logo at 3x size */
+  </svg>
+</a>
+
+<style>
+  /* Enhanced logo styling at 3x size */
+  .logo {
+    transition: transform 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .logo:hover {
+    transform: scale(1.02);
+  }
+  
+  .logo svg {
+    max-width: 540px; /* 3x the original 180px */
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+
+  /* Responsive scaling while maintaining 3x base size */
+  @media (max-width: 768px) {
     .logo svg {
-        max-width: 540px; /* 3x the original 180px */
-        height: auto;
-        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+      max-width: 450px; /* 3x the original 150px */
     }
+  }
 
-    /* Responsive scaling while maintaining 3x base size */
-    @media (max-width: 768px) {
-        .logo svg {
-            max-width: 450px; /* 3x the original 150px */
-        }
+  @media (max-width: 600px) {
+    .logo svg {
+      max-width: 360px; /* 3x the original 120px */
     }
+  }
 
-    @media (max-width: 600px) {
-        .logo svg {
-            max-width: 360px; /* 3x the original 120px */
-        }
+  @media (max-width: 480px) {
+    .logo svg {
+      max-width: 300px; /* 3x the original 100px */
     }
-
-    @media (max-width: 480px) {
-        .logo svg {
-            max-width: 300px; /* 3x the original 100px */
-        }
-    }
-
-    .container {
-        text-align: center;
-    }
-
-    .title {
-        margin-top: 20px;
-        color: #1e293b;
-        font-size: 18px;
-        font-weight: 500;
-    }
+  }
 </style>
-```
 
-</head>
-<body>
-    <div class="container">
-        <a href="index.html" class="logo">
-            <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <!-- Enhanced gradient with more depth -->
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-                        <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:1" />
-                        <stop offset="70%" style="stop-color:#0284c7;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
-                    </linearGradient>
-
-```
-                <!-- Enhanced drop shadow for better quality -->
-                <filter id="dropshadow" x="-30%" y="-30%" width="160%" height="160%">
-                    <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-                    <feOffset dx="3" dy="6" result="offset"/>
-                    <feFlood flood-color="#0f172a" flood-opacity="0.2"/>
-                    <feComposite in2="offset" operator="in"/>
-                    <feMerge> 
-                        <feMergeNode/>
-                        <feMergeNode in="SourceGraphic"/> 
-                    </feMerge>
-                </filter>
-                
-                <!-- Subtle glow effect for premium look -->
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                    <feMerge> 
-                        <feMergeNode in="coloredBlur"/>
-                        <feMergeNode in="SourceGraphic"/> 
-                    </feMerge>
-                </filter>
-                
-                <!-- Subtle inner highlight for circles -->
-                <radialGradient id="circleGrad1" cx="40%" cy="30%">
-                    <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-                </radialGradient>
-                
-                <radialGradient id="circleGrad2" cx="40%" cy="30%">
-                    <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-                </radialGradient>
-                
-                <radialGradient id="circleGrad3" cx="40%" cy="30%">
-                    <stop offset="0%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-                </radialGradient>
-            </defs>
-
-            <!-- Main logo group -->
-            <g transform="translate(50, 100)">
-                <!-- Enhanced circles with gradients and better shadows -->
-                <circle cx="60" cy="70" r="26" fill="#0891b2" filter="url(#dropshadow)"/>
-                <circle cx="60" cy="70" r="26" fill="url(#circleGrad1)"/>
-                
-                <circle cx="90" cy="70" r="26" fill="#06b6d4" filter="url(#dropshadow)"/>
-                <circle cx="90" cy="70" r="26" fill="url(#circleGrad2)"/>
-                
-                <circle cx="120" cy="70" r="26" fill="#0e7490" filter="url(#dropshadow)"/>
-                <circle cx="120" cy="70" r="26" fill="url(#circleGrad3)"/>
-                
-                <!-- Letters with enhanced styling -->
-                <text x="60" y="79" text-anchor="middle" fill="white" 
-                      font-family="Arial, sans-serif" font-size="18" font-weight="800" 
-                      style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">M</text>
-                <text x="90" y="79" text-anchor="middle" fill="white" 
-                      font-family="Arial, sans-serif" font-size="18" font-weight="800"
-                      style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">V</text>
-                <text x="120" y="79" text-anchor="middle" fill="white" 
-                      font-family="Arial, sans-serif" font-size="18" font-weight="800"
-                      style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">P</text>
-                
-                <!-- Company name with enhanced typography -->
-                <text x="170" y="58" fill="#1e293b" 
-                      font-family="Arial, sans-serif" font-size="32" font-weight="800" 
-                      letter-spacing="-0.8px" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">myventure</text>
-                <text x="170" y="88" fill="#64748b" 
-                      font-family="Arial, sans-serif" font-size="32" font-weight="400" 
-                      letter-spacing="-0.8px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.03);">partners</text>
-                
-                <!-- Tagline with improved spacing and style -->
-                <text x="170" y="108" fill="#06b6d4" 
-                      font-family="Arial, sans-serif" font-size="13" font-weight="600" 
-                      letter-spacing="2px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.1);">STRONGER TOGETHER</text>
-            </g>
-        </svg>
-    </a>
-    <p class="title">Enhanced High-Quality Logo at 3x Original Size</p>
-</div>
-```
-
-</body>
-</html>
     
 
 
