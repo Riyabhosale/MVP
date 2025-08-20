@@ -123,3 +123,893 @@
 <script src="main.js"></script>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP - Transforming Ideas Into Reality</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(90, 159, 212, 0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: -10px;
+    }
+
+    .logo-circle {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        margin: 0 -8px;
+    }
+
+    .logo-m {
+        background: linear-gradient(135deg, #5a9fd4, #4a8bc2);
+        z-index: 1;
+    }
+
+    .logo-v {
+        background: linear-gradient(135deg, #7bb3e0, #6ba3d0);
+        z-index: 3;
+    }
+
+    .logo-p {
+        background: linear-gradient(135deg, #4a8bc2, #3a7bb0);
+        z-index: 2;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #5a9fd4, #7bb3e0);
+        transition: all 0.3s ease;
+        z-index: -1;
+    }
+
+    .nav-link:hover::before {
+        left: 0;
+    }
+
+    .nav-link:hover {
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f8fbfd 0%, #e8f4f8 100%);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(90, 159, 212, 0.1) 0%, transparent 70%);
+        z-index: 1;
+    }
+
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        z-index: 2;
+        position: relative;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #2a6b9e;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .hero-content .highlight {
+        background: linear-gradient(135deg, #5a9fd4, #7bb3e0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #5a9fd4, #7bb3e0);
+        color: white;
+        box-shadow: 0 8px 25px rgba(90, 159, 212, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(90, 159, 212, 0.4);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: #5a9fd4;
+        border: 2px solid #5a9fd4;
+    }
+
+    .btn-secondary:hover {
+        background: #5a9fd4;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .floating-logo {
+        width: 300px;
+        height: 150px;
+        position: relative;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-circle {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        font-weight: bold;
+        color: white;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-m {
+        background: linear-gradient(135deg, #5a9fd4, #4a8bc2);
+        left: 0;
+        animation: float-m 4s ease-in-out infinite;
+    }
+
+    .floating-v {
+        background: linear-gradient(135deg, #7bb3e0, #6ba3d0);
+        left: 90px;
+        z-index: 3;
+        animation: float-v 5s ease-in-out infinite;
+    }
+
+    .floating-p {
+        background: linear-gradient(135deg, #4a8bc2, #3a7bb0);
+        right: 0;
+        animation: float-p 4.5s ease-in-out infinite;
+    }
+
+    /* Sections */
+    .section {
+        padding: 6rem 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.5rem;
+        color: #2a6b9e;
+        margin-bottom: 1rem;
+    }
+
+    .section-header p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* About Section */
+    .about {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbfd 100%);
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .about-text h3 {
+        color: #2a6b9e;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-text p {
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+    }
+
+    .about-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #5a9fd4;
+        display: block;
+    }
+
+    /* Services Section */
+    .services {
+        background: #f8fbfd;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .service-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, #5a9fd4, #7bb3e0);
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px rgba(90, 159, 212, 0.15);
+    }
+
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #5a9fd4, #7bb3e0);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+        color: #2a6b9e;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Industries Section */
+    .industries {
+        background: white;
+    }
+
+    .industries-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .industry-item {
+        background: linear-gradient(135deg, #f8fbfd, #ffffff);
+        padding: 2rem;
+        border-radius: 15px;
+        border: 1px solid rgba(90, 159, 212, 0.1);
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .industry-item:hover {
+        transform: translateY(-5px);
+        border-color: #5a9fd4;
+        background: linear-gradient(135deg, #5a9fd4, #7bb3e0);
+        color: white;
+    }
+
+    /* Insights Section */
+    .insights {
+        background: linear-gradient(135deg, #2a6b9e 0%, #5a9fd4 100%);
+        color: white;
+    }
+
+    .insights .section-header h2,
+    .insights .section-header p {
+        color: white;
+    }
+
+    .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .insight-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .insight-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background: linear-gradient(135deg, #f8fbfd 0%, #e8f4f8 100%);
+        text-align: center;
+    }
+
+    .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .cta-content h2 {
+        font-size: 2.5rem;
+        color: #2a6b9e;
+        margin-bottom: 1rem;
+    }
+
+    .cta-content p {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Footer */
+    .footer {
+        background: #1a1a1a;
+        color: white;
+        padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+        color: #5a9fd4;
+        margin-bottom: 1rem;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+        color: #999;
+    }
+
+    /* Animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+
+    @keyframes float-m {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(2deg); }
+    }
+
+    @keyframes float-v {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-25px) rotate(-2deg); }
+    }
+
+    @keyframes float-p {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-18px) rotate(1deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
+        }
+
+        .hero-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .about-content {
+            grid-template-columns: 1fr;
+        }
+
+        .cta-buttons {
+            justify-content: center;
+        }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-circle logo-m">M</div>
+                <div class="logo-circle logo-v">V</div>
+                <div class="logo-circle logo-p">P</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#industries" class="nav-link">Industries</a></li>
+                <li class="nav-item"><a href="#insights" class="nav-link">Insights</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-container">
+        <div class="hero-content fade-in">
+            <h1>Transforming <span class="highlight">Ideas</span> Into Reality</h1>
+            <p>We deliver cutting-edge solutions that drive innovation, accelerate growth, and create meaningful impact for businesses worldwide.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Started →</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-logo">
+                <div class="floating-circle floating-m">M</div>
+                <div class="floating-circle floating-v">V</div>
+                <div class="floating-circle floating-p">P</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section about" id="about">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2>About MVP</h2>
+            <p>We are a forward-thinking company dedicated to delivering exceptional value through innovative solutions and strategic partnerships.</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h3>Our Mission</h3>
+                <p>To empower businesses with innovative solutions that drive growth, efficiency, and success in an ever-evolving digital landscape.</p>
+                <p>With years of experience and a team of dedicated professionals, we've helped countless organizations achieve their goals and exceed expectations.</p>
+                <a href="#contact" class="btn btn-primary">Partner With Us</a>
+            </div>
+            <div class="about-stats fade-in">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span>Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span>Client Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span>Team Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span>Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section services" id="services">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2>Our Services</h2>
+            <p>Comprehensive solutions designed to meet your unique business needs and drive measurable results.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">⚡</div>
+                <h3>Digital Transformation</h3>
+                <p>Modernize your business operations with cutting-edge digital solutions that enhance efficiency and drive growth.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🎯</div>
+                <h3>Strategic Consulting</h3>
+                <p>Expert guidance to help you navigate complex challenges and capitalize on emerging opportunities.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💡</div>
+                <h3>Innovation Labs</h3>
+                <p>Collaborative spaces where breakthrough ideas are transformed into market-ready solutions.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">📊</div>
+                <h3>Data Analytics</h3>
+                <p>Unlock the power of your data with advanced analytics and actionable insights for better decision-making.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🚀</div>
+                <h3>Product Development</h3>
+                <p>End-to-end product development services from concept to launch, ensuring market success.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🔧</div>
+                <h3>Technical Solutions</h3>
+                <p>Custom technical implementations that solve complex problems and optimize performance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industries Section -->
+<section class="section industries" id="industries">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2>Industries We Serve</h2>
+            <p>Bringing specialized expertise across diverse sectors to drive innovation and growth.</p>
+        </div>
+        <div class="industries-grid">
+            <div class="industry-item fade-in">
+                <h3>Healthcare</h3>
+                <p>Digital health solutions</p>
+            </div>
+            <div class="industry-item fade-in">
+                <h3>Finance</h3>
+                <p>Fintech innovations</p>
+            </div>
+            <div class="industry-item fade-in">
+                <h3>Education</h3>
+                <p>EdTech platforms</p>
+            </div>
+            <div class="industry-item fade-in">
+                <h3>Retail</h3>
+                <p>E-commerce solutions</p>
+            </div>
+            <div class="industry-item fade-in">
+                <h3>Manufacturing</h3>
+                <p>Industry 4.0 systems</p>
+            </div>
+            <div class="industry-item fade-in">
+                <h3>Technology</h3>
+                <p>Software development</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Insights Section -->
+<section class="section insights" id="insights">
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2>Latest Insights</h2>
+            <p>Stay ahead with our expert analysis and industry trends.</p>
+        </div>
+        <div class="insights-grid">
+            <div class="insight-card fade-in">
+                <h3>The Future of Digital Transformation</h3>
+                <p>Exploring emerging technologies and their impact on business operations in 2025 and beyond.</p>
+                <a href="#" style="color: white; text-decoration: underline;">Read More →</a>
+            </div>
+            <div class="insight-card fade-in">
+                <h3>AI-Powered Business Solutions</h3>
+                <p>How artificial intelligence is revolutionizing industries and creating new opportunities for growth.</p>
+                <a href="#" style="color: white; text-decoration: underline;">Read More →</a>
+            </div>
+            <div class="insight-card fade-in">
+                <h3>Sustainable Innovation Strategies</h3>
+                <p>Building environmentally conscious solutions that drive both profit and positive impact.</p>
+                <a href="#" style="color: white; text-decoration: underline;">Read More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section cta-section" id="contact">
+    <div class="container">
+        <div class="cta-content fade-in">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let's work together to create innovative solutions that drive real results. Contact us today to start your journey.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Start Your Project</a>
+                <a href="#" class="btn btn-secondary">Schedule Consultation</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <div class="logo-circle logo-m">M</div>
+                    <div class="logo-circle logo-v">V</div>
+                    <div class="logo-circle logo-p">P</div>
+                </div>
+                <p>Transforming ideas into reality through innovative solutions and strategic partnerships.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <p>Digital Transformation<br>Strategic Consulting<br>Innovation Labs<br>Data Analytics</p>
+            </div>
+            <div class="footer-section">
+                <h3>Industries</h3>
+                <p>Healthcare<br>Finance<br>Education<br>Technology</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>hello@mvpcompany.com<br>+1 (555) 123-4567<br>123 Innovation Street<br>Tech City, TC 12345</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MVP Company. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Counter animation
+    const animateCounters = () => {
+        const counters = document.querySelectorAll('.stat-number');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.textContent.replace(/\D/g, ''));
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    counter.textContent = counter.textContent.replace(/\d+/, target);
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = counter.textContent.replace(/\d+/, Math.floor(current));
+                }
+            }, 40);
+        });
+    };
+
+    // Trigger counter animation when about section is visible
+    const aboutSection = document.querySelector('.about');
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                aboutObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    aboutObserver.observe(aboutSection);
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroVisual) {
+            heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+    });
+</script>
+
+
+</body>
+</html>
