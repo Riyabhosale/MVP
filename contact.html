@@ -109,3 +109,685 @@
 <script src="main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyVenture Partners - Stronger Together</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #ffffff;
+        color: #2c3e50;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1rem 0;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo-circles {
+        display: flex;
+        gap: -10px;
+    }
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-right: -10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .circle-m { background: linear-gradient(135deg, #4ecdc4, #44b09e); }
+    .circle-v { background: linear-gradient(135deg, #45b7d1, #3498db); }
+    .circle-p { background: linear-gradient(135deg, #5dade2, #2980b9); }
+
+    .logo-text h2 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin: 0;
+    }
+
+    .logo-text p {
+        color: #45b7d1;
+        font-size: 0.9rem;
+        margin: 0;
+        font-weight: 500;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-menu a:hover {
+        color: #45b7d1;
+    }
+
+    .nav-menu a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #45b7d1;
+        transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        background: linear-gradient(135deg, #f8f9ff 0%, #e8f4f8 100%);
+    }
+
+    .hero-content {
+        max-width: 800px;
+        z-index: 2;
+    }
+
+    .hero-logo {
+        margin-bottom: 3rem;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-logo .logo-circles {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .hero-logo .circle {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+        margin-right: -20px;
+        animation: floatAnimation 3s ease-in-out infinite;
+    }
+
+    .hero-logo .circle-m { animation-delay: 0s; }
+    .hero-logo .circle-v { animation-delay: 0.5s; }
+    .hero-logo .circle-p { animation-delay: 1s; }
+
+    .hero-logo h1 {
+        font-size: 3.5rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .hero-logo .tagline {
+        font-size: 1.5rem;
+        color: #45b7d1;
+        font-weight: 600;
+        animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .hero-text {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        color: #555;
+        animation: fadeInUp 1s ease-out 0.9s both;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        color: white;
+        padding: 1.2rem 3rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(69, 183, 209, 0.3);
+        animation: fadeInUp 1s ease-out 1.2s both;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(69, 183, 209, 0.4);
+    }
+
+    /* Floating Animation */
+    @keyframes floatAnimation {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Magic Eggs Animation */
+    .magic-eggs {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .egg {
+        position: absolute;
+        width: 20px;
+        height: 30px;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        opacity: 0.6;
+        animation: floatEgg 15s infinite linear;
+    }
+
+    @keyframes floatEgg {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.6;
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-100px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* Sections */
+    .section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #2c3e50;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        border-radius: 2px;
+    }
+
+    .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+    }
+
+    .story-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .story-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        border-color: #45b7d1;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+    }
+
+    .card-text {
+        color: #666;
+        line-height: 1.7;
+    }
+
+    /* About Section */
+    .about-content {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 3rem;
+    }
+
+    /* Resources Section */
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .resource-item {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+
+    .resource-item:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 3rem 2rem;
+        margin-top: 5rem;
+    }
+
+    .footer-cta {
+        margin-bottom: 2rem;
+    }
+
+    .footer-cta h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-menu {
+            gap: 1rem;
+        }
+        
+        .hero-logo h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero-logo .tagline {
+            font-size: 1.2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Hide sections initially for animation */
+    .section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-circles">
+                    <div class="circle circle-m">M</div>
+                    <div class="circle circle-v">V</div>
+                    <div class="circle circle-p">P</div>
+                </div>
+                <div class="logo-text">
+                    <h2>myventure partners</h2>
+                    <p>STRONGER TOGETHER</p>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#lean">Lean</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#join">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="magic-eggs"></div>
+    <div class="hero-content">
+        <div class="hero-logo">
+            <div class="logo-circles">
+                <div class="circle circle-m">M</div>
+                <div class="circle circle-v">V</div>
+                <div class="circle circle-p">P</div>
+            </div>
+            <h1>myventure partners</h1>
+            <div class="tagline">STRONGER TOGETHER</div>
+        </div>
+        <p class="hero-text">
+            Are you stuck in your business? Dreaming of scaling beyond your current limits? 
+            Whether you're a visionary with an idea or an entrepreneur ready to break through barriers, 
+            we're here to transform your business dreams into reality.
+        </p>
+        <a href="#join" class="cta-button">Start Your Journey Today</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <h2 class="section-title">Your Success Story Starts Here</h2>
+    <div class="about-content">
+        <p>We understand the weight of unfulfilled potential. That moment when you know you're capable of more, but feel trapped by invisible barriers. Every great entrepreneur has stood where you stand now - at the crossroads between dreaming and doing.</p>
+        <br>
+        <p>MyVenture Partners isn't just another consulting firm. We're your strategic partner in transformation, combining emotional intelligence with proven business strategies to unlock the entrepreneur within you.</p>
+    </div>
+    
+    <div class="story-grid">
+        <div class="story-card">
+            <div class="card-icon">💡</div>
+            <h3 class="card-title">The Dreamer</h3>
+            <p class="card-text">You have a vision that keeps you up at night. You see possibilities others can't. But turning that vision into a thriving business feels overwhelming. We've been there, and we know exactly how to bridge that gap.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">The Builder</h3>
+            <p class="card-text">You've started something beautiful, but now you're stuck. Growth has plateaued, and you're wearing too many hats. It's time to scale systematically and build the business that works for you, not against you.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">The Transformer</h3>
+            <p class="card-text">Ready to break through to the next level? You know there's more potential in your business. Together, we'll identify bottlenecks, optimize operations, and create sustainable growth that lasts.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Insights Section -->
+<section id="insights" class="section">
+    <h2 class="section-title">Insights That Ignite Growth</h2>
+    <div class="story-grid">
+        <div class="story-card">
+            <div class="card-icon">📊</div>
+            <h3 class="card-title">Strategic Analysis</h3>
+            <p class="card-text">We dive deep into your business DNA. Understanding your unique challenges, market position, and untapped opportunities is where transformation begins.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title">Clarity & Focus</h3>
+            <p class="card-text">Cut through the noise and confusion. We help you identify what truly matters for your business success and create a clear roadmap to get there.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">💪</div>
+            <h3 class="card-title">Actionable Strategies</h3>
+            <p class="card-text">No fluff, no theory. Every insight comes with practical, immediately implementable strategies that drive real results in your business.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Lean Section -->
+<section id="lean" class="section">
+    <h2 class="section-title">Lean Into Excellence</h2>
+    <div class="about-content">
+        <p>In a world of overcomplicated business strategies, we believe in the power of lean principles. Strip away the unnecessary, focus on what drives results, and build systems that scale efficiently.</p>
+        <br>
+        <p>Our lean approach means faster decisions, clearer processes, and more profitable outcomes. Because your time is valuable, and your dreams deserve efficient execution.</p>
+    </div>
+    
+    <div class="story-grid">
+        <div class="story-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Rapid Implementation</h3>
+            <p class="card-text">Move from planning to execution in record time. Our streamlined processes eliminate analysis paralysis and get you results faster.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">🔧</div>
+            <h3 class="card-title">Systems Optimization</h3>
+            <p class="card-text">Build lean, efficient systems that work 24/7. Automate the routine, so you can focus on the revolutionary.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">📈</div>
+            <h3 class="card-title">Continuous Growth</h3>
+            <p class="card-text">Implement feedback loops and metrics that ensure continuous improvement. Your business becomes a learning, evolving entity.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Resources Section -->
+<section id="resources" class="section">
+    <h2 class="section-title">Resources for Your Journey</h2>
+    <div class="resources-grid">
+        <div class="resource-item">
+            <div class="card-icon">📚</div>
+            <h3>Business Guides</h3>
+            <p>Comprehensive guides covering every aspect of business building and scaling.</p>
+        </div>
+        <div class="resource-item">
+            <div class="card-icon">🎥</div>
+            <h3>Video Tutorials</h3>
+            <p>Step-by-step video courses to implement strategies effectively.</p>
+        </div>
+        <div class="resource-item">
+            <div class="card-icon">🤝</div>
+            <h3>Community Access</h3>
+            <p>Connect with like-minded entrepreneurs and share your journey.</p>
+        </div>
+        <div class="resource-item">
+            <div class="card-icon">📞</div>
+            <h3>Expert Support</h3>
+            <p>Direct access to our team of business growth specialists.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer / Join Us Section -->
+<footer id="join">
+    <div class="footer-cta">
+        <h3>Ready to Transform Your Business?</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+            Stop letting fear and uncertainty hold you back. Your business dreams deserve to become reality. 
+            Join thousands of entrepreneurs who've chosen to be stronger together.
+        </p>
+        <a href="#contact" class="cta-button">Get Started Now</a>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #444;">
+        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+            <div class="logo-circles">
+                <div class="circle circle-m">M</div>
+                <div class="circle circle-v">V</div>
+                <div class="circle circle-p">P</div>
+            </div>
+            <div class="logo-text">
+                <h2 style="color: white;">myventure partners</h2>
+                <p>STRONGER TOGETHER</p>
+            </div>
+        </div>
+        <p>&copy; 2025 MyVenture Partners. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Create magic eggs animation
+    function createMagicEgg() {
+        const egg = document.createElement('div');
+        egg.className = 'egg';
+        egg.style.left = Math.random() * 100 + '%';
+        egg.style.animationDelay = Math.random() * 5 + 's';
+        egg.style.animationDuration = (10 + Math.random() * 10) + 's';
+        document.querySelector('.magic-eggs').appendChild(egg);
+
+        setTimeout(() => {
+            egg.remove();
+        }, 20000);
+    }
+
+    // Create eggs periodically
+    setInterval(createMagicEgg, 3000);
+    
+    // Initial eggs
+    for(let i = 0; i < 5; i++) {
+        setTimeout(createMagicEgg, i * 1000);
+    }
+
+    // Smooth scroll animation for sections
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Mobile menu toggle (if needed)
+    const navToggle = document.createElement('div');
+    navToggle.className = 'nav-toggle';
+    navToggle.innerHTML = '☰';
+    navToggle.style.display = 'none';
+    navToggle.style.fontSize = '1.5rem';
+    navToggle.style.cursor = 'pointer';
+    navToggle.style.color = '#2c3e50';
+
+    document.querySelector('.nav-container').appendChild(navToggle);
+
+    // Responsive navigation
+    function checkScreenSize() {
+        const navMenu = document.querySelector('.nav-menu');
+        if (window.innerWidth <= 768) {
+            navToggle.style.display = 'block';
+            navMenu.style.display = 'none';
+        } else {
+            navToggle.style.display = 'none';
+            navMenu.style.display = 'flex';
+        }
+    }
+
+    window.addEventListener('resize', checkScreenSize);
+    checkScreenSize();
+
+    navToggle.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.style.display = navMenu.style.display === 'none' ? 'flex' : 'none';
+    });
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
