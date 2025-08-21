@@ -107,3 +107,1405 @@
 <script src="main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyVenturePartners - Transform Your Business Journey</title>
+    <style>
+        :root {
+            --primary-color: #4A8FA8;
+            --secondary-color: #6BB5CC;
+            --tertiary-color: #8DCAE0;
+            --accent-color: #A8D8E8;
+            --dark-teal: #2A5F73;
+            --light-teal: #C5E3ED;
+            --text-light: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --gradient-primary: linear-gradient(135deg, #4A8FA8 0%, #6BB5CC 50%, #8DCAE0 100%);
+            --gradient-secondary: linear-gradient(135deg, #6BB5CC 0%, #8DCAE0 50%, #A8D8E8 100%);
+            --gradient-accent: linear-gradient(135deg, #8DCAE0 0%, #A8D8E8 100%);
+        }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #0a0a0a;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .emotional-section {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a2832 50%, #2A5F73 100%);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        padding: 2rem 0;
+    }
+
+    .floating-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="emotional-grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(139,202,224,0.15)"/><circle cx="5" cy="15" r="0.5" fill="rgba(168,216,232,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23emotional-grid)"/></svg>');
+        animation: slowFloat 40s ease-in-out infinite;
+    }
+
+    @keyframes slowFloat {
+        0%, 100% { transform: translateX(0) translateY(0); }
+        50% { transform: translateX(-20px) translateY(-10px); }
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .emotional-content {
+        text-align: center;
+        color: var(--text-light);
+    }
+
+    .emotional-header {
+        margin-bottom: 4rem;
+    }
+
+    .emotional-question {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        margin-bottom: 2rem;
+        background: var(--gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+        animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.02); }
+    }
+
+    .emotional-subtitle {
+        font-size: 1.4rem;
+        opacity: 0.9;
+        margin-bottom: 3rem;
+        line-height: 1.6;
+    }
+
+    .problems-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 4rem 0;
+    }
+
+    .problem-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(74, 143, 168, 0.3);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: left;
+        transition: all 0.5s ease;
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: slideInUp 0.8s ease forwards;
+    }
+
+    .problem-card:nth-child(1) { animation-delay: 0.2s; }
+    .problem-card:nth-child(2) { animation-delay: 0.4s; }
+    .problem-card:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes slideInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .problem-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(74, 143, 168, 0.15) 0%, rgba(107, 181, 204, 0.1) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .problem-card:hover::before {
+        opacity: 1;
+    }
+
+    .problem-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(107, 181, 204, 0.6);
+        box-shadow: 0 20px 40px rgba(74, 143, 168, 0.3);
+    }
+
+    .problem-icon {
+        font-size: 3rem;
+        color: var(--secondary-color);
+        margin-bottom: 1.5rem;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .problem-card:nth-child(2) .problem-icon { animation-delay: 1s; }
+    .problem-card:nth-child(3) .problem-icon { animation-delay: 2s; }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .problem-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+        font-weight: 700;
+    }
+
+    .problem-card p {
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.1rem;
+    }
+
+    .transformation-arrow {
+        text-align: center;
+        margin: 4rem 0;
+        font-size: 4rem;
+        color: var(--accent-color);
+        animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    .solution-section {
+        background: var(--gradient-primary);
+        border-radius: 30px;
+        padding: 4rem 3rem;
+        margin: 4rem 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .solution-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(168, 216, 232, 0.2) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .solution-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .solution-title {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 2rem;
+        background: var(--gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .solution-description {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+        opacity: 0.95;
+    }
+
+    .mvp-advantages {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .advantage-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .advantage-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .advantage-card:hover::before {
+        left: 100%;
+    }
+
+    .advantage-card:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .advantage-icon {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+    }
+
+    .advantage-card h4 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+        font-weight: 700;
+    }
+
+    .cta-final {
+        margin-top: 4rem;
+    }
+
+    .cta-text {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        background: var(--gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: textShine 3s ease-in-out infinite;
+    }
+
+    @keyframes textShine {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+
+    .mega-cta {
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        background: var(--gradient-primary);
+        color: var(--text-light);
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 15px 40px rgba(74, 143, 168, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mega-cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .mega-cta:hover::before {
+        left: 100%;
+    }
+
+    .mega-cta:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 25px 60px rgba(107, 181, 204, 0.6);
+    }
+
+    .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .floating-element {
+        position: absolute;
+        background: rgba(139, 202, 224, 0.15);
+        border-radius: 50%;
+        animation: floatElement 25s linear infinite;
+    }
+
+    @keyframes floatElement {
+        0% {
+            transform: translateY(100vh) translateX(0) rotate(0deg);
+            opacity: 0;
+        }
+        10%, 90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) translateX(200px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .pain-point {
+        display: inline-block;
+        background: rgba(74, 143, 168, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        margin: 0.2rem;
+        border: 1px solid rgba(107, 181, 204, 0.4);
+        color: var(--secondary-color);
+        font-weight: 600;
+        animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+        0%, 100% { box-shadow: 0 0 10px rgba(74, 143, 168, 0.3); }
+        50% { box-shadow: 0 0 20px rgba(107, 181, 204, 0.6); }
+    }
+
+    .typewriter {
+        overflow: hidden;
+        border-right: 3px solid var(--accent-color);
+        white-space: nowrap;
+        animation: typing 4s steps(40, end), blink 0.8s infinite;
+        display: inline-block;
+        max-width: 100%;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink {
+        0%, 50% { border-color: var(--accent-color); }
+        51%, 100% { border-color: transparent; }
+    }
+
+    .success-highlight {
+        color: var(--accent-color);
+        font-weight: 700;
+        background: rgba(168, 216, 232, 0.2);
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+    }
+
+    .interactive-timeline {
+        margin: 4rem 0;
+        position: relative;
+    }
+
+    .timeline-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--gradient-secondary);
+        transform: translateX(-50%);
+    }
+
+    .timeline-items {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .timeline-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-content {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(107, 181, 204, 0.3);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 0 2rem;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateX(50px);
+        animation: slideIn 0.8s ease forwards;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        transform: translateX(-50px);
+    }
+
+    .timeline-item:nth-child(1) .timeline-content { animation-delay: 0.5s; }
+    .timeline-item:nth-child(2) .timeline-content { animation-delay: 1s; }
+    .timeline-item:nth-child(3) .timeline-content { animation-delay: 1.5s; }
+
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .timeline-content:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.05);
+    }
+
+    .timeline-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--text-light);
+        position: relative;
+        z-index: 3;
+        box-shadow: 0 10px 30px rgba(74, 143, 168, 0.3);
+    }
+
+    .emotion-trigger {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+    }
+
+    .before-after {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 2rem;
+        align-items: center;
+        margin: 4rem 0;
+    }
+
+    .before-state, .after-state {
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .before-state {
+        background: rgba(74, 143, 168, 0.1);
+        border: 2px solid rgba(74, 143, 168, 0.3);
+    }
+
+    .before-state:hover {
+        background: rgba(74, 143, 168, 0.15);
+        transform: scale(0.98);
+    }
+
+    .after-state {
+        background: rgba(139, 202, 224, 0.1);
+        border: 2px solid rgba(139, 202, 224, 0.3);
+    }
+
+    .after-state:hover {
+        background: rgba(139, 202, 224, 0.15);
+        transform: scale(1.02);
+    }
+
+    .vs-arrow {
+        font-size: 3rem;
+        color: var(--accent-color);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .emotional-questions {
+        margin: 3rem 0;
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+
+    .question-highlight {
+        color: var(--secondary-color);
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    .transformation-promise {
+        background: rgba(139, 202, 224, 0.1);
+        border: 2px solid rgba(139, 202, 224, 0.3);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 3rem 0;
+        text-align: center;
+    }
+
+    .promise-title {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--accent-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .promise-text {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: var(--text-light);
+    }
+
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .problems-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .problem-card {
+            padding: 2rem 1.5rem;
+        }
+        
+        .before-after {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .vs-arrow {
+            transform: rotate(90deg);
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .timeline-line {
+            left: 2rem;
+        }
+        
+        .timeline-item,
+        .timeline-item:nth-child(even) {
+            flex-direction: row;
+        }
+        
+        .timeline-content {
+            margin-left: 4rem;
+            margin-right: 0;
+            padding: 1.5rem;
+        }
+        
+        .emotional-question {
+            font-size: 2.2rem;
+            line-height: 1.3;
+        }
+        
+        .emotional-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            padding: 0 1rem;
+        }
+        
+        .solution-section {
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+        }
+        
+        .mvp-advantages {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .advantage-card {
+            padding: 1.5rem;
+        }
+        
+        .mega-cta {
+            padding: 1.2rem 2rem;
+            font-size: 1.1rem;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .transformation-promise {
+            padding: 2rem 1.5rem;
+        }
+        
+        .promise-title {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .emotional-question {
+            font-size: 1.8rem;
+        }
+        
+        .problem-card {
+            padding: 1.5rem 1rem;
+        }
+        
+        .problem-icon {
+            font-size: 2.5rem;
+        }
+        
+        .timeline-content {
+            margin-left: 3rem;
+            padding: 1rem;
+        }
+        
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+        
+        .solution-section {
+            padding: 2rem 1rem;
+        }
+        
+        .advantage-card {
+            padding: 1rem;
+        }
+    }
+
+    /* Enhanced tablet responsiveness */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .problems-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .problems-container .problem-card:nth-child(3) {
+            grid-column: 1 / -1;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .mvp-advantages {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+
+
+</head>
+<body>
+    <section class="emotional-section">
+        <div class="floating-bg"></div>
+        <div class="floating-elements" id="floatingElements"></div>
+
+
+    <div class="container">
+        <div class="emotional-content">
+            <!-- Opening Hook -->
+            <div class="emotional-header">
+                <h1 class="emotional-question">Stuck in Your Business?</h1>
+                <p class="emotional-subtitle">
+                    <span class="typewriter" id="typewriter">Every entrepreneur faces moments of doubt, confusion, and feeling trapped...</span>
+                </p>
+            </div>
+
+            <!-- Pain Points -->
+            <div class="problems-container">
+                <div class="problem-card">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="timeline-content">
+                            <h3 class="emotion-trigger">From Surviving to Thriving</h3>
+                            <p>Transform from a stressed business owner to a confident CEO. Your competitors will study your success while you enjoy the freedom you always dreamed of.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Promise -->
+            <div class="transformation-promise">
+                <h3 class="promise-title">Our Promise to You</h3>
+                <p class="promise-text">
+                    Within 90 days, you'll see measurable improvements in your business performance, team efficiency, and personal well-being. 
+                    Within 12 months, you'll have a business that runs without you, grows consistently, and gives you the life you deserve.
+                    <br><br>
+                    <strong>This isn't just consulting—it's business transformation that changes lives.</strong>
+                </p>
+            </div>
+
+            <!-- Final CTA -->
+            <div class="cta-final">
+                <p class="cta-text">Stop struggling alone. Your breakthrough is one conversation away.</p>
+                <a href="#" class="mega-cta" onclick="showContact()">
+                    Transform My Business Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<script>
+    // Typewriter effect
+    const typewriterText = [
+        "Every entrepreneur faces moments of doubt, confusion, and feeling trapped...",
+        "You're working harder but growing slower...",
+        "Your passion is being crushed by daily stress...",
+        "You know you're capable of so much more..."
+    ];
+    
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function typeWriter() {
+        const element = document.getElementById('typewriter');
+        const currentText = typewriterText[textIndex];
+        
+        if (isDeleting) {
+            element.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            element.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        let typeSpeed = isDeleting ? 50 : 100;
+        
+        if (!isDeleting && charIndex === currentText.length) {
+            typeSpeed = 2000; // Pause at end
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % typewriterText.length;
+            typeSpeed = 500; // Pause before next text
+        }
+        
+        setTimeout(typeWriter, typeSpeed);
+    }
+    
+    // Start typewriter effect
+    setTimeout(typeWriter, 1000);
+
+    // Create floating elements
+    function createFloatingElement() {
+        const element = document.createElement('div');
+        element.className = 'floating-element';
+        element.style.left = Math.random() * 100 + '%';
+        element.style.width = (Math.random() * 20 + 10) + 'px';
+        element.style.height = element.style.width;
+        element.style.animationDuration = (Math.random() * 10 + 15) + 's';
+        element.style.animationDelay = Math.random() * 5 + 's';
+        
+        const container = document.getElementById('floatingElements');
+        if (container) {
+            container.appendChild(element);
+            
+            // Remove element after animation
+            setTimeout(() => {
+                if (element.parentNode) {
+                    element.parentNode.removeChild(element);
+                }
+            }, 30000);
+        }
+    }
+
+    // Create floating elements periodically
+    setInterval(createFloatingElement, 1000);
+
+    // Add scroll-triggered animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observe timeline items for animation
+    document.querySelectorAll('.timeline-content').forEach(item => {
+        observer.observe(item);
+    });
+
+    // Add interactive hover effects
+    document.querySelectorAll('.problem-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+            const icon = this.querySelector('.problem-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.2) rotate(5deg)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(-10px) scale(1)';
+            const icon = this.querySelector('.problem-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
+    });
+
+    // Add click interactions for advantage cards
+    document.querySelectorAll('.advantage-card').forEach(card => {
+        card.addEventListener('click', function() {
+            // Create ripple effect
+            const ripple = document.createElement('div');
+            ripple.style.position = 'absolute';
+            ripple.style.width = '10px';
+            ripple.style.height = '10px';
+            ripple.style.background = 'rgba(139, 202, 224, 0.5)';
+            ripple.style.borderRadius = '50%';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s ease-out';
+            ripple.style.left = '50%';
+            ripple.style.top = '50%';
+            ripple.style.marginLeft = '-5px';
+            ripple.style.marginTop = '-5px';
+            
+            this.style.position = 'relative';
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add CSS for ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(40);
+                opacity: 0;
+            }
+        }
+        
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Add emotional interaction to pain points
+    document.querySelectorAll('.pain-point').forEach(point => {
+        point.addEventListener('mouseover', function() {
+            this.classList.add('shake');
+            setTimeout(() => {
+                this.classList.remove('shake');
+            }, 500);
+        });
+    });
+
+    // Parallax scroll effect for background
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const bg = document.querySelector('.floating-bg');
+        if (bg) {
+            bg.style.transform = `translateY(${scrolled * 0.1}px)`;
+        }
+    });
+
+    // Add success stories popup (simulated)
+    function showSuccessStory() {
+        const stories = [
+            "Sarah's restaurant went from $200K to $2M revenue in 18 months with MVP",
+            "Tech startup founder reduced working hours from 80 to 40 per week while doubling growth",
+            "Manufacturing company increased efficiency by 300% and profit margins by 150%"
+        ];
+        
+        const randomStory = stories[Math.floor(Math.random() * stories.length)];
+        
+        // Create popup
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '20px';
+        popup.style.right = '20px';
+        popup.style.background = 'rgba(107, 181, 204, 0.9)';
+        popup.style.color = 'white';
+        popup.style.padding = '1rem';
+        popup.style.borderRadius = '10px';
+        popup.style.maxWidth = '300px';
+        popup.style.zIndex = '1000';
+        popup.style.transform = 'translateX(350px)';
+        popup.style.transition = 'transform 0.5s ease';
+        popup.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 0.5rem;">Success Story:</div>
+            <div style="font-size: 0.9rem;">${randomStory}</div>
+            <button onclick="this.parentElement.remove()" style="position: absolute; top: 5px; right: 10px; background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;">&times;</button>
+        `;
+        
+        document.body.appendChild(popup);
+        
+        // Animate in
+        setTimeout(() => {
+            popup.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (popup.parentNode) {
+                popup.style.transform = 'translateX(350px)';
+                setTimeout(() => popup.remove(), 500);
+            }
+        }, 5000);
+    }
+
+    // Show success stories periodically
+    setTimeout(() => {
+        showSuccessStory();
+        setInterval(showSuccessStory, 15000);
+    }, 5000);
+
+    // Add countdown timer for urgency
+    function createUrgencyTimer() {
+        const urgencyBar = document.createElement('div');
+        urgencyBar.style.position = 'fixed';
+        urgencyBar.style.bottom = '0';
+        urgencyBar.style.left = '0';
+        urgencyBar.style.width = '100%';
+        urgencyBar.style.background = 'rgba(74, 143, 168, 0.9)';
+        urgencyBar.style.color = 'white';
+        urgencyBar.style.padding = '1rem';
+        urgencyBar.style.textAlign = 'center';
+        urgencyBar.style.zIndex = '999';
+        urgencyBar.style.transform = 'translateY(100%)';
+        urgencyBar.style.transition = 'transform 0.5s ease';
+        urgencyBar.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 0.5rem;">⏰ Limited Time: Free Strategy Session</div>
+            <div style="font-size: 0.9rem;">Only 3 slots left this month. Don't let another month pass feeling stuck!</div>
+            <button onclick="this.parentElement.remove()" style="position: absolute; top: 10px; right: 20px; background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;">&times;</button>
+        `;
+        
+        document.body.appendChild(urgencyBar);
+        
+        // Show after user scrolls
+        window.addEventListener('scroll', function showUrgency() {
+            if (window.scrollY > 1000) {
+                urgencyBar.style.transform = 'translateY(0)';
+                window.removeEventListener('scroll', showUrgency);
+            }
+        });
+    }
+
+    // Initialize urgency timer
+    setTimeout(createUrgencyTimer, 10000);
+
+    // Add mouse tracking effect for hero section
+    document.addEventListener('mousemove', (e) => {
+        const hero = document.querySelector('.emotional-section');
+        if (hero) {
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const moveX = (x - rect.width / 2) * 0.01;
+            const moveY = (y - rect.height / 2) * 0.01;
+            
+            const floatingBg = hero.querySelector('.floating-bg');
+            if (floatingBg) {
+                floatingBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        }
+    });
+
+    // Add click counter for engagement
+    let clickCount = 0;
+    document.addEventListener('click', (e) => {
+        clickCount++;
+        if (clickCount === 5) {
+            showEngagementBonus();
+        }
+    });
+
+    function showEngagementBonus() {
+        const bonus = document.createElement('div');
+        bonus.style.position = 'fixed';
+        bonus.style.top = '50%';
+        bonus.style.left = '50%';
+        bonus.style.transform = 'translate(-50%, -50%)';
+        bonus.style.background = 'rgba(107, 181, 204, 0.95)';
+        bonus.style.color = 'white';
+        bonus.style.padding = '2rem';
+        bonus.style.borderRadius = '20px';
+        bonus.style.textAlign = 'center';
+        bonus.style.zIndex = '1001';
+        bonus.style.maxWidth = '400px';
+        bonus.style.boxShadow = '0 20px 40px rgba(0,0,0,0.3)';
+        bonus.innerHTML = `
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🎉</div>
+            <div style="font-weight: bold; font-size: 1.3rem; margin-bottom: 1rem;">Engagement Bonus!</div>
+            <div style="margin-bottom: 1.5rem;">You seem really interested! Get an extra 30 minutes FREE in your strategy session.</div>
+            <button onclick="this.parentElement.remove()" style="background: white; color: #6BB5CC; border: none; padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: bold; cursor: pointer;">Claim Bonus</button>
+        `;
+        
+        document.body.appendChild(bonus);
+        
+        setTimeout(() => {
+            if (bonus.parentNode) {
+                bonus.remove();
+            }
+        }, 8000);
+    }
+
+    // Function to show contact (placeholder for integration)
+    function showContact() {
+        // This would integrate with your main website's contact system
+        alert('Contact form integration - redirect to your main website contact page');
+    }
+
+    // Add performance optimization
+    function optimizePerformance() {
+        // Reduce animations on mobile for better performance
+        if (window.innerWidth < 768) {
+            document.querySelectorAll('.floating-element').forEach(el => {
+                el.style.animationDuration = '20s';
+            });
+        }
+        
+        // Pause animations when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+            const elements = document.querySelectorAll('[style*="animation"]');
+            elements.forEach(el => {
+                if (document.hidden) {
+                    el.style.animationPlayState = 'paused';
+                } else {
+                    el.style.animationPlayState = 'running';
+                }
+            });
+        });
+    }
+
+    // Initialize performance optimizations
+    optimizePerformance();
+
+    // Add exit-intent popup
+    let exitIntentShown = false;
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0 && !exitIntentShown) {
+            exitIntentShown = true;
+            showExitIntentPopup();
+        }
+    });
+
+    function showExitIntentPopup() {
+        const popup = document.createElement('div');
+        popup.style.position = 'fixed';
+        popup.style.top = '0';
+        popup.style.left = '0';
+        popup.style.width = '100%';
+        popup.style.height = '100%';
+        popup.style.background = 'rgba(0,0,0,0.8)';
+        popup.style.zIndex = '1002';
+        popup.style.display = 'flex';
+        popup.style.alignItems = 'center';
+        popup.style.justifyContent = 'center';
+        popup.innerHTML = `
+            <div style="background: white; padding: 3rem; border-radius: 20px; max-width: 500px; text-align: center; position: relative;">
+                <button onclick="this.closest('.exit-popup').remove()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+                <div style="font-size: 2rem; margin-bottom: 1rem;">⏰</div>
+                <h3 style="color: #4A8FA8; margin-bottom: 1rem;">Wait! Before You Go...</h3>
+                <p style="color: #666; margin-bottom: 2rem;">Get our FREE "Business Breakthrough Checklist" - the exact 7-step process we use to identify what's holding your business back.</p>
+                <button onclick="claimChecklist()" style="background: linear-gradient(135deg, #4A8FA8 0%, #6BB5CC 100%); color: white; border: none; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem;">Get Free Checklist</button>
+            </div>
+        `;
+        popup.className = 'exit-popup';
+        
+        document.body.appendChild(popup);
+    }
+
+    function claimChecklist() {
+        alert('Checklist download - integrate with your lead capture system');
+        document.querySelector('.exit-popup')?.remove();
+    }
+
+    // Add social proof ticker
+    function createSocialProofTicker() {
+        const ticker = document.createElement('div');
+        ticker.style.position = 'fixed';
+        ticker.style.top = '100px';
+        ticker.style.left = '20px';
+        ticker.style.background = 'rgba(107, 181, 204, 0.9)';
+        ticker.style.color = 'white';
+        ticker.style.padding = '0.8rem 1.2rem';
+        ticker.style.borderRadius = '25px';
+        ticker.style.fontSize = '0.9rem';
+        ticker.style.zIndex = '998';
+        ticker.style.transform = 'translateX(-300px)';
+        ticker.style.transition = 'transform 0.5s ease';
+        ticker.style.cursor = 'pointer';
+        ticker.style.boxShadow = '0 8px 25px rgba(74, 143, 168, 0.3)';
+        ticker.style.border = '1px solid rgba(168, 216, 232, 0.3)';
+        ticker.style.backdropFilter = 'blur(10px)';
+
+        const proofs = [
+            "🔥 Sarah just booked a consultation!",
+            "⚡ Mike's revenue increased 340% with MVP",
+            "🚀 Lisa got her life back in 90 days",
+            "💎 Tom's business now runs without him",
+            "🎯 Rachel doubled her profit margins",
+            "✨ David achieved work-life balance",
+            "🏆 Maria became industry leader"
+        ];
+        
+        let currentProof = 0;
+        
+        function updateProof() {
+            ticker.textContent = proofs[currentProof];
+            ticker.style.transform = 'translateX(0)';
+            
+            setTimeout(() => {
+                ticker.style.transform = 'translateX(-300px)';
+            }, 4000);
+            
+            currentProof = (currentProof + 1) % proofs.length;
+        }
+        
+        ticker.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        document.body.appendChild(ticker);
+        
+        // Start showing proofs
+        setTimeout(() => {
+            updateProof();
+            setInterval(updateProof, 6000);
+        }, 3000);
+    }
+
+    // Initialize social proof ticker
+    setTimeout(createSocialProofTicker, 2000);
+
+    // Add scroll progress indicator
+    function createScrollProgress() {
+        const progress = document.createElement('div');
+        progress.style.position = 'fixed';
+        progress.style.top = '0';
+        progress.style.left = '0';
+        progress.style.width = '0%';
+        progress.style.height = '4px';
+        progress.style.background = 'linear-gradient(135deg, #6BB5CC 0%, #8DCAE0 100%)';
+        progress.style.zIndex = '1001';
+        progress.style.transition = 'width 0.1s ease';
+        progress.style.boxShadow = '0 2px 10px rgba(107, 181, 204, 0.3)';
+        
+        document.body.appendChild(progress);
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progress.style.width = scrollPercent + '%';
+        });
+    }
+
+    // Initialize scroll progress
+    createScrollProgress();
+
+    // Add final initialization
+    document.addEventListener('DOMContentLoaded', () => {
+        // Add loading animation
+        document.body.style.opacity = '0';
+        document.body.style.transform = 'translateY(20px)';
+        document.body.style.transition = 'all 0.8s ease';
+        
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+            document.body.style.transform = 'translateY(0)';
+        }, 100);
+    });
+</script>
+
+
+</body>
+</html>="problem-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h3>Feeling Overwhelmed?</h3>
+                        <p>
+                            <span class="question-highlight">"I started this business with so much passion, but now I feel lost in endless problems..."</span><br><br>
+                            Revenue plateauing. Team conflicts. Market changes. Competition crushing you. 
+                            Every day feels like fighting fires instead of building your dream.
+                        </p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fas fa-chart-line-down"></i></div>
+                        <h3>Growth Has Stopped?</h3>
+                        <p>
+                            <span class="question-highlight">"We used to grow so fast, but now we're stuck at the same revenue for months..."</span><br><br>
+                            You've tried everything. New marketing, more sales calls, cost cutting. 
+                            But nothing works. Your competitors are racing ahead while you're standing still.
+                        </p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="problem-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Working 80+ Hours?</h3>
+                        <p>
+                            <span class="question-highlight">"I'm the bottleneck in my own company. Everything depends on me..."</span><br><br>
+                            No time for family. No time for yourself. Your business owns you instead of serving you. 
+                            You're exhausted but afraid to step back because everything might collapse.
+                        </p>
+                    </div>
+                </div>
+
+```
+            <div class="emotional-questions">
+                <p>
+                    <span class="question-highlight">Does this sound familiar?</span> You're not alone. 
+                    <span class="question-highlight">89% of business owners</span> experience these exact feelings. 
+                    <span class="question-highlight">But what if there was a way out?</span>
+                </p>
+            </div>
+
+            <!-- Transformation Arrow -->
+            <div class="transformation-arrow">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+
+            <!-- Before vs After -->
+            <div class="before-after">
+                <div class="before-state">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 1rem; font-size: 1.8rem;">Your Business TODAY</h3>
+                    <div class="pain-point">Constant Stress</div>
+                    <div class="pain-point">Revenue Plateau</div>
+                    <div class="pain-point">Team Issues</div>
+                    <div class="pain-point">No Clear Direction</div>
+                    <div class="pain-point">Burnout</div>
+                    <div class="pain-point">Competitor Pressure</div>
+                </div>
+                
+                <div class="vs-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="after-state">
+                    <h3 style="color: var(--accent-color); margin-bottom: 1rem; font-size: 1.8rem;">Your Business with MVP</h3>
+                    <div style="color: var(--accent-color); font-weight: 600; margin: 0.2rem;">
+                        <span class="success-highlight">Predictable Growth</span>
+                        <span class="success-highlight">Efficient Systems</span>
+                        <span class="success-highlight">Strong Leadership</span>
+                        <span class="success-highlight">Clear Strategy</span>
+                        <span class="success-highlight">Work-Life Balance</span>
+                        <span class="success-highlight">Market Leadership</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution Section -->
+            <div class="solution-section">
+                <div class="solution-content">
+                    <h2 class="solution-title">We Turn Stuck Businesses Into Success Stories</h2>
+                    <p class="solution-description">
+                        At MyVenturePartners, we don't just give advice. We become your strategic partner, 
+                        your growth catalyst, your transformation engine. We've helped over 750 businesses 
+                        break through their barriers and achieve extraordinary results.
+                    </p>
+
+                    <div class="mvp-advantages">
+                        <div class="advantage-card">
+                            <div class="advantage-icon"><i class="fas fa-rocket"></i></div>
+                            <h4>10x Faster Results</h4>
+                            <p>While others take years, we deliver transformation in months through our proven accelerated methodologies.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <div class="advantage-icon"><i class="fas fa-target"></i></div>
+                            <h4>Guaranteed ROI</h4>
+                            <p>We don't just promise results—we guarantee measurable returns on your investment or you don't pay.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <div class="advantage-icon"><i class="fas fa-heart"></i></div>
+                            <h4>Personal Freedom</h4>
+                            <p>Get your life back. Build systems that run without you while growing faster than ever before.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <div class="advantage-icon"><i class="fas fa-crown"></i></div>
+                            <h4>Market Domination</h4>
+                            <p>Don't just compete—dominate your market with strategies that leave competitors wondering how you did it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transformation Timeline -->
+            <div class="interactive-timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-items">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-search"></i></div>
+                        <div class="timeline-content">
+                            <h3 class="emotion-trigger">From Confusion to Clarity</h3>
+                            <p>We diagnose exactly what's holding you back and create a crystal-clear roadmap to success. No more guessing, no more wasted effort—just pure strategic focus.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-tools"></i></div>
+                        <div class="timeline-content">
+                            <h3 class="emotion-trigger">From Chaos to Systems</h3>
+                            <p>We build bulletproof systems that run your business automatically. Imagine waking up to see growth happening while you sleep—that's the power of proper systems.</p>
+                        </div>
+                    </div>
+                    <div class
+
+
+
+
+
