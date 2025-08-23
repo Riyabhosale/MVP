@@ -1,1538 +1,672 @@
-<!doctype html>
-<html lang="en">
-<head>
-
-
-
-
 
 
 
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MVP Strategy • Brand • Digital • AI</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyVenture Partners - Stronger Together</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+        font-family: 'Arial', sans-serif;
+        background: #ffffff;
+        color: #2c3e50;
+        line-height: 1.6;
+        overflow-x: hidden;
     }
 
-    /* Navbar container */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #0a192f; /* navy */
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      z-index: 1000;
-    }
-
-    /* Logo */
-    .navbar .logo img {
-      height: 60px;
-      transition: transform 0.3s ease;
-    }
-
-    .navbar .logo img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Links */
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      transition: right 0.4s ease;
-    }
-
-    .nav-links li a {
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-
-    .nav-links li a:hover {
-      color: #facc15; /* gold highlight */
-    }
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .hamburger div {
-      width: 28px;
-      height: 3px;
-      background: white;
-      transition: all 0.3s ease;
-    }
-
-    /* Mobile styles */
-    @media (max-width: 900px) {
-      .nav-links {
+    /* Navigation */
+    nav {
         position: fixed;
         top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 250px;
-        background: #0a192f;
-        flex-direction: column;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1rem 0;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .logo-circles {
+        display: flex;
+        gap: -10px;
+    }
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
         align-items: center;
         justify-content: center;
-        gap: 30px;
-      }
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-right: -10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
 
-      .nav-links.active {
-        right: 0;
-      }
+    .circle-m { background: linear-gradient(135deg, #4ecdc4, #44b09e); }
+    .circle-v { background: linear-gradient(135deg, #45b7d1, #3498db); }
+    .circle-p { background: linear-gradient(135deg, #5dade2, #2980b9); }
 
-      .hamburger {
+    .logo-text h2 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin: 0;
+    }
+
+    .logo-text p {
+        color: #45b7d1;
+        font-size: 0.9rem;
+        margin: 0;
+        font-weight: 500;
+    }
+
+    .nav-menu {
         display: flex;
-      }
+        list-style: none;
+        gap: 2rem;
+    }
 
-      /* Hamburger animation (X) */
-      .hamburger.active .line1 {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .hamburger.active .line2 {
+    .nav-menu a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-menu a:hover {
+        color: #45b7d1;
+    }
+
+    .nav-menu a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #45b7d1;
+        transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        background: linear-gradient(135deg, #f8f9ff 0%, #e8f4f8 100%);
+    }
+
+    .hero-content {
+        max-width: 800px;
+        z-index: 2;
+    }
+
+    .hero-logo {
+        margin-bottom: 3rem;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-logo .logo-circles {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .hero-logo .circle {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+        margin-right: -20px;
+        animation: floatAnimation 3s ease-in-out infinite;
+    }
+
+    .hero-logo .circle-m { animation-delay: 0s; }
+    .hero-logo .circle-v { animation-delay: 0.5s; }
+    .hero-logo .circle-p { animation-delay: 1s; }
+
+    .hero-logo h1 {
+        font-size: 3.5rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .hero-logo .tagline {
+        font-size: 1.5rem;
+        color: #45b7d1;
+        font-weight: 600;
+        animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .hero-text {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        color: #555;
+        animation: fadeInUp 1s ease-out 0.9s both;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        color: white;
+        padding: 1.2rem 3rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(69, 183, 209, 0.3);
+        animation: fadeInUp 1s ease-out 1.2s both;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(69, 183, 209, 0.4);
+    }
+
+    /* Floating Animation */
+    @keyframes floatAnimation {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Magic Eggs Animation */
+    .magic-eggs {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .egg {
+        position: absolute;
+        width: 20px;
+        height: 30px;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        opacity: 0.6;
+        animation: floatEgg 15s infinite linear;
+    }
+
+    @keyframes floatEgg {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.6;
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-100px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* Sections */
+    .section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #2c3e50;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        border-radius: 2px;
+    }
+
+    .story-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+    }
+
+    .story-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .story-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        border-color: #45b7d1;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #45b7d1, #4ecdc4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+    }
+
+    .card-text {
+        color: #666;
+        line-height: 1.7;
+    }
+
+    /* About Section */
+    .about-content {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 3rem;
+    }
+
+    /* Resources Section */
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .resource-item {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+
+    .resource-item:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 3rem 2rem;
+        margin-top: 5rem;
+    }
+
+    .footer-cta {
+        margin-bottom: 2rem;
+    }
+
+    .footer-cta h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-menu {
+            gap: 1rem;
+        }
+        
+        .hero-logo h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero-logo .tagline {
+            font-size: 1.2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Hide sections initially for animation */
+    .section {
         opacity: 0;
-      }
-      .hamburger.active .line3 {
-        transform: rotate(-45deg) translate(6px, -6px);
-      }
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
     }
-  </style>
-</head>
-<body>
 
-  <nav class="navbar">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="mvp-logo.svg" alt="MVP Logo">
-    </div>
-
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-      
-    
-
-
-
-
-
-
-
-
-
-
-
-<li><a href="about.html">About</a></li>
-        <li class="has-sub">
-          <button class="sub-toggle" aria-expanded="false" aria-controls="subServices">Services</button>
-          <ul id="subServices" class="submenu">
-            <li><a href="services.html#brand">Brand Building</a></li>
-            <li><a href="services.html#strategy">Growth Strategy</a></li>
-            <li><a href="services.html#digital">Digital & AI</a></li>
-            <li><a href="services.html#operations">Operations</a></li>
-          </ul>
-        </li>
-
-
-
-      
-
-
-
-
-  </li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="insights.html">Insights</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a class="cta small" href="contact.html">Book a Call</a></li>
-      </ul>      
-
-
-
-
-
-
-
-
-      
-    </ul>
-
-    <!-- Hamburger -->
-    <div class="hamburger">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
-  </nav>
-
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-    });
-  </script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="index.html" class="logo" style="display:flex; align-items:center;">
-  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:180px; height:auto;">
-    <defs>
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-        <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
-      </linearGradient>
-      <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3"/>
-      </filter>
-    </defs>
-
-    <!-- Main logo -->
-    <g transform="translate(50, 100)">
-      <circle cx="60" cy="70" r="24" fill="#0891b2" opacity="0.9" filter="url(#dropshadow)"/>
-      <circle cx="90" cy="70" r="24" fill="#06b6d4" opacity="0.9" filter="url(#dropshadow)"/>
-      <circle cx="120" cy="70" r="24" fill="#0e7490" opacity="0.9" filter="url(#dropshadow)"/>
-      <text x="60" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">M</text>
-      <text x="90" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">V</text>
-      <text x="120" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">P</text>
-      <text x="170" y="60" fill="#1e293b" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5px">myventure</text>
-      <text x="170" y="85" fill="#64748b" font-family="Arial, sans-serif" font-size="28" font-weight="400" letter-spacing="-0.5px">partners</text>
-      <text x="170" y="105" fill="#06b6d4" font-family="Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="1.5px">STRONGER TOGETHER</text>
-    </g>
-  </svg>
-</a>
-
-<style>
-  /* Ensure logo resizes on mobile */
-  .logo svg {
-    max-width: 150px;
-    height: auto;
-  }
-
-  @media (max-width: 768px) {
-    .logo svg {
-      max-width: 120px;
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-
-  @media (max-width: 480px) {
-    .logo svg {
-      max-width: 100px;
-    }
-  }
 </style>
 
 
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-circles">
+                    <div class="circle circle-m">M</div>
+                    <div class="circle circle-v">V</div>
+                    <div class="circle circle-p">P</div>
+                </div>
+                <div class="logo-text">
+                    <h2>myventure partners</h2>
+                    <p>STRONGER TOGETHER</p>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#lean">Lean</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#join">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
 
 
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="magic-eggs"></div>
+    <div class="hero-content">
+        <div class="hero-logo">
+            <div class="logo-circles">
+                <div class="circle circle-m">M</div>
+                <div class="circle circle-v">V</div>
+                <div class="circle circle-p">P</div>
+            </div>
+            <h1>myventure partners</h1>
+            <div class="tagline">STRONGER TOGETHER</div>
+        </div>
+        <p class="hero-text">
+            Are you stuck in your business? Dreaming of scaling beyond your current limits? 
+            Whether you're a visionary with an idea or an entrepreneur ready to break through barriers, 
+            we're here to transform your business dreams into reality.
+        </p>
+        <a href="#join" class="cta-button">Start Your Journey Today</a>
+    </div>
+</section>
 
+<!-- About Section -->
+<section id="about" class="section">
+    <h2 class="section-title">Your Success Story Starts Here</h2>
+    <div class="about-content">
+        <p>We understand the weight of unfulfilled potential. That moment when you know you're capable of more, but feel trapped by invisible barriers. Every great entrepreneur has stood where you stand now - at the crossroads between dreaming and doing.</p>
+        <br>
+        <p>MyVenture Partners isn't just another consulting firm. We're your strategic partner in transformation, combining emotional intelligence with proven business strategies to unlock the entrepreneur within you.</p>
+    </div>
+    
+    <div class="story-grid">
+        <div class="story-card">
+            <div class="card-icon">💡</div>
+            <h3 class="card-title">The Dreamer</h3>
+            <p class="card-text">You have a vision that keeps you up at night. You see possibilities others can't. But turning that vision into a thriving business feels overwhelming. We've been there, and we know exactly how to bridge that gap.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">The Builder</h3>
+            <p class="card-text">You've started something beautiful, but now you're stuck. Growth has plateaued, and you're wearing too many hats. It's time to scale systematically and build the business that works for you, not against you.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">The Transformer</h3>
+            <p class="card-text">Ready to break through to the next level? You know there's more potential in your business. Together, we'll identify bottlenecks, optimize operations, and create sustainable growth that lasts.</p>
+        </div>
+    </div>
+</section>
 
+<!-- Insights Section -->
+<section id="insights" class="section">
+    <h2 class="section-title">Insights That Ignite Growth</h2>
+    <div class="story-grid">
+        <div class="story-card">
+            <div class="card-icon">📊</div>
+            <h3 class="card-title">Strategic Analysis</h3>
+            <p class="card-text">We dive deep into your business DNA. Understanding your unique challenges, market position, and untapped opportunities is where transformation begins.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title">Clarity & Focus</h3>
+            <p class="card-text">Cut through the noise and confusion. We help you identify what truly matters for your business success and create a clear roadmap to get there.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">💪</div>
+            <h3 class="card-title">Actionable Strategies</h3>
+            <p class="card-text">No fluff, no theory. Every insight comes with practical, immediately implementable strategies that drive real results in your business.</p>
+        </div>
+    </div>
+</section>
 
+<!-- Lean Section -->
+<section id="lean" class="section">
+    <h2 class="section-title">Lean Into Excellence</h2>
+    <div class="about-content">
+        <p>In a world of overcomplicated business strategies, we believe in the power of lean principles. Strip away the unnecessary, focus on what drives results, and build systems that scale efficiently.</p>
+        <br>
+        <p>Our lean approach means faster decisions, clearer processes, and more profitable outcomes. Because your time is valuable, and your dreams deserve efficient execution.</p>
+    </div>
+    
+    <div class="story-grid">
+        <div class="story-card">
+            <div class="card-icon">⚡</div>
+            <h3 class="card-title">Rapid Implementation</h3>
+            <p class="card-text">Move from planning to execution in record time. Our streamlined processes eliminate analysis paralysis and get you results faster.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">🔧</div>
+            <h3 class="card-title">Systems Optimization</h3>
+            <p class="card-text">Build lean, efficient systems that work 24/7. Automate the routine, so you can focus on the revolutionary.</p>
+        </div>
+        <div class="story-card">
+            <div class="card-icon">📈</div>
+            <h3 class="card-title">Continuous Growth</h3>
+            <p class="card-text">Implement feedback loops and metrics that ensure continuous improvement. Your business becomes a learning, evolving entity.</p>
+        </div>
+    </div>
+</section>
 
+<!-- Resources Section -->
+<section id="resources" class="section">
+    <h2 class="section-title">Resources for Your Journey</h2>
+    <div class="resources-grid">
+        <div class="resource-item">
+            <div class="card-icon">📚</div>
+            <h3>Business Guides</h3>
+            <p>Comprehensive guides covering every aspect of business building and scaling.</p>
+        </div>
+        <div class="resource-item">
+            <div class="card-icon">🎥</div>
+            <h3>Video Tutorials</h3>
+            <p>Step-by-step video courses to implement strategies effectively.</p>
+        </div>
+        <div class="resource-item">
+            <div class="card-icon">🤝</div>
+            <h3>Community Access</h3>
+            <p>Connect with like-minded entrepreneurs and share your journey.</p>
+        </div>
+        <div class="resource-item">
+            <div class="card-icon">📞</div>
+            <h3>Expert Support</h3>
+            <p>Direct access to our team of business growth specialists.</p>
+        </div>
+    </div>
+</section>
 
-  
+<!-- Footer / Join Us Section -->
+<footer id="join">
+    <div class="footer-cta">
+        <h3>Ready to Transform Your Business?</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+            Stop letting fear and uncertainty hold you back. Your business dreams deserve to become reality. 
+            Join thousands of entrepreneurs who've chosen to be stronger together.
+        </p>
+        <a href="#contact" class="cta-button">Get Started Now</a>
+    </div>
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #444;">
+        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+            <div class="logo-circles">
+                <div class="circle circle-m">M</div>
+                <div class="circle circle-v">V</div>
+                <div class="circle circle-p">P</div>
+            </div>
+            <div class="logo-text">
+                <h2 style="color: white;">myventure partners</h2>
+                <p>STRONGER TOGETHER</p>
+            </div>
+        </div>
+        <p>&copy; 2025 MyVenture Partners. All rights reserved.</p>
+    </div>
+</footer>
 
+<script>
+    // Create magic eggs animation
+    function createMagicEgg() {
+        const egg = document.createElement('div');
+        egg.className = 'egg';
+        egg.style.left = Math.random() * 100 + '%';
+        egg.style.animationDelay = Math.random() * 5 + 's';
+        egg.style.animationDuration = (10 + Math.random() * 10) + 's';
+        document.querySelector('.magic-eggs').appendChild(egg);
 
+        setTimeout(() => {
+            egg.remove();
+        }, 20000);
+    }
 
+    // Create eggs periodically
+    setInterval(createMagicEgg, 3000);
+    
+    // Initial eggs
+    for(let i = 0; i < 5; i++) {
+        setTimeout(createMagicEgg, i * 1000);
+    }
 
+    // Smooth scroll animation for sections
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
 
+    // Observe all sections
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
 
+    // Mobile menu toggle (if needed)
+    const navToggle = document.createElement('div');
+    navToggle.className = 'nav-toggle';
+    navToggle.innerHTML = '☰';
+    navToggle.style.display = 'none';
+    navToggle.style.fontSize = '1.5rem';
+    navToggle.style.cursor = 'pointer';
+    navToggle.style.color = '#2c3e50';
 
+    document.querySelector('.nav-container').appendChild(navToggle);
 
+    // Responsive navigation
+    function checkScreenSize() {
+        const navMenu = document.querySelector('.nav-menu');
+        if (window.innerWidth <= 768) {
+            navToggle.style.display = 'block';
+            navMenu.style.display = 'none';
+        } else {
+            navToggle.style.display = 'none';
+            navMenu.style.display = 'flex';
+        }
+    }
 
+    window.addEventListener('resize', checkScreenSize);
+    checkScreenSize();
 
-  
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-
-
-
-
-  
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="/logo.png">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "url": "https://myventurepartners.com",
-  "logo": "https://myventurepartners.com/logo.png",
-  "name": "My Venture Partners"
-}
+    navToggle.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.style.display = navMenu.style.display === 'none' ? 'flex' : 'none';
+    });
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <title>MyVenturePartners — Strategy, Brand & Growth Consulting</title>
-  <meta name="description" content="MVP helps founders and enterprises build brands, grow revenue, and scale operations with strategy, digital, and AI.">
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
-<link rel="icon" href="assets/mvp-logo.svg" type="image/svg+xml"/>
-<meta name="theme-color" content="#0e1020" />
-</head>
-<body>
-
-
-
-
-
-
-
-
-
-
-
-  
-  <header class="site-header" role="banner">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.html" aria-label="MyVenturePartners Home">
-
-
-
-
-
-
-
-<a href="index.html" class="logo" style="display:flex; align-items:center; text-decoration:none;">
-  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:160px; height:auto;">
-    <defs>
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-        <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
-      </linearGradient>
-      <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3"/>
-      </filter>
-    </defs>
-
-    <!-- Main logo -->
-    <g transform="translate(50, 100)">
-      <circle cx="60" cy="70" r="24" fill="#0891b2" opacity="0.9" filter="url(#dropshadow)"/>
-      <circle cx="90" cy="70" r="24" fill="#06b6d4" opacity="0.9" filter="url(#dropshadow)"/>
-      <circle cx="120" cy="70" r="24" fill="#0e7490" opacity="0.9" filter="url(#dropshadow)"/>
-      <text x="60" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">M</text>
-      <text x="90" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">V</text>
-      <text x="120" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">P</text>
-      <text x="170" y="60" fill="#1e293b" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5px">MyVenture</text>
-      <text x="170" y="85" fill="#fbbf24" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5px">Partners</text>
-    </g>
-  </svg>
-</a>
-
-<style>
-  /* Responsive logo sizing */
-  .logo svg {
-    max-width: 150px;
-    height: auto;
-  }
-
-  @media (max-width: 768px) {
-    .logo svg {
-      max-width: 120px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .logo svg {
-      max-width: 100px;
-    }
-  }
-</style
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-
-      
-      
-     
-    </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-    </nav>
-  </div>
-</header>
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <h1 class="headline">
-          <span class="static">Let’s&nbsp;</span>
-          <span class="dynamic"><span id="word" class="word">build</span><span aria-hidden="true" class="cursor"></span></span>
-          your brand.
-        </h1>
-        <p class="tagline">We build brands and help businesses grow — friendly, clear, and outcome-driven.</p>
-        <div class="cta-row">
-          <a class="cta" href="contact.html">Book a Discovery Call</a>
-          <a class="cta ghost" href="resources.html">Get the Free Brand Starter Kit</a>
-        </div>
-        <div class="trust">
-          <span>Trusted by startups & SMEs</span> • <span>Strategy • Brand • Digital • AI</span>
-        </div>
-      </div>
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="hero">
-  <h1>
-    <span class="highlight"></span>
-  </h1>
-</section>
-
-<style>
- {
-  
-
-  
-    background: #FAFDF3; /* same soft background like your screenshot */
-  }
-
-  .hero h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #0a192f; /* Navy Blue */
-    text-align: center;
-  }
-
-  .hero .highlight {
-    color: #0a192f; /* Navy Blue for "your" too */
-  }
-</style>
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </div>
-  </section>
-
-  <section class="logos">
-    <div class="track">
-      <span class="badge">🏦 Financial Services</span>
-      <span class="badge">🛒 Consumer & Retail</span>
-      <span class="badge">💊 Healthcare</span>
-      <span class="badge">🛰️ SaaS & AI</span>
-      <span class="badge">🚚 Logistics</span>
-      <span class="badge">🏗️ Manufacturing</span>
-    </div>
-  </section>
-
-  <section class="grid-3 container">
-    <article class="card">
-      <h3>Build</h3>
-      <p>Brand strategy, positioning, identity, and messaging that feel human and win trust.</p>
-      <a class="cta tiny" href="services.html#brand">Explore Brand →</a>
-    </article>
-    <article class="card">
-      <h3>Grow</h3>
-      <p>GTM, pricing, funnels, and performance loops — practical plans to grow revenue.</p>
-      <a class="cta tiny" href="services.html#strategy">Explore Growth →</a>
-    </article>
-    <article class="card">
-      <h3>Scale</h3>
-      <p>Digital, AI, and operating systems to scale gracefully without chaos.</p>
-      <a class="cta tiny" href="services.html#operations">Explore Scale →</a>
-    </article>
-  </section>
-
-  <section class="container split">
-    <div>
-      <h2>Clear process, real outcomes.</h2>
-      <ul class="check">
-        <li>Discovery & diagnostics</li>
-        <li>Strategy & roadmap</li>
-        <li>Quick wins in 30 days</li>
-        <li>Build for scale</li>
-      </ul>
-      <a class="cta" href="case-studies.html">See Case Studies</a>
-    </div>
-    
-  </section>
-
-  <section class="cta-band">
-    <div class="container">
-      <h2>Ready when you are.</h2>
-      <a class="cta" href="contact.html">Talk to MVP</a>
-    </div>
-  </section>
-
-
-
-
-
-
-
-<a href="index.html" class="logo" style="display:flex; align-items:center;">
-  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:540px; height:auto;">
-    <defs>
-      <!-- Enhanced gradient with more depth -->
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-        <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:1" />
-        <stop offset="70%" style="stop-color:#0284c7;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
-      </linearGradient>
-
-```
-  <!-- Enhanced drop shadow for better quality -->
-  <filter id="dropshadow" x="-30%" y="-30%" width="160%" height="160%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-    <feOffset dx="3" dy="6" result="offset"/>
-    <feFlood flood-color="#0f172a" flood-opacity="0.2"/>
-    <feComposite in2="offset" operator="in"/>
-    <feMerge> 
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/> 
-    </feMerge>
-  </filter>
-  
-  <!-- Subtle inner highlight for circles -->
-  <radialGradient id="circleGrad1" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-  
-  <radialGradient id="circleGrad2" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-  
-  <radialGradient id="circleGrad3" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-</defs>
-
-<!-- Main logo -->
-<g transform="translate(50, 100)">
-  <!-- First Circle (M) - Animated -->
-  <circle cx="60" cy="70" r="26" fill="#0891b2" filter="url(#dropshadow)" class="circle-1">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-200,0; 0,0"
-      dur="1s"
-      begin="0s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="0.5s"
-      fill="freeze"/>
-  </circle>
-  <circle cx="60" cy="70" r="26" fill="url(#circleGrad1)" class="circle-1-highlight">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-200,0; 0,0"
-      dur="1s"
-      begin="0s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="0.5s"
-      fill="freeze"/>
-  </circle>
-  
-  <!-- Second Circle (V) - Animated -->
-  <circle cx="90" cy="70" r="26" fill="#06b6d4" filter="url(#dropshadow)" class="circle-2">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-170,0; 0,0"
-      dur="1s"
-      begin="0.7s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.2s"
-      fill="freeze"/>
-  </circle>
-  <circle cx="90" cy="70" r="26" fill="url(#circleGrad2)" class="circle-2-highlight">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-170,0; 0,0"
-      dur="1s"
-      begin="0.7s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.2s"
-      fill="freeze"/>
-  </circle>
-  
-  <!-- Third Circle (P) - Animated -->
-  <circle cx="120" cy="70" r="26" fill="#0e7490" filter="url(#dropshadow)" class="circle-3">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-140,0; 0,0"
-      dur="1s"
-      begin="1.4s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.9s"
-      fill="freeze"/>
-  </circle>
-  <circle cx="120" cy="70" r="26" fill="url(#circleGrad3)" class="circle-3-highlight">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-140,0; 0,0"
-      dur="1s"
-      begin="1.4s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.9s"
-      fill="freeze"/>
-  </circle>
-  
-  <!-- Letters with enhanced styling and animations -->
-  <text x="60" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800" 
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-m">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-200,0; 0,0"
-      dur="1s"
-      begin="0s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="0.5s"
-      fill="freeze"/>
-    M
-  </text>
-  
-  <text x="90" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800"
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-v">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-170,0; 0,0"
-      dur="1s"
-      begin="0.7s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.2s"
-      fill="freeze"/>
-    V
-  </text>
-  
-  <text x="120" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800"
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-p">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-140,0; 0,0"
-      dur="1s"
-      begin="1.4s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.9s"
-      fill="freeze"/>
-    P
-  </text>
-  
-  <!-- Company name with enhanced typography and fade-in animation -->
-  <text x="170" y="58" fill="#1e293b" 
-        font-family="Arial, sans-serif" font-size="32" font-weight="800" 
-        letter-spacing="-0.8px" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);" class="company-name">
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="1s"
-      begin="2.2s"
-      fill="freeze"/>
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="0,20; 0,0"
-      dur="1s"
-      begin="2.2s"
-      fill="freeze"/>
-    myventure
-  </text>
-  
-  <text x="170" y="88" fill="#64748b" 
-        font-family="Arial, sans-serif" font-size="32" font-weight="400" 
-        letter-spacing="-0.8px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.03);" class="company-name">
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="1s"
-      begin="2.5s"
-      fill="freeze"/>
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="0,20; 0,0"
-      dur="1s"
-      begin="2.5s"
-      fill="freeze"/>
-    partners
-  </text>
-  
-  <!-- Tagline with improved spacing and style -->
-  <text x="170" y="108" fill="#06b6d4" 
-        font-family="Arial, sans-serif" font-size="13" font-weight="600" 
-        letter-spacing="2px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.1);" class="tagline">
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="1s"
-      begin="2.8s"
-      fill="freeze"/>
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="0,10; 0,0"
-      dur="1s"
-      begin="2.8s"
-      fill="freeze"/>
-    STRONGER TOGETHER
-  </text>
-</g>
-```
-
-  </svg>
-</a>
-
-<style>
-  /* Enhanced logo styling at 3x size */
-  .logo {
-    transition: transform 0.2s ease;
-    text-decoration: none;
-  }
-  
-  .logo:hover {
-    transform: scale(1.02);
-  }
-  
-  .logo svg {
-    max-width: 540px; /* 3x the original 180px */
-    height: auto;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-  }
-
-  /* Initial state - all elements start invisible */
-  .circle-1, .circle-1-highlight, .letter-m,
-  .circle-2, .circle-2-highlight, .letter-v,
-  .circle-3, .circle-3-highlight, .letter-p,
-  .company-name, .tagline {
-    opacity: 0;
-  }
-
-  /* Animation replay on hover */
-  .logo:hover svg {
-    animation: replay 0.1s ease;
-  }
-
-  @keyframes replay {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.01); }
-    100% { transform: scale(1); }
-  }
-
-  /* Responsive scaling while maintaining 3x base size */
-  @media (max-width: 768px) {
-    .logo svg {
-      max-width: 450px; /* 3x the original 150px */
-    }
-  }
-
-  @media (max-width: 600px) {
-    .logo svg {
-      max-width: 360px; /* 3x the original 120px */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .logo svg {
-      max-width: 300px; /* 3x the original 100px */
-    }
-  }
-</style>
-
-
-
-
-
-
-
-    
-  <footer class="site-footer">
-
-
-
-
-
-
-<footer style="background:#f9fafb; padding:40px 0; text-align:center;">
-  <img src="mvp-logo.svg" alt="MVP Logo" 
-       style="width:80%; max-width:1200px; height:auto;">
-</footer>
-
-
-
-
-
-
-
-
-<a href="index.html" class="logo" style="display:flex; align-items:center;">
-  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:180px; height:auto;">
-    <defs>
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-        <stop offset="50%" style="stop-color:#06b6d4;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
-      </linearGradient>
-      <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.3"/>
-      </filter>
-    </defs>
-
-    <!-- Main logo -->
-    <g transform="translate(50, 100)">
-      <circle cx="60" cy="70" r="24" fill="#0891b2" opacity="0.9" filter="url(#dropshadow)"/>
-      <circle cx="90" cy="70" r="24" fill="#06b6d4" opacity="0.9" filter="url(#dropshadow)"/>
-      <circle cx="120" cy="70" r="24" fill="#0e7490" opacity="0.9" filter="url(#dropshadow)"/>
-      <text x="60" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">M</text>
-      <text x="90" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">V</text>
-      <text x="120" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">P</text>
-      <text x="170" y="60" fill="#1e293b" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5px">myventure</text>
-      <text x="170" y="85" fill="#64748b" font-family="Arial, sans-serif" font-size="28" font-weight="400" letter-spacing="-0.5px">partners</text>
-      <text x="170" y="105" fill="#06b6d4" font-family="Arial, sans-serif" font-size="11" font-weight="500" letter-spacing="1.5px">STRONGER TOGETHER</text>
-    </g>
-  </svg>
-</a>
-
-<style>
-  /* Ensure logo resizes on mobile */
-  .logo svg {
-    max-width: 1500px;
-    height: auto;
-  }
-
-  @media (max-width: 7680px) {
-    .logo svg {
-      max-width: 1200px;
-    }
-  }
-
-  @media (max-width: 4800px) {
-    .logo svg {
-      max-width: 1000px;
-    }
-  }
-</style>
-
-
-
-<a href="index.html" class="logo" style="display:flex; align-items:center;">
-  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:540px; height:auto;">
-    <defs>
-      <!-- Enhanced gradient with more depth -->
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-        <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:1" />
-        <stop offset="70%" style="stop-color:#0284c7;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
-      </linearGradient>
-
-```
-  <!-- Enhanced drop shadow for better quality -->
-  <filter id="dropshadow" x="-30%" y="-30%" width="160%" height="160%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-    <feOffset dx="3" dy="6" result="offset"/>
-    <feFlood flood-color="#0f172a" flood-opacity="0.2"/>
-    <feComposite in2="offset" operator="in"/>
-    <feMerge> 
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/> 
-    </feMerge>
-  </filter>
-  
-  <!-- Subtle inner highlight for circles -->
-  <radialGradient id="circleGrad1" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-  
-  <radialGradient id="circleGrad2" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-  
-  <radialGradient id="circleGrad3" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-</defs>
-
-<!-- Main logo -->
-<g transform="translate(50, 100)">
-  <!-- Enhanced circles with gradients and better shadows -->
-  <circle cx="60" cy="70" r="26" fill="#0891b2" filter="url(#dropshadow)"/>
-  <circle cx="60" cy="70" r="26" fill="url(#circleGrad1)"/>
-  
-  <circle cx="90" cy="70" r="26" fill="#06b6d4" filter="url(#dropshadow)"/>
-  <circle cx="90" cy="70" r="26" fill="url(#circleGrad2)"/>
-  
-  <circle cx="120" cy="70" r="26" fill="#0e7490" filter="url(#dropshadow)"/>
-  <circle cx="120" cy="70" r="26" fill="url(#circleGrad3)"/>
-  
-  <!-- Letters with enhanced styling -->
-  <text x="60" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800" 
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">M</text>
-  <text x="90" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800"
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">V</text>
-  <text x="120" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800"
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">P</text>
-  
-  <!-- Company name with enhanced typography -->
-  <text x="170" y="58" fill="#1e293b" 
-        font-family="Arial, sans-serif" font-size="32" font-weight="800" 
-        letter-spacing="-0.8px" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);">myventure</text>
-  <text x="170" y="88" fill="#64748b" 
-        font-family="Arial, sans-serif" font-size="32" font-weight="400" 
-        letter-spacing="-0.8px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.03);">partners</text>
-  
-  <!-- Tagline with improved spacing and style -->
-  <text x="170" y="108" fill="#06b6d4" 
-        font-family="Arial, sans-serif" font-size="13" font-weight="600" 
-        letter-spacing="2px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.1);">STRONGER TOGETHER</text>
-</g>
-```
-
-  </svg>
-</a>
-
-<style>
-  /* Enhanced logo styling at 3x size */
-  .logo {
-    transition: transform 0.2s ease;
-    text-decoration: none;
-  }
-  
-  .logo:hover {
-    transform: scale(1.02);
-  }
-  
-  .logo svg {
-    max-width: 540px; /* 3x the original 180px */
-    height: auto;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-  }
-
-  /* Responsive scaling while maintaining 3x base size */
-  @media (max-width: 768px) {
-    .logo svg {
-      max-width: 450px; /* 3x the original 150px */
-    }
-  }
-
-  @media (max-width: 600px) {
-    .logo svg {
-      max-width: 360px; /* 3x the original 120px */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .logo svg {
-      max-width: 300px; /* 3x the original 100px */
-    }
-  }
-</style>
-
-    
-
-
-
-    
-
-
-    
-
-
-<a href="index.html" class="logo" style="display:flex; align-items:center;">
-  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:540px; height:auto;">
-    <defs>
-      <!-- Enhanced gradient with more depth -->
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
-        <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:1" />
-        <stop offset="70%" style="stop-color:#0284c7;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
-      </linearGradient>
-
-```
-  <!-- Enhanced drop shadow for better quality -->
-  <filter id="dropshadow" x="-30%" y="-30%" width="160%" height="160%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-    <feOffset dx="3" dy="6" result="offset"/>
-    <feFlood flood-color="#0f172a" flood-opacity="0.2"/>
-    <feComposite in2="offset" operator="in"/>
-    <feMerge> 
-      <feMergeNode/>
-      <feMergeNode in="SourceGraphic"/> 
-    </feMerge>
-  </filter>
-  
-  <!-- Subtle inner highlight for circles -->
-  <radialGradient id="circleGrad1" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-  
-  <radialGradient id="circleGrad2" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-  
-  <radialGradient id="circleGrad3" cx="40%" cy="30%">
-    <stop offset="0%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1" />
-    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
-  </radialGradient>
-</defs>
-
-<!-- Main logo -->
-<g transform="translate(50, 100)">
-  <!-- First Circle (M) - Animated -->
-  <circle cx="60" cy="70" r="26" fill="#0891b2" filter="url(#dropshadow)" class="circle-1">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-200,0; 0,0"
-      dur="1s"
-      begin="0s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="0.5s"
-      fill="freeze"/>
-  </circle>
-  <circle cx="60" cy="70" r="26" fill="url(#circleGrad1)" class="circle-1-highlight">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-200,0; 0,0"
-      dur="1s"
-      begin="0s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="0.5s"
-      fill="freeze"/>
-  </circle>
-  
-  <!-- Second Circle (V) - Animated -->
-  <circle cx="90" cy="70" r="26" fill="#06b6d4" filter="url(#dropshadow)" class="circle-2">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-170,0; 0,0"
-      dur="1s"
-      begin="0.7s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.2s"
-      fill="freeze"/>
-  </circle>
-  <circle cx="90" cy="70" r="26" fill="url(#circleGrad2)" class="circle-2-highlight">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-170,0; 0,0"
-      dur="1s"
-      begin="0.7s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.2s"
-      fill="freeze"/>
-  </circle>
-  
-  <!-- Third Circle (P) - Animated -->
-  <circle cx="120" cy="70" r="26" fill="#0e7490" filter="url(#dropshadow)" class="circle-3">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-140,0; 0,0"
-      dur="1s"
-      begin="1.4s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.9s"
-      fill="freeze"/>
-  </circle>
-  <circle cx="120" cy="70" r="26" fill="url(#circleGrad3)" class="circle-3-highlight">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-140,0; 0,0"
-      dur="1s"
-      begin="1.4s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.9s"
-      fill="freeze"/>
-  </circle>
-  
-  <!-- Letters with enhanced styling and animations -->
-  <text x="60" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800" 
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-m">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-200,0; 0,0"
-      dur="1s"
-      begin="0s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="0.5s"
-      fill="freeze"/>
-    M
-  </text>
-  
-  <text x="90" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800"
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-v">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-170,0; 0,0"
-      dur="1s"
-      begin="0.7s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.2s"
-      fill="freeze"/>
-    V
-  </text>
-  
-  <text x="120" y="79" text-anchor="middle" fill="white" 
-        font-family="Arial, sans-serif" font-size="18" font-weight="800"
-        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-p">
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="-140,0; 0,0"
-      dur="1s"
-      begin="1.4s"
-      fill="freeze"/>
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="0.5s"
-      begin="1.9s"
-      fill="freeze"/>
-    P
-  </text>
-  
-  <!-- Company name with enhanced typography and fade-in animation -->
-  <text x="170" y="58" fill="#1e293b" 
-        font-family="Arial, sans-serif" font-size="32" font-weight="800" 
-        letter-spacing="-0.8px" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);" class="company-name">
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="1s"
-      begin="2.2s"
-      fill="freeze"/>
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="0,20; 0,0"
-      dur="1s"
-      begin="2.2s"
-      fill="freeze"/>
-    myventure
-  </text>
-  
-  <text x="170" y="88" fill="#64748b" 
-        font-family="Arial, sans-serif" font-size="32" font-weight="400" 
-        letter-spacing="-0.8px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.03);" class="company-name">
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="1s"
-      begin="2.5s"
-      fill="freeze"/>
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="0,20; 0,0"
-      dur="1s"
-      begin="2.5s"
-      fill="freeze"/>
-    partners
-  </text>
-  
-  <!-- Tagline with improved spacing and style -->
-  <text x="170" y="108" fill="#06b6d4" 
-        font-family="Arial, sans-serif" font-size="13" font-weight="600" 
-        letter-spacing="2px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.1);" class="tagline">
-    <animate
-      attributeName="opacity"
-      values="0; 1"
-      dur="1s"
-      begin="2.8s"
-      fill="freeze"/>
-    <animateTransform
-      attributeName="transform"
-      attributeType="XML"
-      type="translate"
-      values="0,10; 0,0"
-      dur="1s"
-      begin="2.8s"
-      fill="freeze"/>
-    STRONGER TOGETHER
-  </text>
-</g>
-```
-
-  </svg>
-</a>
-
-<style>
-  /* Enhanced logo styling at 3x size */
-  .logo {
-    transition: transform 0.2s ease;
-    text-decoration: none;
-  }
-  
-  .logo:hover {
-    transform: scale(1.02);
-  }
-  
-  .logo svg {
-    max-width: 540px; /* 3x the original 180px */
-    height: auto;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-  }
-
-  /* Initial state - all elements start invisible */
-  .circle-1, .circle-1-highlight, .letter-m,
-  .circle-2, .circle-2-highlight, .letter-v,
-  .circle-3, .circle-3-highlight, .letter-p,
-  .company-name, .tagline {
-    opacity: 0;
-  }
-
-  /* Animation replay on hover */
-  .logo:hover svg {
-    animation: replay 0.1s ease;
-  }
-
-  @keyframes replay {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.01); }
-    100% { transform: scale(1); }
-  }
-
-  /* Responsive scaling while maintaining 3x base size */
-  @media (max-width: 768px) {
-    .logo svg {
-      max-width: 450px; /* 3x the original 150px */
-    }
-  }
-
-  @media (max-width: 600px) {
-    .logo svg {
-      max-width: 360px; /* 3x the original 120px */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .logo svg {
-      max-width: 300px; /* 3x the original 100px */
-    }
-  }
-</style>
-
-
-
-
-    
-
-
-
-  
-  <div class="container foot-grid">
-    <div>
-      <a class="brand" href="index.html">
-        <img src="assets/mvp-logo.svg" alt="MVP logo" width="32" height="32"/>
-        <span class="brand-name">MyVenture<span>Partners</span></span>
-      </a>
-      <p>We build brands and help businesses grow — strategy, digital, and execution under one roof.</p>
-      <div class="social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="X">𝕏</a>
-        <a href="#" aria-label="YouTube">▶</a>
-      </div>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Work</h4>
-      <ul>
-        <li><a href="services.html#brand">Brand</a></li>
-        <li><a href="services.html#strategy">Growth</a></li>
-        <li><a href="services.html#digital">Digital & AI</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Get in Touch</h4>
-      <p>Book a discovery call or write to us.</p>
-      <a class="cta" href="contact.html">Talk to MVP</a>
-    </div>
-  </div>
-  <div class="container tiny">
-    <p>© 2025 MyVenturePartners (MVP). Made with care.</p>
-  </div>
-</footer>
-<script src="main.js"></script>
 </body>
 </html>
