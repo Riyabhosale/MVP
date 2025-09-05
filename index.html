@@ -435,6 +435,8 @@
 <!-- Navigation -->
 
 <!-- Navigation -->
+
+<!-- Navigation -->
 <nav>
   <div class="nav-container">
     <div class="logo">
@@ -460,12 +462,18 @@
       <li><a href="lean.html">Lean</a></li>
       <li><a href="resources.html">Resources</a></li>
       <li><a href="contact.html">Contact</a></li>
+
+      <!-- Snowflakes inside dropdown -->
+      <div class="snow">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
     </ul>
   </div>
 </nav>
 
 <style>
-/* Base navbar styles (keep your existing ones if you already have them) */
+/* Base navbar styles */
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -477,16 +485,15 @@
 }
 
 /* Hide checkbox */
-.nav-checkbox {
-  display: none;
-}
+.nav-checkbox { display: none; }
 
-/* Hamburger (☰) */
+/* Hamburger */
 .nav-toggle {
   display: none;
-  font-size: 2.2rem; /* increased size */
+  font-size: 2.2rem; /* bigger */
   cursor: pointer;
   color: #2c3e50;
+  z-index: 1002;
 }
 
 /* Menu */
@@ -496,36 +503,75 @@
   gap: 2rem;
 }
 
-/* Responsive (Mobile) */
+.nav-menu a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.nav-menu a:hover { color: #fff; }
+
+/* Responsive dropdown */
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
+  .nav-toggle { display: block; }
 
   .nav-menu {
     flex-direction: column;
     position: absolute;
     top: 70px;
     right: 20px;
-    background: white;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #4ecdc4, #45b7d1, #2980b9);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
     display: none;
+    overflow: hidden;
   }
 
-  /* Show menu when checkbox is checked */
+  .nav-menu li { margin: 0.8rem 0; z-index: 2; }
+
+  /* Show menu when checked */
   .nav-checkbox:checked ~ .nav-menu {
     display: flex;
   }
+
+  /* Snowflakes container */
+  .snow {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none; /* click through */
+  }
+
+  .snow span {
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: fall linear infinite;
+  }
+
+  /* Different snowflake sizes & timings */
+  .snow span:nth-child(1) { left: 10%; width: 6px; height: 6px; animation-duration: 6s; animation-delay: 0s; }
+  .snow span:nth-child(2) { left: 25%; width: 4px; height: 4px; animation-duration: 8s; animation-delay: 2s; }
+  .snow span:nth-child(3) { left: 40%; width: 5px; height: 5px; animation-duration: 7s; animation-delay: 1s; }
+  .snow span:nth-child(4) { left: 55%; width: 3px; height: 3px; animation-duration: 9s; animation-delay: 3s; }
+  .snow span:nth-child(5) { left: 70%; width: 6px; height: 6px; animation-duration: 10s; animation-delay: 1s; }
+  .snow span:nth-child(6) { left: 85%; width: 5px; height: 5px; animation-duration: 8s; animation-delay: 0s; }
+  .snow span:nth-child(7) { left: 15%; width: 4px; height: 4px; animation-duration: 6s; animation-delay: 4s; }
+  .snow span:nth-child(8) { left: 35%; width: 3px; height: 3px; animation-duration: 7s; animation-delay: 2s; }
+  .snow span:nth-child(9) { left: 60%; width: 6px; height: 6px; animation-duration: 9s; animation-delay: 1s; }
+  .snow span:nth-child(10){ left: 80%; width: 4px; height: 4px; animation-duration: 8s; animation-delay: 3s; }
+
+  @keyframes fall {
+    0%   { transform: translateY(0) translateX(0); opacity: 1; }
+    100% { transform: translateY(300px) translateX(20px); opacity: 0; }
+  }
 }
-</style>
-
-
-
-
-
-        
+</style>        
         
 
 
