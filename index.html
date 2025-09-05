@@ -433,6 +433,8 @@
 
 
 <!-- Navigation -->
+
+<!-- Navigation -->
 <nav>
   <div class="nav-container">
     <div class="logo">
@@ -442,10 +444,15 @@
         <div class="circle circle-p">P</div>
       </div>
       <div class="logo-text">
-        <h2></h2>
-        <p></p>
+        <h2>myventure partners</h2>
+        <p>STRONGER TOGETHER</p>
       </div>
     </div>
+
+    <!-- Mobile toggle (CSS-only checkbox trick) -->
+    <input type="checkbox" id="nav-toggle" class="nav-checkbox">
+    <label for="nav-toggle" class="nav-toggle">☰</label>
+
     <ul class="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -454,10 +461,65 @@
       <li><a href="resources.html">Resources</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-toggle">☰</div>
   </div>
 </nav>
 
+<style>
+/* Base navbar styles (keep your existing ones if you already have them) */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+}
+
+/* Hide checkbox */
+.nav-checkbox {
+  display: none;
+}
+
+/* Hamburger (☰) */
+.nav-toggle {
+  display: none;
+  font-size: 2.2rem; /* increased size */
+  cursor: pointer;
+  color: #2c3e50;
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  /* Show menu when checkbox is checked */
+  .nav-checkbox:checked ~ .nav-menu {
+    display: flex;
+  }
+}
+</style>
 
 
 
