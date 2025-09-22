@@ -632,12 +632,55 @@
                 <div class="circle circle-v">V</div>
                 <div class="circle circle-p">P</div>
             </div>
-            <h1>myventure partners</h1>
-            <div class="tagline">STRONGER TOGETHER</div>
+            <h1></h1>
+            <div class="tagline"></div>
         </div>
 
 
+<!-- HERO SECTION -->
+<section style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 20px; font-family:'Inter', sans-serif; background:#ffffff; color:#111;">
 
+  <!-- Animated Title -->
+  <h1 class="hero-title" style="font-weight:800; font-size:3rem; line-height:1.3; margin-bottom:20px;">
+    We
+    <span class="action-word" style="position:relative; display:inline-block; min-width:230px; height:3.5rem; vertical-align:bottom; overflow:hidden;">
+      <span class="active" style="position:absolute; left:0; top:0; opacity:1; transform:translateY(0); background:linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; transition:all 0.6s ease-in-out;">Build</span>
+      <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background:linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; transition:all 0.6s ease-in-out;">Launch</span>
+      <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background:linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; transition:all 0.6s ease-in-out;">Grow</span>
+      <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background:linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; transition:all 0.6s ease-in-out;">Scale</span>
+      <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background:linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; transition:all 0.6s ease-in-out;">Transform</span>
+      <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background:linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; transition:all 0.6s ease-in-out;">Optimize</span>
+    </span>
+    <span style="color:#111;">your brand</span>
+  </h1>
+
+  <!-- Sub-heading -->
+  <p style="max-width:650px; font-size:1.2rem; line-height:1.6; margin-bottom:35px; color:#444;">
+    We are a management consultancy helping founders, CEOs, and dreamers 
+    <strong>launch, grow, and scale businesses</strong> with AI, brand building, strategy, and our premium investor network.
+  </p>
+
+  <!-- CTA Button -->
+  <a href="#contact" style="display:inline-block; padding:14px 34px; font-size:1rem; font-weight:600; color:#fff; background:linear-gradient(135deg,#06b6d4,#0891b2); border-radius:8px; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:all 0.3s ease;">
+    Get Started 🚀
+  </a>
+</section>
+
+<script>
+  // Animated text rotation
+  const words = document.querySelectorAll(".action-word span");
+  let current = 0;
+  setInterval(() => {
+    const active = words[current];
+    active.style.opacity = 0;
+    active.style.transform = "translateY(-100%) scale(0.9)";
+
+    current = (current + 1) % words.length;
+    const next = words[current];
+    next.style.opacity = 1;
+    next.style.transform = "translateY(0) scale(1)";
+  }, 2500);
+</script>
 
 
 
