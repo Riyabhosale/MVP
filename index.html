@@ -637,113 +637,12 @@
     
     
     
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Industries Marquee — Management Consulting</title>
-<style>
-  /* Page / container */
-  body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: #ffffff; /* white background as requested */
-    color: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-
-  /* Marquee wrapper */
-  .industry-marquee {
-    width: 100%;
-    background: #ffffff; /* white strip */
-    box-sizing: border-box;
-    padding: 12px 0;
-    overflow: hidden;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-
-  /* Inner track that moves */
-  .marquee {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    white-space: nowrap;
-    will-change: transform;
-    /* the animation is applied to .marquee__track (see below) */
-  }
-
-  /* Visual style for each item */
-  .marquee__item {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    padding: 6px 10px;
-    border-radius: 6px;
-    background: rgba(0,0,0,0.03); /* subtle pill background for readability on white */
-  }
-
-  /* The animated wrapper that contains two copies for seamless loop */
-  .marquee__track {
-    display: inline-flex;
-    gap: 36px;
-    align-items: center;
-    animation: scroll-left linear infinite;
-    padding-left: 2rem; /* small left padding for nicer spacing */
-  }
-
-  /* Animation timing variable — change this to speed up/slow down */
-  :root {
-    --marquee-duration: 22s; /* longer = slower */
-  }
-
-  @keyframes scroll-left {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); } /* track contains duplicated content, so -50% loops */
-  }
-
-  /* Pause on hover/focus for accessibility */
-  .industry-marquee:hover .marquee__track,
-  .industry-marquee:focus-within .marquee__track {
-    animation-play-state: paused;
-  }
-
-  /* Respect user motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    .marquee__track {
-      animation: none;
-    }
-  }
-
-  /* Responsive tweaks */
-  @media (max-width: 480px) {
-    .marquee__item { font-size: 14px; padding: 5px 8px; }
-    :root { --marquee-duration: 26s; } /* slightly slower on small screens */
-  }
-
-  /* Small helper: visually-hidden text for screen readers */
-  .sr-only {
-    position: absolute !important;
-    width: 1px; height: 1px;
-    margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0);
-    white-space: nowrap; border: 0;
-  }
-</style>
-</head>
-<body>
-
-<!-- Hidden heading for screen readers -->
-<h2 class="sr-only">Industries we work in</h2>
-
-<!-- Marquee container. tabindex allows pausing via keyboard focus. -->
+ 
+    
+<!-- Industries Marquee START -->
 <div class="industry-marquee" role="region" aria-label="Industries we work in">
   <div class="marquee" aria-hidden="false">
-    <!-- track will be duplicated by JS for a seamless loop -->
-    <div class="marquee__track" aria-hidden="true" style="animation-duration: var(--marquee-duration);">
-      <!-- Edit this list to add/remove industries. Each item is a separate element. -->
+    <div class="marquee__track" aria-hidden="true">
       <span class="marquee__item">Retail</span>
       <span class="marquee__item">Healthcare</span>
       <span class="marquee__item">Export & Trading</span>
@@ -769,65 +668,68 @@
   </div>
 </div>
 
-<script>
-  /* Seamless marquee helper:
-     - Clones the .marquee__track content so we have at least two copies.
-     - Ensures the animation-duration equals time required for one full loop based on width,
-       but for simplicity we leave duration CSS-driven; duplication prevents gaps.
-  */
-  (function setupMarqueeDuplication() {
-    const track = document.querySelector('.marquee__track');
-    if (!track) return;
+<style>
+  /* Scope only inside .industry-marquee */
+  .industry-marquee {
+    width: 100%;
+    background: #ffffff;
+    padding: 12px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
 
-    // Duplicate the content so we can animate translating -50% (smooth loop)
-    // Only duplicate once to avoid uncontrolled growth
+  .industry-marquee .marquee {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .industry-marquee .marquee__track {
+    display: inline-flex;
+    gap: 36px;
+    align-items: center;
+    animation: marquee-scroll 22s linear infinite;
+    padding-left: 2rem;
+  }
+
+  .industry-marquee .marquee__item {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.03);
+  }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .industry-marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 480px) {
+    .industry-marquee .marquee__item {
+      font-size: 14px;
+      padding: 5px 8px;
+    }
+  }
+</style>
+
+<script>
+  // Duplicate the track for seamless looping
+  (function() {
+    const track = document.querySelector('.industry-marquee .marquee__track');
+    if (!track) return;
     const dup = track.cloneNode(true);
-    // Mark duplicate to avoid re-duplicating if this script runs again
     dup.setAttribute('aria-hidden', 'true');
     track.parentNode.appendChild(dup);
-
-    // Make sure the combined track total width is large enough for smooth motion.
-    // If the content is short, duplicate again until it's at least twice the viewport width.
-    const ensureEnoughContent = () => {
-      const containerWidth = document.querySelector('.industry-marquee').offsetWidth;
-      let totalWidth = 0;
-      document.querySelectorAll('.marquee__track').forEach(t => totalWidth += t.scrollWidth);
-      // If combined width is less than container * 2, clone once more
-      if (totalWidth < containerWidth * 2) {
-        const extra = track.cloneNode(true);
-        extra.setAttribute('aria-hidden', 'true');
-        track.parentNode.appendChild(extra);
-      }
-    };
-
-    // Run on load and on resize (throttled)
-    ensureEnoughContent();
-    let rTimer = null;
-    window.addEventListener('resize', () => {
-      clearTimeout(rTimer);
-      rTimer = setTimeout(ensureEnoughContent, 150);
-    });
-
-    // Make marquee track keyboard-focusable so users can pause it (focus -> CSS pause)
-    const marqueeContainer = document.querySelector('.marquee');
-    marqueeContainer.setAttribute('tabindex', '0'); // allows focus
-    marqueeContainer.addEventListener('keydown', (e) => {
-      // pressing Space toggles pause/resume for keyboard users
-      if (e.code === 'Space') {
-        const tracks = document.querySelectorAll('.marquee__track');
-        tracks.forEach(t => {
-          const state = getComputedStyle(t).animationPlayState || 'running';
-          t.style.animationPlayState = (state === 'running') ? 'paused' : 'running';
-        });
-        e.preventDefault();
-      }
-    });
   })();
 </script>
-</html>    
-    
-    
-    
+<!-- Industries Marquee END -->    
     
     
     
