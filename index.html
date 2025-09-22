@@ -958,7 +958,114 @@
     
     
     
-    
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Transform Your Brand - Premium</title>
+<style>
+  body {
+    margin:0;
+    font-family:'Inter', sans-serif;
+    background:#f8f9fa;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
+
+  .magic-container {
+    font-size:2.2rem;
+    font-weight:700;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    color:#111;
+    align-items:center;
+  }
+
+  .brand-text {
+    color:#111; /* Brand text in black */
+    position:relative;
+  }
+
+  .action-word {
+    position: relative;
+    overflow: hidden;
+    height: 2.6rem;
+    min-width:120px;
+    display:flex;
+    align-items:center;
+  }
+
+  .action-word span {
+    position: absolute;
+    left:0;
+    top:0;
+    opacity:0;
+    transform: translateY(100%) scale(0.9);
+    background: linear-gradient(135deg,#06b6d4,#0891b2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.6s ease-in-out;
+  }
+
+  .action-word span.active {
+    opacity:1;
+    transform: translateY(0) scale(1);
+  }
+
+  .action-word span.exit {
+    opacity:0;
+    transform: translateY(-100%) scale(0.9);
+  }
+
+  /* Optional responsive */
+  @media (max-width:600px){
+    .magic-container{ font-size:1.6rem; gap:10px; }
+    .action-word{ min-width:100px; height:2rem; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="magic-container">
+  <div>We</div>
+  <div class="action-word" id="action-word">
+    <span class="active">Build</span>
+    <span>Launch</span>
+    <span>Grow</span>
+    <span>Scale</span>
+    <span>Transform</span>
+    <span>Optimize</span>
+  </div>
+  <div class="brand-text">your brand</div>
+</div>
+
+<script>
+  const words = document.querySelectorAll("#action-word span");
+  let index = 0;
+
+  setInterval(() => {
+    const current = words[index];
+    current.classList.remove("active");
+    current.classList.add("exit");
+
+    index = (index + 1) % words.length;
+    const next = words[index];
+    next.classList.add("active");
+
+    setTimeout(() => {
+      current.classList.remove("exit");
+    }, 600);
+  }, 2500);
+</script>
+
+</body>
+</html>  
     
     
     
