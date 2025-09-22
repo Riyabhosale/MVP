@@ -635,6 +635,44 @@
             <h1>myventure partners</h1>
             <div class="tagline">STRONGER TOGETHER</div>
         </div>
+
+
+
+
+
+<!-- Animated text block -->
+<div class="magic-text-container" style="display:flex; align-items:center; gap:10px; font-family:'Inter', sans-serif; font-weight:700; font-size:1.8rem; flex-wrap:wrap;">
+  <div>We</div>
+  <div class="action-word" style="position:relative; overflow:hidden; height:2.4rem; display:inline-flex; align-items:center; padding:0 5px;">
+    <span class="active" style="position:absolute; left:0; top:0; opacity:1; transform:translateY(0); background: linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s ease-in-out;">Build</span>
+    <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background: linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s ease-in-out;">Launch</span>
+    <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background: linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s ease-in-out;">Grow</span>
+    <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background: linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s ease-in-out;">Scale</span>
+    <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background: linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s ease-in-out;">Transform</span>
+    <span style="position:absolute; left:0; top:0; opacity:0; transform:translateY(100%); background: linear-gradient(135deg,#06b6d4,#0891b2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s ease-in-out;">Optimize</span>
+  </div>
+  <div style="color:#111;">your brand</div>
+</div>
+
+<script>
+  const actionWords = document.querySelectorAll(".action-word span");
+  let idx = 0;
+  setInterval(() => {
+    const current = actionWords[idx];
+    current.classList.remove("active");
+    current.style.opacity = 0;
+    current.style.transform = "translateY(-100%) scale(0.9)";
+    
+    idx = (idx+1) % actionWords.length;
+    const next = actionWords[idx];
+    next.classList.add("active");
+    next.style.opacity = 1;
+    next.style.transform = "translateY(0) scale(1)";
+  }, 2500);
+</script>
+
+
+        
         <p class="hero-text">
             Are you stuck in your business? Dreaming of scaling beyond your current limits? 
             Whether you're a visionary with an idea or an entrepreneur ready to break through barriers, 
