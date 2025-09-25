@@ -210,7 +210,24 @@ a:hover{opacity:.95}
 }
 
 
+@media (min-width: 961px) {
+  .site-nav ul {
+    display: flex !important;  /* Always horizontal */
+    position: static;          /* Remove absolute/fixed positioning */
+    flex-direction: row;       /* Row layout */
+    background: transparent;   /* No dropdown background */
+    border: none;
+    padding: 0;
+  }
 
+  .site-nav ul li a {
+    padding: 8px 0;            /* Adjust spacing */
+  }
+
+  .nav-toggle {
+    display: none;             /* Hide hamburger on desktop */
+  }
+}
 
 
 
