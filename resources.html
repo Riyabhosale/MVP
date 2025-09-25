@@ -2,17 +2,211 @@
 <html lang="en">
 <head>
   <title>Resources • MyVenturePartners</title>
-  <meta name="description" content="Free templates and toolkits to get you moving.">
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
+  
 <link rel="icon" href="assets/mvp-logo.svg" type="image/svg+xml"/>
 <meta name="theme-color" content="#0e1020" />
 </head>
 <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Riya Bhosale — Business Consultant</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --accent:#b1dde6;         /* banner color */
+      --accent-dark:#8aacb3;    /* darker tone */
+      --muted:#6b7280;
+      --card:#f8fafc;
+      --profile:#11e5fd;        /* profile highlight */
+      --maxw:1100px;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:#0f172a; background:var(--bg); line-height:1.5}
+    .container{max-width:var(--maxw); margin:0 auto; padding:28px}
+
+    /* header */
+    .site-header{border-bottom:1px solid rgba(255,255,255,0.06); background:linear-gradient(180deg, var(--accent) 0%, rgba(255,255,255,0.9) 70%); position:sticky; top:0; z-index:40; color:#0f172a}
+    .header-inner{display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:16px; align-items:center}
+    .logo{width:84px; height:84px; object-fit:cover; border-radius:12px; box-shadow:0 8px 30px rgba(15,23,42,0.08); border:4px solid rgba(255,255,255,0.35)}
+    .brand-text h1{margin:0; font-size:20px; color:#0f172a}
+    .tagline{margin:4px 0; color:var(--muted)}
+    .meta{font-size:13px; color:var(--muted)}
+    .nav a{margin-left:18px; text-decoration:none; color:var(--muted)}
+    .nav .cta{background:var(--accent); color:#0f172a; padding:8px 12px; border-radius:8px; margin-left:12px; text-decoration:none; box-shadow:0 6px 18px rgba(15,23,42,0.08)}
+
+    /* hero */
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.8)); padding:40px 0}
+    .hero-inner{display:flex; gap:28px; align-items:center; justify-content:space-between}
+    .hero-copy{flex:1}
+    .hero-copy h2{font-size:32px; margin:0 0 12px; color:#0f172a}
+    .hero-copy p{color:var(--muted)}
+    .hero-ctas{margin-top:16px}
+    .btn{display:inline-block; text-decoration:none; border-radius:10px; padding:10px 14px; border:1px solid transparent; font-weight:600}
+    .btn.primary{background:var(--accent); color:#0f172a}
+    .btn.ghost{background:transparent; color:var(--accent-dark); border-color:rgba(0,0,0,0.06)}
+    .btn.small{padding:8px 10px; font-size:14px}
+    .quick-stats{display:flex; gap:12px; list-style:none; padding:0; margin:14px 0 0}
+    .quick-stats li{background:#fff; border:1px solid #eef2f7; padding:8px 10px; border-radius:8px; color:var(--muted); font-size:14px}
+
+    /* hero card */
+    .hero-card{width:300px; background:linear-gradient(180deg, var(--profile), var(--accent)); color:#fff; border-radius:12px; padding:16px; box-shadow:0 10px 30px rgba(12,24,48,0.06); text-align:center}
+    .hero-card img{width:120px; height:120px; object-fit:cover; border-radius:12px; margin-bottom:10px; border:4px solid rgba(255,255,255,0.14)}
+    .hero-card-body .role{font-weight:700; margin:6px 0}
+    .highlight{color:rgba(255,255,255,0.9); margin:6px 0 12px}
+
+    /* sections */
+    .about, .services, .programs, .case-studies, .leadmagnet, .contact{padding:40px 28px}
+    .services .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px}
+    .card{background:#fff; border-radius:12px; padding:18px; border:1px solid #eef2f7}
+    .program-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .program{background:#fff; border-radius:12px; padding:16px; border:1px solid #eef2f7}
+    .case-grid{display:flex; gap:12px; flex-wrap:wrap}
+    .case{flex:1; min-width:180px; background:#fff; padding:16px; border-radius:12px; border:1px solid #eef2f7}
+    .case .metric{font-size:20px; font-weight:700}
+    .note{color:var(--muted); margin-top:12px}
+    .lead-form{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+    .lead-form input{padding:10px; border-radius:8px; border:1px solid #e6eef8; min-width:200px}
+    .privacy{color:var(--muted); font-size:13px; margin-top:8px}
+
+    /* footer */
+    .site-footer{border-top:1px solid #eef2f7; margin-top:40px; background:#fff}
+    .footer-inner{display:flex; gap:12px; align-items:center; justify-content:space-between; padding:20px 28px}
+    .footer-links a{margin-left:10px; color:var(--muted); text-decoration:none}
+    .credit{color:var(--muted)}
+
+    @media(max-width:900px){
+      .hero-inner{flex-direction:column; align-items:flex-start}
+      .nav{display:none}
+      .program-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="profile.jpg" alt="Riya Bhosale" class="logo">
+        <div class="brand-text">
+          <h1>Riya Bhosale</h1>
+          <p class="tagline">Business Consultant — Helping early-stage founders simplify business, build strategy & scale smart</p>
+          <p class="meta">Pune, Maharashtra • 9,812 followers</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#programs">Programs</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#contact" class="cta">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h2>Turn chaos into clarity & growth</h2>
+          <p>Fractional strategy, business operations & growth for early-stage founders and creators. Practical, measurable, and built to scale.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#contact">Book a free 20-min clarity call</a>
+            <a class="btn ghost" href="#leadmagnet">Get the LinkedIn Offer Blueprint (Free)</a>
+          </div>
+          <ul class="quick-stats">
+            <li><strong>Founder-focused</strong> Strategy</li>
+            <li><strong>LinkedIn-first</strong> Lead Systems</li>
+            <li><strong>Fractional COO</strong> for early teams</li>
+          </ul>
+        </div>
+        <div class="hero-card">
+          <img src="profile.jpg" alt="Riya Bhosale">
+          <div class="hero-card-body">
+            <p class="role">Business Consultant & Brand Builder</p>
+            <p class="highlight">Known for turning chaos into clarity & growth</p>
+            <a class="btn small" href="#contact">Book a Clarity Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <h3>About Riya</h3>
+      <p>I'm Riya Bhosale — a business consultant who helps early-stage founders simplify operations, build actionable strategy, and scale sustainably. With a background in finance and hands-on experience in building brands and processes, I blend practical systems thinking with growth-focused tactics to help founders move faster without burning out.</p>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h3>Book a free 20-min clarity call</h3>
+      <p>I'll review your current funnel and share 2–3 quick actions you can implement this week.</p>
+      <a class="btn primary" href="mailto:hello@thefineace.com?subject=Clarity%20Call%20with%20Riya">Email to book</a>
+      <p class="or">Or message on LinkedIn</p>
+      <a class="btn ghost" href="https://www.linkedin.com" target="_blank">Open LinkedIn</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Riya Bhosale</strong>
+        <p>Business Consultant • Pune</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="credit">© 2025 Riya Bhosale</div>
+    </div>
+  </footer>
+
+  <script>
+    function handleLead(e){
+      e.preventDefault();
+      alert("Demo: lead capture (connect to Mailchimp, Zapier, or Google Sheets).");
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+  
   <header class="site-header" role="banner">
   <div class="container nav-wrap">
     <a class="brand" href="index.html" aria-label="MyVenturePartners Home">
