@@ -147,7 +147,67 @@ a:hover{opacity:.95}
 
 
 
+/* Navbar toggle + responsive */
+.nav-toggle {
+  display: none; 
+  background: none;
+  border: 0;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 101;
+}
 
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+#nav-toggle:checked + .nav-toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#nav-toggle:checked + .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+#nav-toggle:checked + .nav-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive menu */
+@media (max-width: 960px) {
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .site-nav ul {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    left: 10px;
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 12px;
+    flex-direction: column;
+    gap: 8px;
+    display: none;
+    z-index: 100;
+  }
+
+  /* Show menu when checkbox is checked */
+  #nav-toggle:checked ~ .site-nav ul {
+    display: flex;
+  }
+
+  .site-nav ul li a {
+    display: block;
+    padding: 8px 10px;
+  }
+}
 
 
 
