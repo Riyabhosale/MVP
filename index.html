@@ -798,7 +798,508 @@
     
     
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyVenture Partners (MVP) - Elite Strategic Consulting</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90' fill='%2306b6d4'>M</text></svg>">
     
+    <style>
+        /*
+        =====================================================
+        | CSS STYLES (EXPERT & STUNNING VISUALS)            |
+        =====================================================
+        */
+        :root {
+            /* Branding Colors */
+            --color-primary: #06b6d4; /* Bright Cyan/Light Blue */
+            --color-secondary: #0891b2; /* Darker Cyan/Teal */
+            --color-accent: #f97316; /* Orange/Warm Accent for CTA */
+            
+            /* Theme Colors (Default: Dark/Space Theme) */
+            --color-bg-main: #0f172a; /* Dark Blue Slate */
+            --color-bg-light: #1e293b; /* Slightly Lighter Dark Blue */
+            --color-text-main: #f1f5f9; /* Off-White */
+            --color-text-secondary: #94a3b8; /* Light Gray */
+            --color-glass-bg: rgba(255, 255, 255, 0.08); /* Transparent Glass */
+            --color-shadow-dark: rgba(0, 0, 0, 0.5);
+            
+            /* Layout */
+            --header-height: 80px;
+            --font-family: 'Arial', sans-serif;
+            transition: all 0.5s ease; 
+            scroll-padding-top: var(--header-height);
+        }
+
+        /* Base Reset & Typography */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-family);
+            color: var(--color-text-main);
+            background-color: var(--color-bg-main);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+
+        h1, h2, h3 { line-height: 1.2; font-weight: 900; }
+        h2 { font-size: 3rem; margin-bottom: 20px; color: var(--color-primary); }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* --- High-End Glass CTA Button --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-bg-main);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 0 30px var(--color-primary);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            background: var(--color-secondary);
+            color: white;
+            box-shadow: 0 0 50px var(--color-primary);
+            transform: translateY(-3px) scale(1.02);
+        }
+        
+        /* --- HEADER & NAVIGATION (Glassmorphism) --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: var(--header-height);
+            background: rgba(15, 23, 42, 0.9); /* Darker Glass BG */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px var(--color-shadow-dark);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+        
+        .nav-content {
+            display: flex; justify-content: space-between; align-items: center;
+            height: var(--header-height); max-width: 1200px; margin: 0 auto; padding: 0 20px;
+        }
+        nav a {
+            color: var(--color-text-secondary); text-decoration: none;
+            font-weight: 600; margin-left: 30px;
+            transition: color 0.3s, transform 0.2s;
+            position: relative;
+        }
+        nav a:hover, nav a.active { color: var(--color-primary); transform: translateY(-2px); }
+        nav a::after { /* Active indicator */
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0; height: 3px; background-color: var(--color-primary);
+            transition: width 0.3s ease-out;
+        }
+        nav a.active::after { width: 100%; }
+
+        /* --- LOGO Styles (Adjusted for Header) --- */
+        .logo svg { max-width: 150px; height: auto; }
+        .logo text[fill="#1e293b"], .logo text[fill="#64748b"] { fill: var(--color-text-main) !important; }
+
+        /* --- HERO SECTION (Dynamic Split) --- */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            padding-top: var(--header-height);
+            overflow: hidden;
+        }
+
+        .hero-left {
+            flex: 1; padding: 80px;
+            display: flex; flex-direction: column; justify-content: center;
+            position: relative; z-index: 2;
+        }
+
+        .hero-right {
+            flex: 1; position: relative;
+            background: var(--color-bg-light); 
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%); /* Slanted Edge */
+            display: flex; align-items: center; justify-content: center;
+            z-index: 1;
+        }
+        
+        #hero h1 {
+            font-size: 4.5rem; color: white; margin-bottom: 20px;
+            text-shadow: 0 0 20px var(--color-primary);
+        }
+        #hero p {
+            font-size: 1.4rem; color: var(--color-text-secondary); margin-bottom: 50px;
+            max-width: 600px;
+        }
+
+        /* --- STUNNING VISUAL: Floating Hexagons --- */
+        .hexagon-grid {
+            position: absolute; width: 100%; height: 100%;
+            opacity: 0.1; /* Subtle */
+            background-image: radial-gradient(var(--color-primary) 1px, transparent 1px);
+            background-size: 25px 25px;
+            animation: moveGrid 60s linear infinite;
+        }
+        @keyframes moveGrid {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        /* --- SVG Wavy Divider Animation (Complex Separation) --- */
+        .wavy-divider {
+            width: 100%; height: 100px;
+            background-color: var(--color-bg-light);
+            display: block;
+            margin-top: -1px;
+            z-index: 10;
+        }
+        .wavy-divider svg { display: block; fill: var(--color-bg-main); width: 100%; height: 100%; }
+        .wave-path { animation: waveMotion 10s linear infinite alternate; }
+        @keyframes waveMotion {
+            0% { d: path('M0,96L48,106.7C96,117,192,139,288,128C384,117,480,75,576,90.7C672,107,768,181,864,181.3C960,181,1056,107,1152,80C1248,53,1344,75,1392,85.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'); }
+            100% { d: path('M0,64L48,80C96,96,192,128,288,133.3C384,139,480,117,576,106.7C672,96,768,96,864,106.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'); }
+        }
+
+        /* --- THE MVP JOURNEY SECTION --- */
+        #mvp-journey { background-color: var(--color-bg-main); padding-top: 50px;}
+
+        .mvp-grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 80px;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        .mvp-step {
+            flex: 1 1 300px;
+            padding: 40px;
+            border-radius: 12px;
+            /* Neumorphism/Glass-like card design */
+            background: var(--color-glass-bg);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px var(--color-shadow-dark);
+            min-height: 400px;
+            position: relative;
+            transition: transform 0.4s ease-out;
+            text-align: center;
+        }
+        
+        .mvp-icon {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.5s;
+        }
+
+        .mvp-content {
+            position: relative;
+            z-index: 10;
+            margin-top: 120px;
+        }
+        
+        .mvp-step h3 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* --- JS Animation Classes for Content Blocks --- */
+        .anim-element {
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .anim-element.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        
+        /* --- ASSESSMENT SECTION (CTA Focus) --- */
+        #assessment {
+            background-color: var(--color-bg-light);
+            padding: 120px 0;
+            text-align: center;
+        }
+        #assessment h2 { color: white; }
+        
+        /* --- Responsive Adjustments (For Expert-Level Responsiveness) --- */
+        @media (max-width: 992px) {
+            .hero-left, .hero-right { flex: 1 1 100%; clip-path: none; padding: 50px; }
+            #hero { flex-direction: column; }
+            .hero-right { order: -1; min-height: 40vh; }
+            .hero-left { text-align: center; }
+            #hero h1 { font-size: 3rem; }
+            nav { display: none; }
+            .menu-toggle { display: block; font-size: 1.8rem; cursor: pointer; color: var(--color-primary); }
+            header .nav-content { justify-content: space-between; }
+
+            header.nav-open nav {
+                display: flex; flex-direction: column; position: absolute;
+                top: var(--header-height); left: 0; width: 100%;
+                background: rgba(15, 23, 42, 0.95); box-shadow: 0 10px 15px var(--color-shadow-dark);
+                padding: 20px 0;
+            }
+            header.nav-open nav a { margin: 10px 0; text-align: center; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="nav-content">
+            <a href="#hero" class="logo">
+                <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:150px; height:auto;">
+                    <defs>
+                      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+                        <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:1" />
+                        <stop offset="70%" style="stop-color:#0284c7;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
+                      </linearGradient>
+                      <filter id="dropshadow" x="-30%" y="-30%" width="160%" height="160%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/><feOffset dx="3" dy="6" result="offset"/>
+                        <feFlood flood-color="#0f172a" flood-opacity="0.2"/>
+                        <feComposite in2="offset" operator="in"/>
+                        <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/> </feMerge>
+                      </filter>
+                      <radialGradient id="circleGrad1" cx="40%" cy="30%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" /></radialGradient>
+                      <radialGradient id="circleGrad2" cx="40%" cy="30%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" /></radialGradient>
+                      <radialGradient id="circleGrad3" cx="40%" cy="30%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" /></radialGradient>
+                    </defs>
+                    <g transform="translate(50, 100)">
+                      <circle cx="60" cy="70" r="26" fill="#0891b2" filter="url(#dropshadow)" class="circle-1"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-200,0; 0,0" dur="1s" begin="0s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="0.5s" fill="freeze"/></circle>
+                      <circle cx="60" cy="70" r="26" fill="url(#circleGrad1)" class="circle-1-highlight"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-200,0; 0,0" dur="1s" begin="0s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="0.5s" fill="freeze"/></circle>
+                      <circle cx="90" cy="70" r="26" fill="#06b6d4" filter="url(#dropshadow)" class="circle-2"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-170,0; 0,0" dur="1s" begin="0.7s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="1.2s" fill="freeze"/></circle>
+                      <circle cx="90" cy="70" r="26" fill="url(#circleGrad2)" class="circle-2-highlight"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-170,0; 0,0" dur="1s" begin="0.7s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="1.2s" fill="freeze"/></circle>
+                      <circle cx="120" cy="70" r="26" fill="#0e7490" filter="url(#dropshadow)" class="circle-3"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-140,0; 0,0" dur="1s" begin="1.4s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="1.9s" fill="freeze"/></circle>
+                      <circle cx="120" cy="70" r="26" fill="url(#circleGrad3)" class="circle-3-highlight"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-140,0; 0,0" dur="1s" begin="1.4s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="1.9s" fill="freeze"/></circle>
+                      <text x="60" y="79" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="800" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-m"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-200,0; 0,0" dur="1s" begin="0s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="0.5s" fill="freeze"/>M</text>
+                      <text x="90" y="79" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="800" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-v"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-170,0; 0,0" dur="1s" begin="0.7s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="1.2s" fill="freeze"/>V</text>
+                      <text x="120" y="79" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="800" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-p"><animateTransform attributeName="transform" attributeType="XML" type="translate" values="-140,0; 0,0" dur="1s" begin="1.4s" fill="freeze"/><animate attributeName="opacity" values="0; 1" dur="0.5s" begin="1.9s" fill="freeze"/>P</text>
+                      <text x="170" y="58" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="-0.8px" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);" class="company-name"><animate attributeName="opacity" values="0; 1" dur="1s" begin="2.2s" fill="freeze"/><animateTransform attributeName="transform" attributeType="XML" type="translate" values="0,10; 0,0" dur="1s" begin="2.2s" fill="freeze"/>myventure</text>
+                      <text x="170" y="78" fill="#64748b" font-family="Arial, sans-serif" font-size="18" font-weight="400" letter-spacing="-0.8px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.03);" class="company-name"><animate attributeName="opacity" values="0; 1" dur="1s" begin="2.5s" fill="freeze"/><animateTransform attributeName="transform" attributeType="XML" type="translate" values="0,10; 0,0" dur="1s" begin="2.5s" fill="freeze"/>partners</text>
+                    </g>
+                </svg>
+            </a>
+            <nav id="main-nav">
+                <a href="#mvp-journey" data-section="mvp-journey">The MVP Journey</a>
+                <a href="#expertise" data-section="expertise">Expertise</a>
+                <a href="#assessment" data-section="assessment">Venture Score</a>
+            </nav>
+            <div style="display: flex; align-items: center;">
+                <a href="#assessment" class="cta-button" style="margin-left: 20px;">Launch Your Venture</a>
+                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-left">
+            <h1 class="anim-element delay-1">
+                Strategy Engineered for **Dominance.**
+            </h1>
+            <p class="anim-element delay-2">
+                We don't just advise; we fuse elite management consulting with proprietary brand architecture to make your venture inevitable. **Stronger Together.**
+            </p>
+            <a href="#assessment" class="cta-button anim-element delay-3">Start The Transformation</a>
+        </div>
+        <div class="hero-right">
+            <div class="hexagon-grid"></div>
+            <div style="position: relative; z-index: 5; text-align: center;">
+                <h2 style="font-size: 5rem; color: white;">MVP</h2>
+                <p style="color: var(--color-primary); font-size: 1.5rem; letter-spacing: 5px;">MYVENTURE PARTNERS</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="wavy-divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path class="wave-path" fill-opacity="1"></path>
+        </svg>
+    </div>
+
+    <section id="mvp-journey" class="container">
+        <h2 class="anim-element">The MyVenture Partner Journey</h2>
+        <p class="anim-element delay-1" style="color: var(--color-text-secondary); margin-bottom: 50px;">
+            A rigorous, three-stage process designed for measurable, high-impact results.
+        </p>
+        
+        <div class="mvp-grid">
+            <div class="mvp-step anim-element delay-2" data-hover-color="#0891b2">
+                <div class="mvp-icon">M</div>
+                <div class="mvp-content">
+                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE ONE</p>
+                    <h3>Management Mastery</h3>
+                    <p>We dissect operational bottlenecks, introduce AI-driven workflows, and re-engineer core processes for **scale and efficiency**.</p>
+                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
+                </div>
+            </div>
+
+            <div class="mvp-step anim-element delay-3" data-hover-color="#06b6d4">
+                <div class="mvp-icon">V</div>
+                <div class="mvp-content">
+                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE TWO</p>
+                    <h3>Venture Validation</h3>
+                    <p>Rigorous market analysis, capital introduction, and strategic partnership alignment to **de-risk and accelerate** expansion.</p>
+                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
+                </div>
+            </div>
+
+            <div class="mvp-step anim-element delay-4" data-hover-color="#0e7490">
+                <div class="mvp-icon">P</div>
+                <div class="mvp-content">
+                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE THREE</p>
+                    <h3>Proprietary Platform</h3>
+                    <p>Crafting a unique, defensible **brand platform** and narrative that converts market presence into lasting equity and dominance.</p>
+                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="container" style="padding-top: 120px; padding-bottom: 120px;">
+        <h2 class="anim-element" style="color: white;">Unmatched Sector Expertise</h2>
+        <p class="anim-element delay-1" style="color: var(--color-text-secondary); margin-bottom: 60px;">
+            Deep domain knowledge is our currency. We only engage where we can guarantee transformation.
+        </p>
+
+        <div class="mvp-grid" style="gap: 20px;">
+            <div class="mvp-step anim-element delay-2" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
+                <h3 style="font-size: 1.4rem;">FinTech & Blockchain</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Regulatory navigation and product launch.</p>
+            </div>
+            <div class="mvp-step anim-element delay-3" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
+                <h3 style="font-size: 1.4rem;">Digital Health & SaaS</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">User acquisition and retention strategies.</p>
+            </div>
+            <div class="mvp-step anim-element delay-4" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
+                <h3 style="font-size: 1.4rem;">Advanced Manufacturing</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Supply chain optimization and automation.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="assessment">
+        <div class="container">
+            <h2 class="anim-element" style="margin-bottom: 20px;">Quantify Your Opportunity.</h2>
+            <p class="anim-element delay-1" style="font-size: 1.4rem; margin-bottom: 40px; color: var(--color-text-main);">
+                Take the **MVP Venture Score Assessment**—the first step in transforming potential into profit.
+            </p>
+            <a href="mailto:info@myventurepartners.com" class="cta-button anim-element delay-2">Request Your Private Scorecard</a>
+        </div>
+    </section>
+
+    <footer style="background-color: var(--color-bg-main); padding: 40px 0;">
+        <div class="container">
+            <p style="color: var(--color-text-secondary);">&copy; <span id="currentYear"></span> MyVenture Partners. All rights reserved. | **MVP: Stronger Together.**</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // --- 1. Scroll-Triggered Animation Logic (Intersection Observer) ---
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    // We keep observing for potential re-animation on hover/state change later
+                } else {
+                    // Optional: remove 'in-view' when scrolling away for re-animation
+                    // entry.target.classList.remove('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements with the custom animation class
+        document.querySelectorAll('.anim-element').forEach(element => {
+            observer.observe(element);
+        });
+
+
+        // --- 2. Mobile Menu Toggle ---
+        function toggleMenu() {
+            document.getElementById('main-header').classList.toggle('nav-open');
+        }
+
+        // --- 3. Dynamic Active Navigation State & Scroll Logic ---
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        const headerHeight = document.getElementById('main-header').offsetHeight;
+
+        function updateActiveNav() {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - headerHeight - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav(); // Set initial active state
+
+        // --- 4. MVP Card Hover Effect (Visual Polish) ---
+        document.querySelectorAll('.mvp-step').forEach(step => {
+            step.addEventListener('mouseenter', () => {
+                const icon = step.querySelector('.mvp-icon');
+                const color = step.getAttribute('data-hover-color');
+                if (icon) {
+                    icon.style.opacity = '0.3'; // Reveal the big letter
+                    step.style.transform = 'translateY(-10px) scale(1.03)';
+                    step.style.boxShadow = `0 10px 40px ${color}50`; // Subtle colored glow
+                }
+            });
+            step.addEventListener('mouseleave', () => {
+                const icon = step.querySelector('.mvp-icon');
+                if (icon) {
+                    icon.style.opacity = '0.1'; // Hide the big letter
+                    step.style.transform = 'translateY(0) scale(1)';
+                    step.style.boxShadow = `0 0 15px var(--color-shadow-dark)`; // Reset shadow
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
     
     
     
