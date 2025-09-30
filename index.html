@@ -803,7 +803,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyVenture Partners (MVP) - Elite Strategic Consulting</title>
+    <title></title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90' fill='%2306b6d4'>M</text></svg>">
     
     <style>
@@ -888,23 +888,9 @@
             border-bottom: 1px solid rgba(6, 182, 212, 0.1);
         }
         
-        .nav-content {
-            display: flex; justify-content: space-between; align-items: center;
-            height: var(--header-height); max-width: 1200px; margin: 0 auto; padding: 0 20px;
-        }
-        nav a {
-            color: var(--color-text-secondary); text-decoration: none;
-            font-weight: 600; margin-left: 30px;
-            transition: color 0.3s, transform 0.2s;
-            position: relative;
-        }
-        nav a:hover, nav a.active { color: var(--color-primary); transform: translateY(-2px); }
-        nav a::after { /* Active indicator */
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 0; height: 3px; background-color: var(--color-primary);
-            transition: width 0.3s ease-out;
-        }
-        nav a.active::after { width: 100%; }
+  
+        
+        
 
         /* --- LOGO Styles (Adjusted for Header) --- */
         .logo svg { max-width: 150px; height: auto; }
@@ -1068,7 +1054,7 @@
 <body>
 
     <header id="main-header">
-        <div class="nav-content">
+        <div class="">
             <a href="#hero" class="logo">
                 <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:150px; height:auto;">
                     <defs>
@@ -1103,15 +1089,7 @@
                     </g>
                 </svg>
             </a>
-            <nav id="main-nav">
-                <a href="#mvp-journey" data-section="mvp-journey">The MVP Journey</a>
-                <a href="#expertise" data-section="expertise">Expertise</a>
-                <a href="#assessment" data-section="assessment">Venture Score</a>
-            </nav>
-            <div style="display: flex; align-items: center;">
-                <a href="#assessment" class="cta-button" style="margin-left: 20px;">Launch Your Venture</a>
-                <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-            </div>
+            
         </div>
     </header>
 
