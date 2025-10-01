@@ -666,133 +666,7 @@
   </a>
 </section>
 
-<script>
-  // Animated text rotation
-  const words = document.querySelectorAll(".action-word span");
-  let current = 0;
-  setInterval(() => {
-    const active = words[current];
-    active.style.opacity = 0;
-    active.style.transform = "translateY(-100%) scale(0.9)";
 
-    current = (current + 1) % words.length;
-    const next = words[current];
-    next.style.opacity = 1;
-    next.style.transform = "translateY(0) scale(1)";
-  }, 2500);
-</script>
-
-
-
-
-<!-- Animated text block (full width for all words) -->
-
-
-
-
-        
-
-        
-
-
-
-    
-    
-    
-    
-    
- 
-    
-<!-- Industries Marquee START -->
-<div class="industry-marquee" role="region" aria-label="Industries we work in">
-  <div class="marquee" aria-hidden="false">
-    <div class="marquee__track" aria-hidden="true">
-      <span class="marquee__item">Retail</span>
-      <span class="marquee__item">Healthcare</span>
-      <span class="marquee__item">Export & Trading</span>
-      <span class="marquee__item">Information Technology</span>
-      <span class="marquee__item">Technology & SaaS</span>
-      <span class="marquee__item">Manufacturing</span>
-      <span class="marquee__item">Finance & Banking</span>
-      <span class="marquee__item">Insurance</span>
-      <span class="marquee__item">FMCG</span>
-      <span class="marquee__item">Telecommunications</span>
-      <span class="marquee__item">Hospitality & Travel</span>
-      <span class="marquee__item">Education</span>
-      <span class="marquee__item">Real Estate</span>
-      <span class="marquee__item">Energy & Utilities</span>
-      <span class="marquee__item">Logistics & Supply Chain</span>
-      <span class="marquee__item">Public Sector & Government</span>
-      <span class="marquee__item">Agri & Food Processing</span>
-      <span class="marquee__item">Media & Entertainment</span>
-      <span class="marquee__item">Startups & Venture</span>
-      <span class="marquee__item">Legal & Compliance</span>
-      <span class="marquee__item">All other industries</span>
-    </div>
-  </div>
-</div>
-
-<style>
-  /* Scope only inside .industry-marquee */
-  .industry-marquee {
-    width: 100%;
-    background: #ffffff;
-    padding: 12px 0;
-    overflow: hidden;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-
-  .industry-marquee .marquee {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-  }
-
-  .industry-marquee .marquee__track {
-    display: inline-flex;
-    gap: 36px;
-    align-items: center;
-    animation: marquee-scroll 22s linear infinite;
-    padding-left: 2rem;
-  }
-
-  .industry-marquee .marquee__item {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 6px 10px;
-    border-radius: 6px;
-    background: rgba(0,0,0,0.03);
-  }
-
-  @keyframes marquee-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  .industry-marquee:hover .marquee__track {
-    animation-play-state: paused;
-  }
-
-  @media (max-width: 480px) {
-    .industry-marquee .marquee__item {
-      font-size: 14px;
-      padding: 5px 8px;
-    }
-  }
-</style>
-
-<script>
-  // Duplicate the track for seamless looping
-  (function() {
-    const track = document.querySelector('.industry-marquee .marquee__track');
-    if (!track) return;
-    const dup = track.cloneNode(true);
-    dup.setAttribute('aria-hidden', 'true');
-    track.parentNode.appendChild(dup);
-  })();
-</script>
 <!-- Industries Marquee END -->    
     
     
@@ -1086,7 +960,133 @@
             
         </div>
     </header>
+<script>
+  // Animated text rotation
+  const words = document.querySelectorAll(".action-word span");
+  let current = 0;
+  setInterval(() => {
+    const active = words[current];
+    active.style.opacity = 0;
+    active.style.transform = "translateY(-100%) scale(0.9)";
 
+    current = (current + 1) % words.length;
+    const next = words[current];
+    next.style.opacity = 1;
+    next.style.transform = "translateY(0) scale(1)";
+  }, 2500);
+</script>
+
+
+
+
+<!-- Animated text block (full width for all words) -->
+
+
+
+
+        
+
+        
+
+
+
+    
+    
+    
+    
+    
+ 
+    
+<!-- Industries Marquee START -->
+<div class="industry-marquee" role="region" aria-label="Industries we work in">
+  <div class="marquee" aria-hidden="false">
+    <div class="marquee__track" aria-hidden="true">
+      <span class="marquee__item">Retail</span>
+      <span class="marquee__item">Healthcare</span>
+      <span class="marquee__item">Export & Trading</span>
+      <span class="marquee__item">Information Technology</span>
+      <span class="marquee__item">Technology & SaaS</span>
+      <span class="marquee__item">Manufacturing</span>
+      <span class="marquee__item">Finance & Banking</span>
+      <span class="marquee__item">Insurance</span>
+      <span class="marquee__item">FMCG</span>
+      <span class="marquee__item">Telecommunications</span>
+      <span class="marquee__item">Hospitality & Travel</span>
+      <span class="marquee__item">Education</span>
+      <span class="marquee__item">Real Estate</span>
+      <span class="marquee__item">Energy & Utilities</span>
+      <span class="marquee__item">Logistics & Supply Chain</span>
+      <span class="marquee__item">Public Sector & Government</span>
+      <span class="marquee__item">Agri & Food Processing</span>
+      <span class="marquee__item">Media & Entertainment</span>
+      <span class="marquee__item">Startups & Venture</span>
+      <span class="marquee__item">Legal & Compliance</span>
+      <span class="marquee__item">All other industries</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Scope only inside .industry-marquee */
+  .industry-marquee {
+    width: 100%;
+    background: #ffffff;
+    padding: 12px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .industry-marquee .marquee {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .industry-marquee .marquee__track {
+    display: inline-flex;
+    gap: 36px;
+    align-items: center;
+    animation: marquee-scroll 22s linear infinite;
+    padding-left: 2rem;
+  }
+
+  .industry-marquee .marquee__item {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.03);
+  }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .industry-marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 480px) {
+    .industry-marquee .marquee__item {
+      font-size: 14px;
+      padding: 5px 8px;
+    }
+  }
+</style>
+
+<script>
+  // Duplicate the track for seamless looping
+  (function() {
+    const track = document.querySelector('.industry-marquee .marquee__track');
+    if (!track) return;
+    const dup = track.cloneNode(true);
+    dup.setAttribute('aria-hidden', 'true');
+    track.parentNode.appendChild(dup);
+  })();
+</script>
     <section id="hero">
         <div class="hero-left">
             <h1 class="anim-element delay-1">
