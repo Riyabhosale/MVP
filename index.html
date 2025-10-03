@@ -1107,289 +1107,19 @@
         </svg>
     </div>
 
-    <section id="mvp-journey" class="container">
-        <h2 class="anim-element">The MVP Way</h2>
-        <p class="anim-element delay-1" style="color: var(--color-text-secondary); margin-bottom: 50px;">
-             Three-stage process designed for measurable, high-impact results.
-        </p>
-        
-        <div class="mvp-grid">
-            <div class="mvp-step anim-element delay-2" data-hover-color="#0891b2">
-                <div class="mvp-icon">M</div>
-                <div class="mvp-content">
-                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE ONE</p>
-                    <h3>Management Mastery</h3>
-                    <p>We dissect operational bottlenecks, introduce AI-driven workflows, and re-engineer core processes for scale and efficiency.</p>
-                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
-                </div>
-            </div>
-
-            <div class="mvp-step anim-element delay-3" data-hover-color="#06b6d4">
-                <div class="mvp-icon">V</div>
-                <div class="mvp-content">
-                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE TWO</p>
-                    <h3>Venture Validation</h3>
-                    <p>Rigorous market analysis, capital introduction, and strategic partnership alignment to de-risk and accelerate expansion.</p>
-                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
-                </div>
-            </div>
-
-            <div class="mvp-step anim-element delay-4" data-hover-color="#0e7490">
-                <div class="mvp-icon">P</div>
-                <div class="mvp-content">
-                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE THREE</p>
-                    <h3>Proprietary Platform</h3>
-                    <p>Crafting a unique, defensible brand platform and narrative that converts market presence into lasting equity and dominance.</p>
-                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="expertise" class="container" style="padding-top: 120px; padding-bottom: 120px;">
-        <h2 class="anim-element" style="color: white;">Unmatched Sector Expertise</h2>
-        <p class="anim-element delay-1" style="color: var(--color-text-secondary); margin-bottom: 60px;">
-            Deep domain knowledge is our currency. We only engage where we can guarantee transformation.
-        </p>
-
-        <div class="mvp-grid" style="gap: 20px;">
-            <div class="mvp-step anim-element delay-2" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
-                <h3 style="font-size: 1.4rem;">FinTech & Blockchain</h3>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Regulatory navigation and product launch.</p>
-            </div>
-            <div class="mvp-step anim-element delay-3" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
-                <h3 style="font-size: 1.4rem;">Digital Health & SaaS</h3>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">User acquisition and retention strategies.</p>
-            </div>
-            <div class="mvp-step anim-element delay-4" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
-                <h3 style="font-size: 1.4rem;">Advanced Manufacturing</h3>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Supply chain optimization and automation.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="assessment">
-    <div class="container">
-        <h2 class="anim-element" style="margin-bottom: 20px;">Quantify Your Opportunity.</h2>
-        <p class="anim-element delay-1" style="font-size: 1.4rem; margin-bottom: 40px; color: var(--color-text-main);">
-            Take the MVP Venture Score Assessment—the first step in transforming potential into profit
-        </p>
-        <a href="https://wa.me/917709708090?text=Hey%20MVP" 
-           target="_blank" 
-           class="cta-button anim-element delay-2">
-           Request Your Private Scorecard
-        </a>
-    </div>
-</section>
-
-     <footer style="background-color: var(--color-bg-main); padding: 40px 0;">
-        <div class="container">
-            <p style="color: var(--color-text-secondary);">&copy; Connect with us- we will guide you through every thing   </p>
-        </div>
-    </footer> 
-
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // --- 1. Scroll-Triggered Animation Logic (Intersection Observer) ---
-        const observerOptions = {
-            root: null, // viewport
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of element is visible
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    // We keep observing for potential re-animation on hover/state change later
-                } else {
-                    // Optional: remove 'in-view' when scrolling away for re-animation
-                    // entry.target.classList.remove('in-view');
-                }
-            });
-        }, observerOptions);
-
-        // Target all elements with the custom animation class
-        document.querySelectorAll('.anim-element').forEach(element => {
-            observer.observe(element);
-        });
 
 
-        // --- 2. Mobile Menu Toggle ---
-        function toggleMenu() {
-            document.getElementById('main-header').classList.toggle('nav-open');
-        }
-
-        // --- 3. Dynamic Active Navigation State & Scroll Logic ---
-        const navLinks = document.querySelectorAll('nav a');
-        const sections = document.querySelectorAll('section');
-        const headerHeight = document.getElementById('main-header').offsetHeight;
-
-        function updateActiveNav() {
-            let current = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - headerHeight - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-section') === current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveNav);
-        updateActiveNav(); // Set initial active state
-
-        // --- 4. MVP Card Hover Effect (Visual Polish) ---
-        document.querySelectorAll('.mvp-step').forEach(step => {
-            step.addEventListener('mouseenter', () => {
-                const icon = step.querySelector('.mvp-icon');
-                const color = step.getAttribute('data-hover-color');
-                if (icon) {
-                    icon.style.opacity = '0.3'; // Reveal the big letter
-                    step.style.transform = 'translateY(-10px) scale(1.03)';
-                    step.style.boxShadow = `0 10px 40px ${color}50`; // Subtle colored glow
-                }
-            });
-            step.addEventListener('mouseleave', () => {
-                const icon = step.querySelector('.mvp-icon');
-                if (icon) {
-                    icon.style.opacity = '0.1'; // Hide the big letter
-                    step.style.transform = 'translateY(0) scale(1)';
-                    step.style.boxShadow = `0 0 15px var(--color-shadow-dark)`; // Reset shadow
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-    
-    
-    
-    
-    
-    <!-- About Section -->
 
 
-<!-- Footer / Join Us Section -->
-<footer id="join">
 
-  
 
     
 
-
-    <div class="footer-cta">
-        <h3>Ready to Transform Your Business?</h3>
-        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Stop letting fear and uncertainty hold you back. Your business dreams deserve to become reality. 
-            Join thousands of entrepreneurs who've chosen to be stronger together.
-        </p>
-        <a href="#contact" class="cta-button">Get Started Now</a>
-    </div>
     
- <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #444;">
-        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
-            <div class="logo-circles">
-                <div class="circle circle-m">M</div>
-                <div class="circle circle-v">V</div>
-                <div class="circle circle-p">P</div>
-            </div>
-            <div class="logo-text">
-                <h2 style="color: white;">myventure partners</h2>
-                <p>STRONGER TOGETHER</p>
-            </div>
-        </div>
-        <p>&copy; 2025 MyVenture Partners. All rights reserved.</p>
-    </div>
-</footer>
 
-<script>
-    // Create magic eggs animation
-    function createMagicEgg() {
-        const egg = document.createElement('div');
-        egg.className = 'egg';
-        egg.style.left = Math.random() * 100 + '%';
-        egg.style.animationDelay = Math.random() * 5 + 's';
-        egg.style.animationDuration = (10 + Math.random() * 10) + 's';
-        document.querySelector('.magic-eggs').appendChild(egg);
-
-        setTimeout(() => {
-            egg.remove();
-        }, 20000);
-    }
-
-    // Create eggs periodically
-    setInterval(createMagicEgg, 3000);
     
-    // Initial eggs
-    for(let i = 0; i < 5; i++) {
-        setTimeout(createMagicEgg, i * 1000);
-    }
 
-    // Smooth scroll animation for sections
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections
-    document.querySelectorAll('.section').forEach(section => {
-        observer.observe(section);
-    });
-
-    // Mobile menu toggle (if needed)
-    const navToggle = document.createElement('div');
-    navToggle.className = 'nav-toggle';
-    navToggle.innerHTML = '☰';
-    navToggle.style.display = 'none';
-    navToggle.style.fontSize = '1.5rem';
-    navToggle.style.cursor = 'pointer';
-    navToggle.style.color = '#2c3e50';
-
-    document.querySelector('.nav-container').appendChild(navToggle);
-
-    // Responsive navigation
-    function checkScreenSize() {
-        const navMenu = document.querySelector('.nav-menu');
-        if (window.innerWidth <= 768) {
-            navToggle.style.display = 'block';
-            navMenu.style.display = 'none';
-        } else {
-            navToggle.style.display = 'none';
-            navMenu.style.display = 'flex';
-        }
-    }
-
-    window.addEventListener('resize', checkScreenSize);
-    checkScreenSize();
-
-    navToggle.addEventListener('click', () => {
-        const navMenu = document.querySelector('.nav-menu');
-        navMenu.style.display = navMenu.style.display === 'none' ? 'flex' : 'none';
-    });
-</script>
-
-
-
-
-
-
+    
 
 
 
@@ -1551,6 +1281,301 @@
 
 </body>
 </html>
+
+
+
+
+    
+
+
+
+
+    <section id="mvp-journey" class="container">
+        <h2 class="anim-element">The MVP Way</h2>
+        <p class="anim-element delay-1" style="color: var(--color-text-secondary); margin-bottom: 50px;">
+             Three-stage process designed for measurable, high-impact results.
+        </p>
+        
+        <div class="mvp-grid">
+            <div class="mvp-step anim-element delay-2" data-hover-color="#0891b2">
+                <div class="mvp-icon">M</div>
+                <div class="mvp-content">
+                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE ONE</p>
+                    <h3>Management Mastery</h3>
+                    <p>We dissect operational bottlenecks, introduce AI-driven workflows, and re-engineer core processes for scale and efficiency.</p>
+                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
+                </div>
+            </div>
+
+            <div class="mvp-step anim-element delay-3" data-hover-color="#06b6d4">
+                <div class="mvp-icon">V</div>
+                <div class="mvp-content">
+                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE TWO</p>
+                    <h3>Venture Validation</h3>
+                    <p>Rigorous market analysis, capital introduction, and strategic partnership alignment to de-risk and accelerate expansion.</p>
+                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
+                </div>
+            </div>
+
+            <div class="mvp-step anim-element delay-4" data-hover-color="#0e7490">
+                <div class="mvp-icon">P</div>
+                <div class="mvp-content">
+                    <p style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">STAGE THREE</p>
+                    <h3>Proprietary Platform</h3>
+                    <p>Crafting a unique, defensible brand platform and narrative that converts market presence into lasting equity and dominance.</p>
+                    <a href="#assessment" style="color: var(--color-primary); display: block; margin-top: 20px;">View Methodology →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="container" style="padding-top: 120px; padding-bottom: 120px;">
+        <h2 class="anim-element" style="color: white;">Unmatched Sector Expertise</h2>
+        <p class="anim-element delay-1" style="color: var(--color-text-secondary); margin-bottom: 60px;">
+            Deep domain knowledge is our currency. We only engage where we can guarantee transformation.
+        </p>
+
+        <div class="mvp-grid" style="gap: 20px;">
+            <div class="mvp-step anim-element delay-2" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
+                <h3 style="font-size: 1.4rem;">FinTech & Blockchain</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Regulatory navigation and product launch.</p>
+            </div>
+            <div class="mvp-step anim-element delay-3" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
+                <h3 style="font-size: 1.4rem;">Digital Health & SaaS</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">User acquisition and retention strategies.</p>
+            </div>
+            <div class="mvp-step anim-element delay-4" style="flex: 1 1 250px; min-height: auto; padding: 30px;">
+                <h3 style="font-size: 1.4rem;">Advanced Manufacturing</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Supply chain optimization and automation.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="assessment">
+    <div class="container">
+        <h2 class="anim-element" style="margin-bottom: 20px;">Quantify Your Opportunity.</h2>
+        <p class="anim-element delay-1" style="font-size: 1.4rem; margin-bottom: 40px; color: var(--color-text-main);">
+            Take the MVP Venture Score Assessment—the first step in transforming potential into profit
+        </p>
+        <a href="https://wa.me/917709708090?text=Hey%20MVP" 
+           target="_blank" 
+           class="cta-button anim-element delay-2">
+           Request Your Private Scorecard
+        </a>
+    </div>
+</section>
+
+     <footer style="background-color: var(--color-bg-main); padding: 40px 0;">
+        <div class="container">
+            <p style="color: var(--color-text-secondary);">&copy; Connect with us- we will guide you through every thing   </p>
+        </div>
+    </footer> 
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // --- 1. Scroll-Triggered Animation Logic (Intersection Observer) ---
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    // We keep observing for potential re-animation on hover/state change later
+                } else {
+                    // Optional: remove 'in-view' when scrolling away for re-animation
+                    // entry.target.classList.remove('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements with the custom animation class
+        document.querySelectorAll('.anim-element').forEach(element => {
+            observer.observe(element);
+        });
+
+
+        // --- 2. Mobile Menu Toggle ---
+        function toggleMenu() {
+            document.getElementById('main-header').classList.toggle('nav-open');
+        }
+
+        // --- 3. Dynamic Active Navigation State & Scroll Logic ---
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        const headerHeight = document.getElementById('main-header').offsetHeight;
+
+        function updateActiveNav() {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - headerHeight - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav(); // Set initial active state
+
+        // --- 4. MVP Card Hover Effect (Visual Polish) ---
+        document.querySelectorAll('.mvp-step').forEach(step => {
+            step.addEventListener('mouseenter', () => {
+                const icon = step.querySelector('.mvp-icon');
+                const color = step.getAttribute('data-hover-color');
+                if (icon) {
+                    icon.style.opacity = '0.3'; // Reveal the big letter
+                    step.style.transform = 'translateY(-10px) scale(1.03)';
+                    step.style.boxShadow = `0 10px 40px ${color}50`; // Subtle colored glow
+                }
+            });
+            step.addEventListener('mouseleave', () => {
+                const icon = step.querySelector('.mvp-icon');
+                if (icon) {
+                    icon.style.opacity = '0.1'; // Hide the big letter
+                    step.style.transform = 'translateY(0) scale(1)';
+                    step.style.boxShadow = `0 0 15px var(--color-shadow-dark)`; // Reset shadow
+                }
+            });
+        });
+    </script>
+
+
+    
+</body>
+</html>
+    
+    
+    
+    
+    
+    <!-- About Section -->
+
+
+<!-- Footer / Join Us Section -->
+<footer id="join">
+
+  
+
+    
+
+
+    <div class="footer-cta">
+        <h3>Ready to Transform Your Business?</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+            Stop letting fear and uncertainty hold you back. Your business dreams deserve to become reality. 
+            Join thousands of entrepreneurs who've chosen to be stronger together.
+        </p>
+        <a href="#contact" class="cta-button">Get Started Now</a>
+    </div>
+    
+ <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #444;">
+        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+            <div class="logo-circles">
+                <div class="circle circle-m">M</div>
+                <div class="circle circle-v">V</div>
+                <div class="circle circle-p">P</div>
+            </div>
+            <div class="logo-text">
+                <h2 style="color: white;">myventure partners</h2>
+                <p>STRONGER TOGETHER</p>
+            </div>
+        </div>
+        <p>&copy; 2025 MyVenture Partners. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Create magic eggs animation
+    function createMagicEgg() {
+        const egg = document.createElement('div');
+        egg.className = 'egg';
+        egg.style.left = Math.random() * 100 + '%';
+        egg.style.animationDelay = Math.random() * 5 + 's';
+        egg.style.animationDuration = (10 + Math.random() * 10) + 's';
+        document.querySelector('.magic-eggs').appendChild(egg);
+
+        setTimeout(() => {
+            egg.remove();
+        }, 20000);
+    }
+
+    // Create eggs periodically
+    setInterval(createMagicEgg, 3000);
+    
+    // Initial eggs
+    for(let i = 0; i < 5; i++) {
+        setTimeout(createMagicEgg, i * 1000);
+    }
+
+    // Smooth scroll animation for sections
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Mobile menu toggle (if needed)
+    const navToggle = document.createElement('div');
+    navToggle.className = 'nav-toggle';
+    navToggle.innerHTML = '☰';
+    navToggle.style.display = 'none';
+    navToggle.style.fontSize = '1.5rem';
+    navToggle.style.cursor = 'pointer';
+    navToggle.style.color = '#2c3e50';
+
+    document.querySelector('.nav-container').appendChild(navToggle);
+
+    // Responsive navigation
+    function checkScreenSize() {
+        const navMenu = document.querySelector('.nav-menu');
+        if (window.innerWidth <= 768) {
+            navToggle.style.display = 'block';
+            navMenu.style.display = 'none';
+        } else {
+            navToggle.style.display = 'none';
+            navMenu.style.display = 'flex';
+        }
+    }
+
+    window.addEventListener('resize', checkScreenSize);
+    checkScreenSize();
+
+    navToggle.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.style.display = navMenu.style.display === 'none' ? 'flex' : 'none';
+    });
+</script>
+
+
+
+
+
+
 
 
 
