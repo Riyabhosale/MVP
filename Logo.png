@@ -1,0 +1,329 @@
+<a href="index.html" class="logo" style="display:flex; align-items:center;">
+  <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:540px; height:auto;">
+    <defs>
+      <!-- Enhanced gradient with more depth -->
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+        <stop offset="30%" style="stop-color:#06b6d4;stop-opacity:1" />
+        <stop offset="70%" style="stop-color:#0284c7;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
+      </linearGradient>
+
+```
+  <!-- Enhanced drop shadow for better quality -->
+  <filter id="dropshadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+    <feOffset dx="3" dy="6" result="offset"/>
+    <feFlood flood-color="#0f172a" flood-opacity="0.2"/>
+    <feComposite in2="offset" operator="in"/>
+    <feMerge> 
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/> 
+    </feMerge>
+  </filter>
+  
+  <!-- Subtle inner highlight for circles -->
+  <radialGradient id="circleGrad1" cx="40%" cy="30%">
+    <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+  </radialGradient>
+  
+  <radialGradient id="circleGrad2" cx="40%" cy="30%">
+    <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
+    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+  </radialGradient>
+  
+  <radialGradient id="circleGrad3" cx="40%" cy="30%">
+    <stop offset="0%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1" />
+    <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+  </radialGradient>
+</defs>
+
+<!-- Main logo -->
+<g transform="translate(50, 100)">
+  <!-- First Circle (M) - Animated -->
+  <circle cx="60" cy="70" r="26" fill="#0891b2" filter="url(#dropshadow)" class="circle-1">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-200,0; 0,0"
+      dur="1s"
+      begin="0s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="0.5s"
+      fill="freeze"/>
+  </circle>
+  <circle cx="60" cy="70" r="26" fill="url(#circleGrad1)" class="circle-1-highlight">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-200,0; 0,0"
+      dur="1s"
+      begin="0s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="0.5s"
+      fill="freeze"/>
+  </circle>
+  
+  <!-- Second Circle (V) - Animated -->
+  <circle cx="90" cy="70" r="26" fill="#06b6d4" filter="url(#dropshadow)" class="circle-2">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-170,0; 0,0"
+      dur="1s"
+      begin="0.7s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="1.2s"
+      fill="freeze"/>
+  </circle>
+  <circle cx="90" cy="70" r="26" fill="url(#circleGrad2)" class="circle-2-highlight">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-170,0; 0,0"
+      dur="1s"
+      begin="0.7s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="1.2s"
+      fill="freeze"/>
+  </circle>
+  
+  <!-- Third Circle (P) - Animated -->
+  <circle cx="120" cy="70" r="26" fill="#0e7490" filter="url(#dropshadow)" class="circle-3">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-140,0; 0,0"
+      dur="1s"
+      begin="1.4s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="1.9s"
+      fill="freeze"/>
+  </circle>
+  <circle cx="120" cy="70" r="26" fill="url(#circleGrad3)" class="circle-3-highlight">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-140,0; 0,0"
+      dur="1s"
+      begin="1.4s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="1.9s"
+      fill="freeze"/>
+  </circle>
+  
+  <!-- Letters with enhanced styling and animations -->
+  <text x="60" y="79" text-anchor="middle" fill="white" 
+        font-family="Arial, sans-serif" font-size="18" font-weight="800" 
+        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-m">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-200,0; 0,0"
+      dur="1s"
+      begin="0s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="0.5s"
+      fill="freeze"/>
+    M
+  </text>
+  
+  <text x="90" y="79" text-anchor="middle" fill="white" 
+        font-family="Arial, sans-serif" font-size="18" font-weight="800"
+        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-v">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-170,0; 0,0"
+      dur="1s"
+      begin="0.7s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="1.2s"
+      fill="freeze"/>
+    V
+  </text>
+  
+  <text x="120" y="79" text-anchor="middle" fill="white" 
+        font-family="Arial, sans-serif" font-size="18" font-weight="800"
+        style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);" class="letter-p">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="-140,0; 0,0"
+      dur="1s"
+      begin="1.4s"
+      fill="freeze"/>
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="0.5s"
+      begin="1.9s"
+      fill="freeze"/>
+    P
+  </text>
+  
+  <!-- Company name with enhanced typography and fade-in animation -->
+  <text x="170" y="58" fill="#1e293b" 
+        font-family="Arial, sans-serif" font-size="32" font-weight="800" 
+        letter-spacing="-0.8px" style="text-shadow: 0 1px 2px rgba(0,0,0,0.05);" class="company-name">
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="1s"
+      begin="2.2s"
+      fill="freeze"/>
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="0,20; 0,0"
+      dur="1s"
+      begin="2.2s"
+      fill="freeze"/>
+    myventure
+  </text>
+  
+  <text x="170" y="88" fill="#64748b" 
+        font-family="Arial, sans-serif" font-size="32" font-weight="400" 
+        letter-spacing="-0.8px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.03);" class="company-name">
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="1s"
+      begin="2.5s"
+      fill="freeze"/>
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="0,20; 0,0"
+      dur="1s"
+      begin="2.5s"
+      fill="freeze"/>
+    partners
+  </text>
+  
+  <!-- Tagline with improved spacing and style -->
+  <text x="170" y="108" fill="#06b6d4" 
+        font-family="Arial, sans-serif" font-size="13" font-weight="600" 
+        letter-spacing="2px" style="text-shadow: 0 1px 1px rgba(0,0,0,0.1);" class="tagline">
+    <animate
+      attributeName="opacity"
+      values="0; 1"
+      dur="1s"
+      begin="2.8s"
+      fill="freeze"/>
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="translate"
+      values="0,10; 0,0"
+      dur="1s"
+      begin="2.8s"
+      fill="freeze"/>
+    STRONGER TOGETHER
+  </text>
+</g>
+```
+
+  </svg>
+</a>
+
+<style>
+  /* Enhanced logo styling at 3x size */
+  .logo {
+    transition: transform 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .logo:hover {
+    transform: scale(1.02);
+  }
+  
+  .logo svg {
+    max-width: 540px; /* 3x the original 180px */
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+
+  /* Initial state - all elements start invisible */
+  .circle-1, .circle-1-highlight, .letter-m,
+  .circle-2, .circle-2-highlight, .letter-v,
+  .circle-3, .circle-3-highlight, .letter-p,
+  .company-name, .tagline {
+    opacity: 0;
+  }
+
+  /* Animation replay on hover */
+  .logo:hover svg {
+    animation: replay 0.1s ease;
+  }
+
+  @keyframes replay {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.01); }
+    100% { transform: scale(1); }
+  }
+
+  /* Responsive scaling while maintaining 3x base size */
+  @media (max-width: 768px) {
+    .logo svg {
+      max-width: 450px; /* 3x the original 150px */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logo svg {
+      max-width: 360px; /* 3x the original 120px */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo svg {
+      max-width: 300px; /* 3x the original 100px */
+    }
+  }
+</style>
+
