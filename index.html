@@ -25,20 +25,6 @@
             overflow-x: hidden;
             position: relative; 
         }
-        
-        h1, h2, h3 {
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: #1a1a1a;
-        }
-        h1 { font-size: 3.2em; }
-        h2 { font-size: 2.4em; margin-bottom: 20px; }
-        h3 { font-size: 1.2em; margin-bottom: 10px; }
-        p {
-            font-size: 1.1em;
-            max-width: 700px;
-            margin: 0 auto 20px;
-        }
 
         /* --- Live Animated Background Engine (Controlled Chaos) --- */
         #bg-engine {
@@ -61,50 +47,16 @@
         }
 
         /* --- Navigation Bar --- */
-        #main-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 999;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5vw;
-            transition: all 0.3s ease;
-        }
-        #main-nav.scrolled {
-            padding: 10px 5vw;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            background: rgba(255,255,255,0.95);
-        }
+        
+            
+      
 
         .logo svg { max-width: 160px; height: auto; transition: transform 0.3s ease; }
         #nav-links-desktop {
             display: flex;
             gap: 25px;
         }
-        #nav-links-desktop a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        #nav-links-desktop a:hover {
-            color: #fff;
-            background: #ff4500;
-        }
 
-        #menu-toggle-button {
-            display: none;
-            font-size: 1.6em;
-            cursor: pointer;
-            color: #1a1a1a;
-        }
 
         
 
@@ -161,33 +113,9 @@
             </svg>
         </a>
 
-        <div id="nav-links-desktop">
-            <a href="#hero-section">START HERE</a>
-            <a href="#solution-section">OUR FIX</a>
-            <a href="#vision-section">OUR VISION</a>
-            <a href="#mvp-section">THE MVP WAY</a>
-            <a href="#contact-section">CONTACT US</a>
-        </div>
+       
 
-        <button id="menu-toggle-button"><i class="fas fa-bars"></i></button>
-    </nav>
-
-    <div id="nav-links-mobile">
-        <a href="#hero-section">START HERE</a>
-        <a href="#solution-section">OUR FIX</a>
-        <a href="#vision-section">OUR VISION</a>
-        <a href="#mvp-section">THE MVP WAY</a>
-        <a href="#contact-section">CONTACT US</a>
-    </div>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="hero-section" class="clarity-section">
-            <h1>STOP WASTING TIME. START your business today .</h1>
-            <p>We are a <strong>Brand Building</strong> and <strong>Business Consultation</strong> firm. Your business is complex enough. Our strategy isn't. We cut the clutter and <strong>guarantee growth</strong>—fast.</p>
-            <p style="font-size: 1.5em; font-weight: bold; color: #ff4500; margin-top: 30px;">We are <strong>The Only Choice.</strong></p>
-            <button class="cta-button" onclick="document.getElementById('solution-section').scrollIntoView({behavior:'smooth'});">SEE OUR SIMPLE FIX</button>
-        </section>
+ 
 
       
     
@@ -235,38 +163,11 @@
     <!-- About Section -->
 
 
-<!-- Footer / Join Us Section -->
-<footer id="join">
 
-  
 
     
 
 
-    <div class="footer-cta">
-        <h3>Ready to Transform Your Business?</h3>
-        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
-            Stop letting fear and uncertainty hold you back. Your business dreams deserve to become reality. 
-            Join thousands of entrepreneurs who've chosen to be stronger together.
-        </p>
-        <a href="#contact" class="cta-button">Get Started Now</a>
-    </div>
-    
- <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #444;">
-        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
-            <div class="logo-circles">
-                <div class="circle circle-m">M</div>
-                <div class="circle circle-v">V</div>
-                <div class="circle circle-p">P</div>
-            </div>
-            <div class="logo-text">
-                <h2 style="color: white;">myventure partners</h2>
-                <p>STRONGER TOGETHER</p>
-            </div>
-        </div>
-        <p>&copy; 2025 MyVenture Partners. All rights reserved.</p>
-    </div>
-</footer>
 
 <script>
     // Create magic eggs animation
