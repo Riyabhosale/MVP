@@ -1504,3 +1504,280 @@
 </html>
 </body>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategix Consulting — Empowering Business Excellence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Inter', sans-serif;
+      color:#0a2540;
+      background:#f8fafc;
+      overflow-x:hidden;
+    }
+
+    header {
+      position:fixed;
+      top:0; left:0; width:100%;
+      background:white;
+      box-shadow:0 2px 10px rgba(0,0,0,0.05);
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1rem 2rem;
+      z-index:1000;
+    }
+    header .logo {
+      font-weight:800; font-size:1.5rem; color:#0077b6;
+    }
+    nav a {
+      margin:0 1rem;
+      color:#0a2540;
+      text-decoration:none;
+      font-weight:600;
+      transition:color 0.3s;
+    }
+    nav a:hover {color:#0077b6;}
+    .cta-btn {
+      background:#0077b6;
+      color:white;
+      padding:0.6rem 1rem;
+      border-radius:30px;
+      font-weight:600;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .cta-btn:hover {background:#005f8a;}
+
+    /* Hero Section */
+    .hero {
+      height:100vh;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center;
+      background:linear-gradient(rgba(0,0,50,0.4), rgba(0,0,50,0.4)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1950&q=80') center/cover;
+      color:white;
+      padding:2rem;
+    }
+    .hero h1 {font-size:3rem; margin-bottom:1rem; animation:fadeUp 1s ease;}
+    .hero p {font-size:1.2rem; max-width:600px; margin-bottom:2rem;}
+    .hero a {font-size:1rem;}
+
+    @keyframes fadeUp {
+      from {opacity:0; transform:translateY(20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+
+    section {
+      padding:5rem 2rem;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* About */
+    .about {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      align-items:center;
+      gap:2rem;
+    }
+    .about img {width:100%; border-radius:20px;}
+    .about-text h2 {font-size:2rem; margin-bottom:1rem; color:#0077b6;}
+    .about-text p {line-height:1.6; color:#333;}
+
+    /* Services */
+    .services h2, .insights h2, .contact h2 {
+      text-align:center; font-size:2rem; color:#0077b6; margin-bottom:2rem;
+    }
+    .service-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:2rem;
+    }
+    .service-card {
+      background:white;
+      padding:2rem;
+      border-radius:20px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.05);
+      transition:transform 0.3s;
+    }
+    .service-card:hover {transform:translateY(-8px);}
+    .service-card h3 {color:#0077b6; margin-bottom:0.5rem;}
+    .service-card p {color:#444; line-height:1.6;}
+
+    /* Insights */
+    .insight-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem;
+    }
+    .insight {
+      background:white;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 4px 15px rgba(0,0,0,0.05);
+      transition:transform 0.3s;
+    }
+    .insight:hover {transform:translateY(-6px);}
+    .insight img {width:100%; height:200px; object-fit:cover;}
+    .insight-content {padding:1.5rem;}
+    .insight-content h3 {margin-bottom:0.5rem; color:#0077b6;}
+    .insight-content p {color:#444; font-size:0.95rem;}
+
+    /* Contact */
+    .contact-form {
+      max-width:600px; margin:auto;
+      display:flex; flex-direction:column; gap:1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      padding:1rem;
+      border:1px solid #ccc;
+      border-radius:10px;
+      font-size:1rem;
+    }
+    .contact-form button {
+      background:#0077b6;
+      color:white;
+      padding:1rem;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .contact-form button:hover {background:#005f8a;}
+
+    footer {
+      text-align:center;
+      padding:2rem;
+      background:#0a2540;
+      color:white;
+    }
+
+    /* Responsive Menu */
+    .menu-toggle {display:none; font-size:1.5rem; cursor:pointer;}
+    @media(max-width:768px){
+      nav {display:none; flex-direction:column; position:absolute; top:70px; right:0; background:white; width:200px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+      nav.active {display:flex;}
+      nav a {margin:1rem; text-align:center;}
+      .menu-toggle {display:block;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Strategix</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="cta-btn">Get Consultation</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Empowering Business Excellence</h1>
+    <p>We help organizations unlock growth, optimize strategy, and lead change with clarity and confidence.</p>
+    <a href="#contact" class="cta-btn">Book a Strategy Call</a>
+  </section>
+
+  <section class="about" id="about">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80" alt="Team Discussion">
+    <div class="about-text">
+      <h2>About Strategix Consulting</h2>
+      <p>At Strategix, we partner with ambitious leaders to redefine possibilities. Our consultants combine strategic insight with operational excellence to deliver measurable impact across industries.</p>
+      <p>From business transformation to performance optimization, we provide clarity that drives success.</p>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Business Strategy</h3>
+        <p>We help companies craft strategies that drive growth, innovation, and long-term advantage.</p>
+      </div>
+      <div class="service-card">
+        <h3>Operational Excellence</h3>
+        <p>Enhancing productivity and efficiency through data-driven process improvements.</p>
+      </div>
+      <div class="service-card">
+        <h3>Digital Transformation</h3>
+        <p>Guiding your business through the evolving digital landscape with smart technology adoption.</p>
+      </div>
+      <div class="service-card">
+        <h3>Market Intelligence</h3>
+        <p>Delivering insights and analytics to make informed, confident business decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights" id="insights">
+    <h2>Insights & Research</h2>
+    <div class="insight-grid">
+      <div class="insight">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" alt="Growth">
+        <div class="insight-content">
+          <h3>Future of Consulting 2030</h3>
+          <p>Explore how AI, analytics, and human insight will redefine the consulting landscape.</p>
+        </div>
+      </div>
+      <div class="insight">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1000&q=80" alt="Business team">
+        <div class="insight-content">
+          <h3>Leadership in Transformation</h3>
+          <p>Building resilient organizations in an age of disruption and rapid change.</p>
+        </div>
+      </div>
+      <div class="insight">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Data">
+        <div class="insight-content">
+          <h3>Data-Driven Decision Making</h3>
+          <p>How data analytics is shaping smarter strategies across industries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Strategix Consulting. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('menu-toggle').addEventListener('click', ()=>{
+      document.getElementById('nav').classList.toggle('active');
+    });
+
+    // Scroll animations
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    },{threshold:0.1});
+    sections.forEach(sec=>{
+      sec.style.opacity=0;
+      sec.style.transform='translateY(40px)';
+      sec.style.transition='all 1s ease';
+      observer.observe(sec);
+    });
+  </script>
+</body>
+</html>
