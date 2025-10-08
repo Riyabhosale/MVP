@@ -1019,9 +1019,66 @@
     </script>
 </body>
 </html>
-  <footer>
-    © <span id="year"></span> Strategix Consulting. All rights reserved.
-  </footer>
+ <footer style="
+  background-color: #0b0d17;
+  color: #f5f5f5;
+  padding: 60px 10%;
+  font-family: 'Inter', sans-serif;
+">
+  <div style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+  ">
+    <!-- Logo / Brand -->
+    <div style="flex: 1 1 250px;">
+      <a href="index.html" style="text-decoration:none; color:#fff; font-weight:700; font-size:1.5rem;">
+        <span style="color:#00bcd4;">MVP</span> Consulting
+      </a>
+      <p style="margin-top:15px; color:#ccc; line-height:1.6;">
+        Empowering businesses to scale smarter with strategy, innovation, and clarity.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex: 1 1 180px;">
+      <h4 style="font-weight:600; margin-bottom:15px;">Quick Links</h4>
+      <ul style="list-style:none; padding:0; line-height:2;">
+        <li><a href="#about" style="color:#ccc; text-decoration:none;">About Us</a></li>
+        <li><a href="#services" style="color:#ccc; text-decoration:none;">Services</a></li>
+        <li><a href="#mvp" style="color:#ccc; text-decoration:none;">MVP Way</a></li>
+        <li><a href="#contact" style="color:#ccc; text-decoration:none;">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div style="flex: 1 1 220px;">
+      <h4 style="font-weight:600; margin-bottom:15px;">Contact</h4>
+      <p style="color:#ccc; margin:0;">📍 Pune, India</p>
+      <p style="color:#ccc; margin:5px 0;">✉️ hello@mvpconsulting.com</p>
+      <p style="color:#ccc;">📞 +91 98765 43210</p>
+    </div>
+
+    <!-- Socials -->
+    <div style="flex: 1 1 180px;">
+      <h4 style="font-weight:600; margin-bottom:15px;">Follow Us</h4>
+      <div style="display:flex; gap:15px;">
+        <a href="#" style="color:#ccc; font-size:1.2rem;">🌐</a>
+        <a href="#" style="color:#ccc; font-size:1.2rem;">💼</a>
+        <a href="#" style="color:#ccc; font-size:1.2rem;">📸</a>
+        <a href="#" style="color:#ccc; font-size:1.2rem;">🐦</a>
+      </div>
+    </div>
+  </div>
+
+  <hr style="border: none; border-top: 1px solid #222; margin: 40px 0;">
+
+  <p style="text-align:center; color:#777; font-size:0.9rem;">
+    © 2025 Myventurepartners. All Rights Reserved.
+  </p>
+</footer>
+
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
