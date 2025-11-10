@@ -34,6 +34,7 @@
       display:flex;
       gap:1.5rem;
       align-items:center;
+      transition: all 0.3s ease;
     }
 
     nav a {
@@ -67,18 +68,11 @@
 
     .hero h1 {font-size:3rem; margin-bottom:1rem; animation:fadeUp 1s ease;}
     .hero p {font-size:1.2rem; max-width:600px; margin-bottom:2rem;}
-    .hero a {font-size:1rem;}
+    .hero a {font-size:1rem; color:white; text-decoration:underline;}
 
     @keyframes fadeUp {
       from {opacity:0; transform:translateY(20px);}
       to {opacity:1; transform:translateY(0);}
-    }
-
-    /* General sections */
-    section {
-      padding:5rem 2rem;
-      max-width:1200px;
-      margin:auto;
     }
 
     footer {
@@ -90,31 +84,33 @@
 
     /* Responsive Menu */
     @media(max-width:768px){
+      .menu-toggle {display:block;}
       nav {
-        display:none;
+        display:flex;
         flex-direction:column;
         position:absolute;
         top:70px;
         right:20px;
         background:white;
-        width:200px;
-        border-radius:10px;
-        box-shadow:0 4px 10px rgba(0,0,0,0.1);
-        padding:1rem 0;
+        width:220px;
+        border-radius:12px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.1);
+        overflow:hidden;
+        max-height:0;
+        opacity:0;
+        pointer-events:none;
+        transition:all 0.4s ease;
       }
-
       nav.active {
-        display:flex;
+        max-height:300px; /* enough space for all links */
+        opacity:1;
+        pointer-events:auto;
       }
-
       nav a {
-        margin:0.75rem 0;
+        margin:1rem 0;
         text-align:center;
         color:#0a2540;
-      }
-
-      .menu-toggle {
-        display:block;
+        font-weight:600;
       }
     }
   </style>
@@ -153,8 +149,10 @@
       document.getElementById('menu').classList.toggle('active');
     }
   </script>
+
 </body>
 </html>
+
 
 
   <section class="hero" id="home">
