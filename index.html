@@ -3,686 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS | Architecting Empires</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>MVP | MyVenturePartners - The Future of Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050505;
+            --bg-color: #0a0a0a;
+            --card-bg: #161616;
+            --primary: #00f2ea; /* Electric Cyan - Future */
+            --secondary: #7000ff; /* Deep Purple - Wisdom */
             --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent: #ADD8E6; /* Cyber Green - Signals Growth/Money/Tech */
-            --accent-dim: rgba(0, 255, 148, 0.1);
-            --surface: #111111;
-            --grid-line: rgba(255, 255, 255, 0.05);
+            --text-muted: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: none; /* Custom cursor logic */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+        /* --- ANIMATED BACKGROUND --- */
+        #canvas-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            opacity: 0.4;
         }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Manrope', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-
-        /* --- CUSTOM CURSOR --- */
-        .cursor-dot,
-        .cursor-outline {
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent);
-        }
-
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--text-muted);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-
-        /* --- UTILITIES & ANIMATIONS --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 0%; height: 100%;
-            background: var(--accent);
-            z-index: -1;
-            transition: width 0.3s ease;
-        }
-
-        .btn:hover::before { width: 100%; }
-        .btn:hover { color: var(--bg-color); }
-
-        /* --- NAVIGATION --- */
+        /* --- NAVBAR --- */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid var(--grid-line);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
+        .logo { font-size: 1.8rem; font-weight: 700; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--primary); }
+        .cta-btn {
+            padding: 12px 24px; background: linear-gradient(45deg, var(--secondary), var(--primary));
+            border: none; border-radius: 30px; color: white; font-weight: 600; cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s; text-decoration: none;
         }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 242, 234, 0.3); }
+        
+        /* Mobile Menu Toggle */
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
-        .logo span { color: var(--accent); }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after { width: 100%; }
-
-        .mobile-toggle { display: none; font-size: 1.5rem; }
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 100px 5%; position: relative; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: 
-                linear-gradient(to bottom, rgba(5,5,5,0.3), var(--bg-color)),
-                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 8rem);
-            line-height: 0.9;
-            margin-bottom: 1.5rem;
-            mix-blend-mode: difference;
+            font-size: 5rem; line-height: 1; margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #a0a0a0); -webkit-background-clip: text; color: transparent;
         }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+        .hero strong { color: var(--primary); }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            color: #ccc;
-            margin-bottom: 2.5rem;
+        /* --- WHO WE ARE (Human Connection) --- */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
         }
-
-        .stats-ticker {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--accent);
-            color: var(--bg-color);
-            padding: 1rem 0;
-            white-space: nowrap;
-            overflow: hidden;
-            font-family: 'Space Grotesk';
-            font-weight: 700;
+        .image-group {
+            position: relative; height: 500px;
         }
-
-        .ticker-track {
-            display: inline-block;
-            animation: ticker 20s linear infinite;
+        .img-card {
+            position: absolute; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
         }
-
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* --- WHO WE ARE --- */
-        .section {
-            padding: 8rem 0;
-            border-bottom: 1px solid var(--grid-line);
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-        .subtitle {
-            color: var(--accent);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: filter 0.5s;
-        }
+        .img-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .img-card:hover img { transform: scale(1.05); }
         
-        .about-img:hover { filter: grayscale(0%); }
+        /* Artistic Layout for Images */
+        .img-1 { width: 70%; height: 60%; top: 0; left: 0; z-index: 1; }
+        .img-2 { width: 60%; height: 50%; bottom: 0; right: 0; z-index: 2; border: 2px solid var(--bg-color); }
+        
+        .about-content h2 { font-size: 3rem; margin-bottom: 20px; }
+        .about-content p { margin-bottom: 20px; line-height: 1.6; color: var(--text-muted); }
 
-        .highlight-text {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 2rem;
+        /* --- SERVICES (The AI Optimization) --- */
+        .services h2 { text-align: center; font-size: 3rem; margin-bottom: 60px; }
+        .service-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
-
-        /* --- SERVICES (CARDS) --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
         .service-card {
-            background: var(--surface);
-            padding: 3rem;
-            border: 1px solid var(--grid-line);
-            transition: transform 0.3s, border-color 0.3s;
-            position: relative;
-            overflow: hidden;
+            background: var(--card-bg); padding: 40px; border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; position: relative; overflow: hidden;
         }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
+        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--primary); transform: scaleX(0); transform-origin: left; transition: 0.3s;
         }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; }
 
-        .service-icon {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
+        /* --- THE MVP JOURNEY (The Process) --- */
+        .journey { background: #0f0f0f; }
+        .timeline {
+            position: relative; max-width: 800px; margin: 0 auto;
         }
-
-        .service-card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* --- OUR PROCESS (The "How") --- */
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 4rem;
+        .timeline::after {
+            content: ''; position: absolute; width: 2px; background: var(--secondary);
+            top: 0; bottom: 0; left: 50%; margin-left: -1px;
         }
-
-        .process-line {
-            position: absolute;
-            top: 25px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--grid-line);
-            z-index: -1;
+        .container {
+            padding: 10px 40px; position: relative; background-color: inherit; width: 50%;
         }
-
-        .step {
-            background: var(--bg-color);
-            width: 20%;
-            text-align: center;
+        .container::after {
+            content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--bg-color);
+            border: 4px solid var(--primary); top: 15px; border-radius: 50%; z-index: 1;
         }
-
-        .step-num {
-            width: 50px;
-            height: 50px;
-            background: var(--surface);
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        /* --- WHY US (Proof) --- */
-        .proof-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 4rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        /* --- CTA / CONTACT --- */
-        .cta-section {
-            background: var(--accent);
-            color: var(--bg-color);
-            text-align: center;
-            padding: 10rem 0;
-        }
-
-        .cta-section h2 {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            color: var(--bg-color);
-        }
-
-        .cta-btn {
-            background: var(--bg-color);
-            color: var(--accent);
-            padding: 1.5rem 4rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border: none;
-            text-transform: uppercase;
-            transition: transform 0.2s;
-        }
-
-        .cta-btn:hover { transform: scale(1.05); }
-
+        .left { left: 0; }
+        .right { left: 50%; }
+        .left::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; right: 30px; border: medium solid white; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent var(--card-bg); }
+        .right::before { content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1; left: 30px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent var(--card-bg) transparent transparent; }
+        .right::after { left: -10px; }
+        
+        .content { padding: 20px 30px; background: var(--card-bg); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
+        
         /* --- FOOTER --- */
         footer {
-            background: #000;
-            padding: 4rem 0;
-            border-top: 1px solid var(--grid-line);
+            background: var(--card-bg); padding: 60px 5% 20px; border-top: 1px solid rgba(255,255,255,0.1);
         }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .footer-col h4 { margin-bottom: 1.5rem; }
-        .footer-col ul li { margin-bottom: 0.8rem; color: var(--text-muted); transition: color 0.3s;}
-        .footer-col ul li:hover { color: var(--accent); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--primary); }
+        .copyright { text-align: center; color: #555; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #222; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Simple hide for demo, real site needs JS toggle */
-            .mobile-toggle { display: block; }
             .hero h1 { font-size: 3rem; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .process-steps { flex-direction: column; gap: 2rem; }
-            .process-line { display: none; }
-            .step { width: 100%; display: flex; align-items: center; gap: 1rem; text-align: left; }
-            .step-num { margin: 0; }
-            .proof-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .cta-section h2 { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .image-group { height: 300px; margin-bottom: 30px; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .container::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent var(--card-bg) transparent transparent; }
+            .left::after, .right::after { left: 21px; }
+            .right { left: 0%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
+    <canvas id="canvas-bg"></canvas>
 
     <nav>
-        <div class="logo"> MVP <span></span></span> </div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#proof">Proof</a>
-        </div>
-        <a href="#contact" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Book Briefing</a>
-        <div class="mobile-toggle">☰</div>
+        <div class="logo">MVP<span>.</span></div>
+        <div class="hamburger">☰</div>
+        <ul class="nav-links">
+            <li><a href="#about">Who We Are</a></li>
+            <li><a href="#services">Capabilities</a></li>
+            <li><a href="#journey">The MVP Way</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="cta-btn">Start Transformation</a>
     </nav>
 
     <section class="hero">
-        <div class="container hero-content reveal">
-            <span class="subtitle">Strategic Management & AI Integration</span>
-            <h1>We Don't Predict<br>The Future.<br><span style="color: var(--accent);">We Engineer It.</span></h1>
-            <p>MVP provides high-frequency strategy and operational infrastructure for Founders and CEOs who are ready to scale from 7 to 9 figures. Stop guessing. Start dominating.</p>
-            <a href="#contact" class="btn">Initiate Protocol</a>
+        <h1 class="fade-in">Your Potential.<br>Weaponized.</h1>
+        <p class="fade-in">MyVenturePartners (MVP) is not a consultancy. We are an optimization engine. We combine human genius with AI precision to build brands that don't just compete—they dominate.</p>
+        <div class="fade-in" style="margin-top: 20px;">
+            <a href="#contact" class="cta-btn">Audit My Business</a>
+        </div>
+    </section>
+
+    <section id="about" class="fade-in">
+        <div class="about-grid">
+            <div class="image-group">
+                <div class="img-card img-1">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="MVP Team Collaborating">
+                </div>
+                <div class="img-card img-2">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Strategic Meeting">
+                </div>
+            </div>
+            <div class="about-content">
+                <h4>WHO WE ARE</h4>
+                <h2>We Are The Architects of Kinetic Energy.</h2>
+                <p>Most businesses are stuck in "Potential Energy." You have the idea, the product, the team—but you lack the velocity.</p>
+                <p>MVP is a collective of management consultants, AI engineers, and brand strategists. We don't write reports that gather dust. We build infrastructure that generates revenue.</p>
+                <p><strong>We don't care about your feelings. We care about your future.</strong> And right now, your future is demanding an upgrade.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="fade-in">
+        <h4>WHAT WE DO</h4>
+        <h2>The MVP Optimization Stack</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>🤖 AI Integration</h3>
+                <p>We don't just "use" AI. We weave it into your operational DNA. From predictive analytics to automated customer flows, we replace guesswork with math.</p>
+            </div>
+            <div class="service-card">
+                <h3>⚡ Brand Velocity</h3>
+                <p>Visual identity, voice, and market positioning designed to cut through the noise. We create brands that trigger immediate psychological trust.</p>
+            </div>
+            <div class="service-card">
+                <h3>📈 Management Consulting</h3>
+                <p>Structural audits and lean optimization. We identify the bottlenecks in your leadership and operations and surgically remove them.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="journey fade-in">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h4>THE JOURNEY</h4>
+            <h2>The Famous "MVP Way"</h2>
+            <p style="color: #a0a0a0;">What happens after you sign.</p>
         </div>
         
-        <div class="stats-ticker">
-            <div class="ticker-track">
-                &nbsp; +++ $500M REVENUE GENERATED FOR CLIENTS +++ AI INTEGRATION DEPLOYED +++ STRATEGY OPTIMIZED +++ 400% ROI AVERAGE +++ Myventurepartners +++ $500M REVENUE GENERATED FOR CLIENTS +++
-            </div>
-        </div>
-
-
-
-
-
-
-
-        
-
-
-        
-
-        
-    </section>
-
-    <section id="about" class="section">
-        <div class="container">
-            <div class="grid-2">
-                <div class="reveal">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Boardroom Strategy" class="about-img">
+        <div class="timeline">
+            <div class="container left">
+                <div class="content">
+                    <h3>1. The Deep Audit</h3>
+                    <p>Day 1-7. No execution. Pure data ingestion. We look at your finances, your team, and your tech. We find the leaks.</p>
                 </div>
-                <div class="reveal">
-                    <span class="subtitle">Who We Are</span>
-                    <h2 class="highlight-text">Your Vision is Chaotic.<br>We Bring Order.</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                        Most companies die because they run on feelings, not frameworks. You have a brilliant product, but your operations are bleeding cash and your strategy is reactive.
-                    </p>
-                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
-                        NEXUS is not a cheerleader. We are your tactical warfare unit. We audit your business, strip away the inefficiencies, integrate cutting-edge AI automation, and rebuild your foundation for massive load-bearing growth.
-                    </p>
-                    <ul style="margin-bottom: 2rem;">
-                        <li style="margin-bottom: 0.5rem;">✓ C-Suite Interim Management</li>
-                        <li style="margin-bottom: 0.5rem;">✓ AI & Automation Architecture</li>
-                        <li style="margin-bottom: 0.5rem;">✓ IPO Readiness & Exit Strategy</li>
-                    </ul>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h3>2. The Blueprint</h3>
+                    <p>We present the "MVP Strategy Document." A roadmap so clear it hurts. AI integration points, brand overhaul, and KPI targets defined.</p>
+                </div>
+            </div>
+            <div class="container left">
+                <div class="content">
+                    <h3>3. The Build</h3>
+                    <p>We deploy. Our teams work with yours. We integrate the systems, redesign the assets, and train your staff.</p>
+                </div>
+            </div>
+            <div class="container right">
+                <div class="content">
+                    <h3>4. The Handover</h3>
+                    <p>You don't need us forever. We hand you the keys to a self-optimizing machine. You own the growth.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="section" style="background: #0a0a0a;">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="subtitle">Our Capabilities</span>
-                <h2>Full-Stack Corporate Evolution</h2>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>MVP<span>.</span></h3>
+                <p style="color: #777; margin-top: 20px;">We help visionaries sleep at night by making their businesses unstoppable.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">◉</div>
-                    <h3>AI & Tech Stack Integration</h3>
-                    <p>We don't just "use" AI. We weave LLMs and automation agents into your daily workflow to reduce headcount costs by 40% while increasing output.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">▲</div>
-                    <h3>Strategic Positioning</h3>
-                    <p>Redefining your market fit. We analyze competitors, identify blue oceans, and pivot your brand narrative to command premium pricing.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">■</div>
-                    <h3>Operational Architecture</h3>
-                    <p>Building the SOPs and hiring pipelines that allow you, the Founder, to step back from day-to-day firefighting.</p>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">◆</div>
-                    <h3>Financial War Rooms</h3>
-                    <p>Cash flow optimization, fundraising pitch deck creation, and P&L restructuring to maximize profitability.</p>
-                </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#about">Who We Are</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#journey">The MVP Journey</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>hello@myventurepartners.com</li>
+                    <li>+1 (555) 019-2834</li>
+                    <li>Silicon Valley, CA</li>
+                </ul>
+                <a href="#" class="cta-btn" style="margin-top: 20px; display: inline-block;">Book Consultation</a>
             </div>
         </div>
-    </section>
-
-    <section id="process" class="section">
-        <div class="container reveal">
-            <div class="section-header" style="text-align: center;">
-                <span class="subtitle">The Algorithm</span>
-                <h2>How We Scale You</h2>
-            </div>
-            <div class="process-steps">
-                <div class="process-line"></div>
-                <div class="step">
-                    <div class="step-num">01</div>
-                    <h4>Deep Audit</h4>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">We tear down your current metrics to find the leaks.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">02</div>
-                    <h4>Strategy Map</h4>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">We deliver the 90-day execution blueprint.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">03</div>
-                    <h4>Deployment</h4>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">Our team integrates into yours to execute.</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">04</div>
-                    <h4>Optimization</h4>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">Refining based on live data feedback loops.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proof" class="section">
-        <div class="container">
-            <div class="proof-grid reveal">
-                <div class="stat-item">
-                    <h3>$1B+</h3>
-                    <p>Client Valuation Growth</p>
-                </div>
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>Exits Facilitated</p>
-                </div>
-                <div class="stat-item">
-                    <h3>40%</h3>
-                    <p>Avg. OpEx Reduction</p>
-                </div>
-                <div class="stat-item">
-                    <h3>300+</h3>
-                    <p>Founders Advised</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="cta-section">
-        <div class="container reveal">
-            <span class="subtitle" style="color: #000;">Safe Hands. Dangerous Results.</span>
-            <h2>Ready to Ascend?</h2>
-            <p style="max-width: 600px; margin: 0 auto 3rem auto; color: #333;">
-                We only work with 5 new companies per quarter to ensure maximum impact. See if you qualify for our strategic partnership.
-            </p>
-            <button class="cta-btn">Schedule The Audit</button>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col" style="flex: 2; min-width: 300px;">
-                    <div class="logo" style="margin-bottom: 1rem;">NEXUS <span>//</span> CONS.</div>
-                    <p style="color: #555; max-width: 300px;">
-                        The premier management consulting firm for the digital age. We build the machines that build the money.
-                    </p>
-                </div>
-                <div class="footer-col" style="margin-right: 3rem;">
-                    <h4>Company</h4>
-                    <ul>
-                        <li>About</li>
-                        <li>Careers</li>
-                        <li>Case Studies</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li>Privacy Policy</li>
-                        <li>Terms of Service</li>
-                        <li>NDA Agreements</li>
-                    </ul>
-                </div>
-            </div>
-            <div style="margin-top: 4rem; color: #333; font-size: 0.8rem; border-top: 1px solid #222; padding-top: 1rem;">
-                © 2024 NEXUS Management. All Rights Reserved. System Online.
-            </div>
+        <div class="copyright">
+            &copy; 2024 MyVenturePartners. All rights reserved. Powered by Human Genius & AI.
         </div>
     </footer>
 
     <script>
-        // --- CUSTOM CURSOR LOGIC ---
-        const cursorDot = document.querySelector('[data-cursor-dot]');
-        const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-        window.addEventListener("mousemove", function(e) {
-            const posX = e.clientX;
-            const posY = e.clientY;
-
-            // Dot follows instantly
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            // Outline follows with slight lag (animation handled by CSS transition)
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        // Add hover effect to links/buttons to expand cursor
-        const interactiveElements = document.querySelectorAll('a, button, .service-card');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorOutline.style.backgroundColor = 'transparent';
-            });
-        });
-
-        // --- SCROLL REVEAL ANIMATION ---
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+        // --- INTERSECTION OBSERVER FOR SCROLL ANIMATIONS ---
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Only animate once
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
-        }, {
-            root: null,
-            threshold: 0.15
-        });
+        }, { threshold: 0.1 });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        // --- CANVAS PARTICLE BACKGROUND ---
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        
+        let particlesArray;
+        
+        // Set Canvas Size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2;
+                this.speedX = (Math.random() * 0.5) - 0.25;
+                this.speedY = (Math.random() * 0.5) - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(0, 242, 234, 0.5)'; // Cyan color
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                
+                // Connect particles
+                for (let j = i; j < particlesArray.length; j++) {
+                    const dx = particlesArray[i].x - particlesArray[j].x;
+                    const dy = particlesArray[i].y - particlesArray[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 242, 234, ${0.1 - distance/1000})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+        
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
