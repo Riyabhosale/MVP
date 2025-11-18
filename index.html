@@ -1,3233 +1,656 @@
 <!DOCTYPE html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MVP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {
-      font-family: 'Inter', sans-serif;
-      color:#0a2540;
-      background:#000000;
-      overflow-x:hidden;
-    }
-
-    header {
-      position:fixed;
-      top:0; left:0; width:100%;
-      background:white;
-      box-shadow:0 2px 10px rgba(0,0,0,0.05);
-      display:flex; justify-content:space-between; align-items:center;
-      padding:1rem 2rem;
-      z-index:1000;
-    }
-    header .logo {
-      font-weight:800; font-size:1.5rem; color:#0077b6;
-    }
-   
-    .cta-btn:hover {background:#005f8a;}
-
-    /* Hero Section */
-    .hero {
-      height:100vh;
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      text-align:center;
-      background:linear-gradient(rgba(0,0,50,0.4), rgba(0,0,50,0.4)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1950&q=80') center/cover;
-      color:white;
-      padding:2rem;
-    }
-    .hero h1 {font-size:3rem; margin-bottom:1rem; animation:fadeUp 1s ease;}
-    .hero p {font-size:1.2rem; max-width:600px; margin-bottom:2rem;}
-    .hero a {font-size:1rem;}
-
-    @keyframes fadeUp {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-
-    section {
-      padding:5rem 2rem;
-      max-width:1200px;
-      margin:auto;
-    }
-
-    /* About */
-    .about {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      align-items:center;
-      gap:2rem;
-    }
-    .about img {width:100%; border-radius:20px;}
-    .about-text h2 {font-size:2rem; margin-bottom:1rem; color:#0077b6;}
-    .about-text p {line-height:1.6; color:#333;}
-
-    /* Services */
-    .services h2, .insights h2, .contact h2 {
-      text-align:center; font-size:2rem; color:#0077b6; margin-bottom:2rem;
-    }
-    .service-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:2rem;
-    }
-    .service-card {
-      background:white;
-      padding:2rem;
-      border-radius:20px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.05);
-      transition:transform 0.3s;
-    }
-    .service-card:hover {transform:translateY(-8px);}
-    .service-card h3 {color:#0077b6; margin-bottom:0.5rem;}
-    .service-card p {color:#444; line-height:1.6;}
-
-    /* Insights */
-    .insight-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:2rem;
-    }
-    .insight {
-      background:white;
-      border-radius:15px;
-      overflow:hidden;
-      box-shadow:0 4px 15px rgba(0,0,0,0.05);
-      transition:transform 0.3s;
-    }
-    .insight:hover {transform:translateY(-6px);}
-    .insight img {width:100%; height:200px; object-fit:cover;}
-    .insight-content {padding:1.5rem;}
-    .insight-content h3 {margin-bottom:0.5rem; color:#0077b6;}
-    .insight-content p {color:#444; font-size:0.95rem;}
-
-    /* Contact */
-    .contact-form {
-      max-width:600px; margin:auto;
-      display:flex; flex-direction:column; gap:1rem;
-    }
-    .contact-form input, .contact-form textarea {
-      padding:1rem;
-      border:1px solid #ccc;
-      border-radius:10px;
-      font-size:1rem;
-    }
-    .contact-form button {
-      background:#0077b6;
-      color:white;
-      padding:1rem;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      font-weight:600;
-    }
-    .contact-form button:hover {background:#005f8a;}
-
-    footer {
-      text-align:center;
-      padding:2rem;
-      background:#0a2540;
-      color:white;
-    }
-
-    /* Responsive Menu */
-    .menu-toggle {display:none; font-size:1.5rem; cursor:pointer;}
-    @media(max-width:768px){
-      nav {display:none; flex-direction:column; position:absolute; top:70px; right:0; background:white; width:200px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-      nav.active {display:flex;}
-      nav a {margin:1rem; text-align:center;}
-      .menu-toggle {display:block;}
-    }
-  </style>
-</head>
-<body>
-  <header>
-
-
-<!DOCTYPE html>
-
-
-
- <nav>
-        <!-- Logo with animation -->
-        <div class="logo">
-            <img src="mvp-logo.svg" alt="Logo">
-            
-        </div>
-
-        <!-- Menu icon for mobile view -->
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-        <!-- Navbar links -->
-        <ul id="menu">
-            <li><a href="https://thefineace.com">Home</a></li> <!-- Linked to thefineace.com -->
-            <li><a href="our-services.html">Services</a></li> <!-- Linked to a services page -->
-            <li><a href="about-us.html">About</a></li> <!-- Linked to an about page -->
-            <li><a href="contact us.html">Contact Us</a></li> <!-- Linked to a contact page -->
-            <li><a href="https://thefineace.blogspot.com/">Blog</a></li> <!-- Linked to the blog -->   
-       </ul>
-    </nav>
-
-
-
-    
-  </header>
-
-
-
-  <section class="hero" id="home">
-    <h1>Empowering Business Excellence</h1>
-    <p>We help organizations unlock growth, optimize strategy, and lead change with clarity and confidence.</p>
-    <a href="#contact" class="cta-btn">Book a Strategy Call</a>
-  </section>
-
-  <section class="about" id="about">
-    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80" alt="Team Discussion">
-    <div class="about-text">
-      <h2>About MVP</h2>
-      <p>At Strategix, we partner with ambitious leaders to redefine possibilities. Our consultants combine strategic insight with operational excellence to deliver measurable impact across industries.</p>
-      <p>From business transformation to performance optimization, we provide clarity that drives success.</p>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <h3>Business Strategy</h3>
-        <p>We help companies craft strategies that drive growth, innovation, and long-term advantage.</p>
-      </div>
-      <div class="service-card">
-        <h3>Operational Excellence</h3>
-        <p>Enhancing productivity and efficiency through data-driven process improvements.</p>
-      </div>
-      <div class="service-card">
-        <h3>Digital Transformation</h3>
-        <p>Guiding your business through the evolving digital landscape with smart technology adoption.</p>
-      </div>
-      <div class="service-card">
-        <h3>Market Intelligence</h3>
-        <p>Delivering insights and analytics to make informed, confident business decisions.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="insights" id="insights">
-    <h2>Insights & Research</h2>
-    <div class="insight-grid">
-      <div class="insight">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80" alt="Growth">
-        <div class="insight-content">
-          <h3>Future of Consulting 2030</h3>
-          <p>Explore how AI, analytics, and human insight will redefine the consulting landscape.</p>
-        </div>
-      </div>
-      <div class="insight">
-        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1000&q=80" alt="Business team">
-        <div class="insight-content">
-          <h3>Leadership in Transformation</h3>
-          <p>Building resilient organizations in an age of disruption and rapid change.</p>
-        </div>
-      </div>
-      <div class="insight">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Data">
-        <div class="insight-content">
-          <h3>Data-Driven Decision Making</h3>
-          <p>How data analytics is shaping smarter strategies across industries.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
- 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elevate Business Management</title>
+    <title>NEXUS | Architecting Empires</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #050505;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent: #00FF94; /* Cyber Green - Signals Growth/Money/Tech */
+            --accent-dim: rgba(0, 255, 148, 0.1);
+            --surface: #111111;
+            --grid-line: rgba(255, 255, 255, 0.05);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: none; /* Custom cursor logic */
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Manrope', sans-serif;
             overflow-x: hidden;
-            background: #0a0a0a;
-            color: #fff;
+            line-height: 1.6;
         }
 
-        /* Hero Section */
-        
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
 
-        .hero::before {
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--text-muted);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        /* --- UTILITIES & ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
+            top: 0; left: 0; width: 0%; height: 100%;
+            background: var(--accent);
+            z-index: -1;
+            transition: width 0.3s ease;
         }
 
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+        .btn:hover::before { width: 100%; }
+        .btn:hover { color: var(--bg-color); }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--grid-line);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-toggle { display: none; font-size: 1.5rem; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: 
+                linear-gradient(to bottom, rgba(5,5,5,0.3), var(--bg-color)),
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
         }
 
         .hero-content {
-            text-align: center;
+            position: relative;
             z-index: 2;
-            padding: 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
+            font-size: clamp(3rem, 8vw, 8rem);
+            line-height: 0.9;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #fff, #e0e0e0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            mix-blend-mode: difference;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        .cta-primary {
-            background: #fff;
-            color: #667eea;
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #66dfea, #66dfea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
             font-size: 1.2rem;
-            color: #888;
+            max-width: 600px;
+            color: #ccc;
+            margin-bottom: 2.5rem;
+        }
+
+        .stats-ticker {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--accent);
+            color: var(--bg-color);
+            padding: 1rem 0;
+            white-space: nowrap;
+            overflow: hidden;
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+        }
+
+        .ticker-track {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- WHO WE ARE --- */
+        .section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--grid-line);
+        }
+
+        .section-header {
             margin-bottom: 4rem;
         }
 
+        .subtitle {
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s;
+        }
+        
+        .about-img:hover { filter: grayscale(0%); }
+
+        .highlight-text {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        /* --- SERVICES (CARDS) --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .service-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
+            background: var(--surface);
+            padding: 3rem;
+            border: 1px solid var(--grid-line);
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            background: rgba(255,255,255,0.08);
-            border-color: #667eea;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            border-color: var(--accent);
         }
 
         .service-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
             font-size: 2rem;
-            transition: all 0.3s ease;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
         }
 
-        .service-card:hover .service-icon {
-            transform: rotate(10deg) scale(1.1);
+        .service-card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* --- OUR PROCESS (The "How") --- */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 4rem;
         }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
+        .process-line {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--grid-line);
+            z-index: -1;
         }
 
-        .service-card p {
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, #667eea 0%, #3cb8de 100%);
-            padding: 5rem 2rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .step {
+            background: var(--bg-color);
+            width: 20%;
             text-align: center;
         }
 
-        .stat-item {
-            animation: fadeInUp 1s ease;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 6rem 2rem;
-            background: #0a0a0a;
-        }
-
-        .testimonials-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255,255,255,0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            font-size: 5rem;
-            color: #66dfea;
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            border-color: #667eea;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #ccc;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
+        .step-num {
             width: 50px;
             height: 50px;
+            background: var(--surface);
+            border: 2px solid var(--accent);
             border-radius: 50%;
-            background: linear-gradient(135deg, #66dfea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
             font-weight: 700;
+            color: var(--accent);
         }
 
-        .author-info h4 {
-            color: #fff;
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        /* Features Timeline */
-        .features-timeline {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0a 100%);
-        }
-
-        .timeline-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #66dfea, #66dfea);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 4rem;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            margin: 0 2rem;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 2rem;
-            width: 20px;
-            height: 20px;
-            background: #66dfea;
-            border-radius: 50%;
-            transform: translateX(-50%);
-            border: 4px solid #0a0a0a;
-            z-index: 2;
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
-        }
-
-        .timeline-content h3 {
-            color: #66dfea;
-            margin-bottom: 0.75rem;
-            font-size: 1.5rem;
-        }
-
-        .timeline-content p {
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: #1a1a2e;
-            padding: 6rem 2rem;
+        /* --- WHY US (Proof) --- */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
             text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- CTA / CONTACT --- */
+        .cta-section {
+            background: var(--accent);
+            color: var(--bg-color);
+            text-align: center;
+            padding: 10rem 0;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--bg-color);
         }
 
-        .cta-section p {
+        .cta-btn {
+            background: var(--bg-color);
+            color: var(--accent);
+            padding: 1.5rem 4rem;
             font-size: 1.2rem;
-            color: #aaa;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: #fff;
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
-            border: 2px solid #66dfea;
-            border-radius: 50px;
             font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .cta-secondary:hover {
-            background: #66dfea;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Floating CTA Button */
-        .floating-cta {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: linear-gradient(135deg, #66dfea, #66dfea);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
             border: none;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .floating-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            }
-            50% {
-                box-shadow: 0 10px 40px rgba(102, 126, 234, 0.7);
-            }
-        }
-
-        /* Particle animation */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-            }
-            25% {
-                transform: translateY(-20px) translateX(10px);
-            }
-            50% {
-                transform: translateY(-40px) translateX(-10px);
-            }
-            75% {
-                transform: translateY(-20px) translateX(5px);
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .timeline-line {
-                left: 2rem;
-            }
-
-            .timeline-item,
-            .timeline-item:nth-child(even) {
-                flex-direction: row;
-            }
-
-            .timeline-dot {
-                left: 2rem;
-            }
-
-            .timeline-content {
-                margin-left: 4rem;
-                margin-right: 0;
-            }
-
-            .floating-cta {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Hero Section -->
-    
-
-    <!-- Services Section -->
-    <section class="services">
-        <h2 class="section-title fade-in">Our Services</h2>
-        <p class="section-subtitle fade-in">Comprehensive solutions tailored to your business needs</p>
-        
-        <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">📊</div>
-                <h3>Strategic Planning</h3>
-                <p>Develop data-driven strategies that align with your business goals and market opportunities.</p>
-            </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">⚡</div>
-                <h3>Process Optimization</h3>
-                <p>Streamline operations and eliminate inefficiencies to maximize productivity and reduce costs.</p>
-            </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">📈</div>
-                <h3>Growth Analytics</h3>
-                <p>Leverage powerful insights and metrics to identify opportunities and track performance.</p>
-            </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">👥</div>
-                <h3>Team Development</h3>
-                <p>Build high-performing teams through training, culture development, and leadership coaching.</p>
-            </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">💼</div>
-                <h3>Financial Management</h3>
-                <p>Optimize cash flow, budgeting, and financial planning for sustainable growth.</p>
-            </div>
-            
-            <div class="service-card fade-in">
-                <div class="service-icon">🎯</div>
-                <h3>Market Expansion</h3>
-                <p>Navigate new markets confidently with comprehensive research and entry strategies.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <span class="stat-number">500+</span>
-                <span class="stat-label">Clients Served</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">98%</span>
-                <span class="stat-label">Satisfaction Rate</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">$50M+</span>
-                <span class="stat-label">Revenue Generated</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">15+</span>
-                <span class="stat-label">Years Experience</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2 class="section-title fade-in">What Our Clients Say</h2>
-        <p class="section-subtitle fade-in">Real results from real businesses</p>
-        
-        <div class="testimonials-container">
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">Working with this team transformed our operations. We saw a 40% increase in efficiency within the first quarter.</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">JS</div>
-                    <div class="author-info">
-                        <h4>Jennifer Schmidt</h4>
-                        <p>CEO, TechFlow Inc</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">The strategic planning sessions gave us clarity and direction. Our revenue doubled in 18 months thanks to their guidance.</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MK</div>
-                    <div class="author-info">
-                        <h4>Michael Khan</h4>
-                        <p>Founder, GrowthLabs</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card fade-in">
-                <p class="testimonial-text">Outstanding team development program. Our employee satisfaction scores increased by 35% and turnover dropped significantly.</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">RL</div>
-                    <div class="author-info">
-                        <h4>Rachel Lee</h4>
-                        <p>HR Director, Innovate Corp</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Timeline -->
-    <section class="features-timeline">
-        <h2 class="section-title fade-in">Our Proven Process</h2>
-        <p class="section-subtitle fade-in">A systematic approach to business excellence</p>
-        
-        <div class="timeline-container">
-            <div class="timeline-line"></div>
-            
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Discovery & Analysis</h3>
-                    <p>We dive deep into your business to understand challenges, opportunities, and goals. Comprehensive audits and stakeholder interviews form the foundation.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Strategy Development</h3>
-                    <p>Custom strategies are crafted based on data insights, market research, and industry best practices tailored to your unique situation.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Implementation</h3>
-                    <p>We work alongside your team to execute the strategy, providing hands-on support and expertise every step of the way.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Optimization & Growth</h3>
-                    <p>Continuous monitoring and refinement ensure sustained success. We adapt strategies as your business evolves and grows.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
- 
-
-    <!-- Floating CTA -->
-    <button class="floating-cta" onclick="handleCTA('Quick Contact')">💬 Let's Talk</button>
-
-    <script>
-        // Scroll animation observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        document.querySelectorAll('.timeline-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // CTA click handler
-        function handleCTA(action) {
-            console.log('CTA clicked:', action);
-            alert(`Thank you for your interest in ${action}! We'll contact you shortly.`);
-        }
-
-        // Animated counter for stats
-        function animateCounter(element, target, duration = 2000) {
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = formatStatNumber(target);
-                    clearInterval(timer);
-                } else {
-                    element.textContent = formatStatNumber(Math.floor(current));
-                }
-            }, 16);
-        }
-
-        function formatStatNumber(num) {
-            if (num >= 1000000) return '$' + (num / 1000000).toFixed(0) + 'M+';
-            if (num >= 1000) return (num / 1000).toFixed(0) + 'K+';
-            return num + (num === 98 ? '%' : '+');
-        }
-
-        // Observe stats section for counter animation
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                    entry.target.classList.add('animated');
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    
-                    const values = [500, 98, 50000000, 15];
-                    statNumbers.forEach((num, index) => {
-                        setTimeout(() => {
-                            animateCounter(num, values[index], 2000);
-                        }, index * 100);
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) statsObserver.observe(statsSection);
-
-        // Parallax effect for hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-content');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                hero.style.opacity = 1 - (scrolled / window.innerHeight);
-            }
-        });
-
-        // Smooth scroll for buttons
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
-
-        // Add floating particles
-  
-        createParticles();
-    </script>              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head> 
-
- 
-
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "25f5f9b8-c432-4c6b-a3d2-3e7cf73daf46",
-    });
-  });
-</script>
-
-
-
-
-
-
-  
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "thefineace",
-  "url": "https://www.thefineace.com",
-  "logo": "TFA.png",
-  "description": "content="Boost your business growth with TFA's expert consulting services. Specializing in sales, marketing, and market research and many more.",
-  "sameAs": [
-    "https://www.facebook.com/yourprofile",
-    "https://www.twitter.com/yourprofile",
-    "https://www.linkedin.com/in/yourprofile"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-555-555-5555",
-    "contactType": "Customer Service"
-  }
-}
-</script>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.thefineace.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "About",
-      "item": "https://www.thefineace.com/about-us"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Services",
-      "item": "https://www.thefineace.com/our-services.html"
-    }
-  ]
-}
-</script>
-
-
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RHSS767M4B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-RHSS767M4B');
-  
-</script>
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-  
-      
-<title>TFA:Top Business Consultants | TFA – Your Partner in Growth</title>
-
-
-<meta name="description" content="TFA - Expert consulting services to boost your business growth. Specializing in sales, marketing, and market research, we provide  strategies to increase revenue and scale operations.>
-
-  
-
-    <meta name="description" content="Boost your business growth with TFA's expert consulting services. Specializing in sales, marketing, and market research and many more. Partner with TFA today for unparalleled business success.">
-    <meta name="keywords" content="Business consulting, sales growth, marketing strategies, market research, business development, revenue increase, business scaling, TFA consulting, business solutions">
-    <meta property="og:title" content="Top Business Consulting Services | TFA - Your Growth Partner">
-    <meta property="og:description" content="Boost your business growth with TFA's expert consulting services. Specializing in sales, marketing, and market research, we provide tailored strategies to increase your revenue and scale operations. Partner with TFA today for unparalleled business success.">
-    <meta property="og:image" content="https://thefineace.com/TFA.png">
-    <meta property="og:url" content="https://thefineace.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Top Business Consulting Services | TFA - Your Growth Partner">
-    <meta name="twitter:description" content="Boost your business growth with TFA's expert consulting services. Specializing in sales, marketing, and market research, we provide tailored strategies to increase your revenue and scale operations. Partner with TFA today for unparalleled business success.">
-    <meta name="twitter:image" content="https://thefineace.com/"C:\Users\hp\OneDrive\Desktop\last\hotelboostrap\TFA.png">
-
-
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TFA",
-  "url": "https://thefineace.com",
-  "logo": "https://thefineace.com/path-to-your-logo.jpg",
-  "description": "Boost your business growth with TFA's expert consulting services. Specializing in sales, marketing, and market research, we provide tailored strategies to increase your revenue and scale operations. Partner with TFA today for unparalleled business success.",
-  "sameAs": [
-    "https://www.facebook.com/https://www.facebook.com/profile.php?id=100094502782021",
-    "https://www.linkedin.com/in/YourLinkedInProfile",
-    "https://twitter.com/YourTwitterHandle"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "7709708090",
-    "contactType": "Customer Service",
-    "areaServed": "all over world",
-    "availableLanguage": ["English"]
-  }
-}
-</script>
-
-
-  <link rel="alternate" href="https://thefineace.com" hreflang="en-us">
-  <link rel="alternate" href="https://thefineace.com/es" hreflang="es-es">
-  <link rel="alternate" href="https://thefineace.com/fr" hreflang="fr-fr">
-  <link rel="alternate" href="https://thefineace.com/hi" hreflang="hi-in">
-  <link rel="alternate" href="https://thefineace.com/mr" hreflang="mr-in">
-  <link rel="alternate" href="https://thefineace.com/ta" hreflang="ta-in">
-  <link rel="alternate" href="https://thefineace.com" hreflang="x-default">
-
-
-  
- <link rel="icon" type="image/x-icon" href="favicon.png">
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-<style>
-
-.textblack {
-color: rgb(0, 0, 0);
-font-family: sans-serif;
-
-}
-
-.fs:hover{
-font-size: 18px;
-color:rgb(255, 39, 39);
-}
-.bgcolor1 {
-background-color: rgb(255, 255, 255);
-}
-.sm{
-color:white;
-
-}
-
-.fa {
-padding: 10px;
-padding-right: 20px;
-padding-bottom: 25px;
-font-size: 10px;
-width: 10px;
-height: 20px;
-text-align: center;
-text-decoration: none;
-border-radius: 50%;
-/* margin-left: 40px; */
-}
-
-.fa:hover .image1:hover{
-opacity: 0.9;
-color:bisque;
-}
-
-
-.subbtn{
-background-color:rgb(218, 59, 38);
-color:white;
-}
-fs:hover{
-color: rgb(255, 254, 254);
-}
-
-.fs1{
-font-size: 30px;
-color: rgb(255, 254, 254);
-}
-.fs2{
-  font-size: 14px;
-  color: rgb(11, 11, 11);
-}
-.fs3{
-  font-size: 12px;
-}
-.responsive {
-max-width: 100%;
-height: auto;
-}
-.data1{
-position: relative;
-width: 50%;
-
-}
-
-.image {
-display: block;
-width: 100%;
-height: auto;
-}
-
-.overlay {
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-background-color: #948a8a5a;
-overflow: hidden;
-width: 180%;
-height: 100%;
--webkit-transform: scale(0);
--ms-transform: scale(0);
-transform: scale(0);
--webkit-transition: .3s ease;
-transition: .3s ease;
-}
-
-.data1:hover .overlay {
--webkit-transform: scale(1);
--ms-transform: scale(1);
-transform: scale(1);
-}
-
-
-.text {
-color: rgb(255, 255, 255);
-font-size: 20px;
-position: absolute;
-top: 50%;
-left: 50%;
--webkit-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%);
-text-align: center;
-}
-.c:hover{
-background-color: rgba(61, 233, 233, 0.425);
-}
-
-.c1:hover{
-background-color:rgb(168, 106, 40);
-}
-
-.card{
-box-shadow: 2px 8px 8px 0 rgb(20, 19, 19);
-transition: 0.5s;
-}
-
-.card-img-top1{
-  position: relative;
-width: 100%;
-/* height:200px; */
-
-}
-.image1 {
-display: block;
-width: 100%;
-height: 200px;
-}
-
-overlay {
-  position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-background-color: #afaeae86;
-overflow: hidden;
-/* width: 200px; */
-height: 100%;
--webkit-transform: scale(0);
--ms-transform: scale(0);
-transform: scale(0);
--webkit-transition: .3s ease;
-transition: .3s ease;
-}
-
-.text {
-color: black;
-font-size: 20px;
-position: absolute;
- top: 50%;
-left: 50%; 
--webkit-transform: translate(-30%, -30%);
--ms-transform: translate(-30%, -30%);
-transform: translate(-30%, -30%); 
-text-align: left;
-}
-
-.card-img-top1:hover .overlay {
-  width: 100%;
--webkit-transform: scale(1);
--ms-transform: scale(1);
-transform: scale(1);
-}
-
-
-body{
-    margin: 0;
-    background-color: #050505;
-}
-main{
-    width: min(1200px, 90vw);
-    margin: auto;
-}
-.slider{
-    width: 100%;
-    height: var(--height);
-    overflow: hidden;
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        #000000 10% 90%,
-        transparent
-    );
-}
-.slider .list{
-    display: flex;
-    width: 100%;
-    min-width: calc(var(--width) * var(--quantity));
-    position: relative;
-}
-.slider .list .item{
-    width: var(--width);
-    height: var(--height);
-    position: absolute;
-    left: 100%;
-    animation: autoRun 10s linear infinite;
-    transition: filter 0.5s;
-    animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) )!important;
-}
-.slider .list .item img{
-    width: 100%;
-}
-@keyframes autoRun{
-    from{
-        left: 100%;
-    }to{
-        left: calc(var(--width) * -1);
-    }
-}
-.slider:hover .item{
-    animation-play-state: paused!important;
-    filter: grayscale(1);
-}
-.slider .item:hover{
-    filter: grayscale(0);
-}
-.slider[reverse="true"] .item{
-    animation: reversePlay 10s linear infinite;
-}
-@keyframes reversePlay{
-    from{
-        left: calc(var(--width) * -1);
-    }to{
-        left: 100%;
-    }
-}
-
-
-.card:hover {
-box-shadow: 2px 8px 16px 0 rgb(71, 66, 216);
-} 
-
-
-/* Reset default margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000000; /* Green background */
-}
-
-.chat-container {
-    text-align: center;
-    padding: 20px;
-}
-
-.whatsapp-chat {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff; /* White text */
-    background-color: #090909; /* Green background */
-    border-radius: 5px;
-    padding: 10px 20px;
-    transition: background-color ;
-}
-
-.whatsapp-chat img {
-    vertical-align: middle;
-    width: 24px; /* Adjust icon size */
-    height: 24px; /* Adjust icon size */
-    margin-right: 10px;
-}
-
-.whatsapp-chat:hover {
-    background-color: #115c1a; /* Pink background on hover */
-}
-
-
-
-/* Basic styling */
-.bgcolor1 {
-  background-color: #FFFFFF; /* Change this to your desired color */
-}
-
-.navht {
-  height: 60px;
-}
-
-.textclr {
-  color: white;
-}
-
-.textblack {
-  color: black;
-}
-
-.fs2 {
-  font-size: 1.2rem;
-}
-
-/* Responsive logo image */
-.logo-img {
-  width: 100%;
-  height: auto;
-  max-width: 100px; /* Adjust max-width as needed */
-}
-
-/* Media queries for responsive design */
-@media (max-width: 768px) {
-  .logo-img {
-    max-width: 100px; /* Adjust max-width for smaller screens */
-  }
-}
-
-
-
-
-  /* Our Services Section */
-.our-services .description {
-  color: #000 !important; /* Force black text */
-}
-
-
-
-
-  
-
-</style>
-</head>
-
-<body>
-
-
-
-</div>
-</div>
-</nav>
-
-
-
-
-<body>
- 
-
-  
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVP:Top Business Consultants | MVP– Your Partner in Growth</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        /* Navbar styling */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background-color: #fff; /* Changed to white */
-            color: #333;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        nav .logo {
-            font-size: 24px;
-            font-weight: bold;
             text-transform: uppercase;
-            color: #333;
-            display: flex;
-            align-items: center;
+            transition: transform 0.2s;
         }
 
-        /* Logo animation */
-        nav .logo img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            transition: transform 0.5s ease;
-        }
+        .cta-btn:hover { transform: scale(1.05); }
 
-        nav .logo:hover img {
-            transform: rotate(360deg) scale(1.2);
-        }
-
-        /* Menu styling */
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333; /* Text color set to dark for contrast */
-            font-size: 18px;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: #f0a500;
-        }
-
-        /* Underline effect on hover */
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #f0a500;
-            left: 0;
-            bottom: -5px;
-            transition: width 0.3s;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Responsive navbar (mobile) */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            font-size: 30px;
-            color: #333;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 10px 20px;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                background-color: #fff;
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 15px 0;
-                text-align: center;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navbar -->
-   
-
-  
-    
-  <html>  
- 
-
-    <!-- Content (for demonstration) -->
-    
-
-    <!-- JavaScript for mobile menu toggle -->
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('show');
-        }
-    </script>
-<body>
-
-
-</body>
-
-</html>
-
-
-
-
-<style>
-    /* Navbar Styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: black;
-      padding: 10px 20px;
-      color: white;
-    }
-
-    .navbar h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .navbar ul li {
-      margin-left: 20px;
-    }
-
-    .navbar ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .navbar ul li a:hover {
-      color: lightgray;
-    }
-
-    /* Our Services Section */
-    #services {
-      background-color: white;
-      padding: 30px 0;
-    }
-
-    #services h2 {
-      text-align: center;
-      color: black;
-      font-size: 42px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    #services p {
-      text-align: center;
-      color: black;
-      font-size: 18px;
-      margin-bottom: 40px;
-    }
-
-    .service-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .service-box {
-      background-color: #1a1a1a;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .service-box h3 {
-      color: white;
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .service-box p {
-      color: gray; /* Set paragraph text color to gray */
-      font-size: 14px;
-    }
-
-    /* Hover Effect */
-    .service-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
-    }
-
-    /* Responsive Grid */
-    @media (max-width: 768px) {
-      .service-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .service-container {
-        grid-template-columns: 1fr;
-      }
-
-      .navbar h1 {
-        font-size: 18px;
-      }
-    }
-
-    /* Footer Styles */
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    footer .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 15px;
-    }
-
-    footer .social-links a {
-      color: white;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    footer .social-links a:hover {
-      color: lightgray;
-    }
-
-    footer .footer-nav {
-      margin: 15px 0;
-    }
-
-    footer .footer-nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-    }
-
-    footer .footer-nav a:hover {
-      color: lightgray;
-    }
-
-    footer .contact-info {
-      margin-top: 10px;
-    }
-
-    footer .contact-info a {
-      color: white;
-      text-decoration: none;
-    }
-
-    footer .contact-info a:hover {
-      color: lightgray;
-    }
-  </style>
-</head>
-<body>
-
-  
-</body>
-
-
-
-<!-- The slideshow/carousel -->
-
-  </div>
-</div>
-
-</div>
-</div>
-
-<!-- Left and right controls/icons -->
-
-
-<!-- Left and right controls/icons -->
-
-
-
-</body>
-</html>
-
-
-  
-
-<!-- Carousel silder part--------------------------------------------------------------------------------------------------------->
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-
-<!-- Indicators/dots -->
-<div class="carousel-indicators">
-<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-</div>
-
-<!-- The slideshow/carousel -->
-<div class="carousel-inner">
-<div class="carousel-item active">
-  <img src="pexels-scottwebb-27406.jpg" alt="TheFineAce.com" class="d-block" height="500px"
-    width="100%">
-  <div class="carousel-caption">
-    <center><h1 style="font-size: 50px;">TheFineAce</h1></center>
-    <h3 style="font-size: 20px; margin-bottom: 200px;">where businesses meet</h3>
-
-  </div>
-</div>
-<div class="carousel-item">
-  <img src="Home.png" alt="tfa" class="d-block" height="500px" width="100%">
-  <div class="carousel-caption">
-    <h3 style="font-size: 80px; margin-bottom: 200px;"> </h3>
-  </div>
-</div>
-<div class="carousel-item">
-  </div>
-</div>
-
-  
-
-<!-- Left and right controls/icons -->
-
-  </div>
-
-
-<!-- Main Code--------------------------------------------------------------------------------------------------->
-
-
-<body>
-  
-    
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <title>booking</title>
-  <style>
-    /* Luxurious Style for Calendly Widget */
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f0f0f0; /* Lighter background to match */
-      color: #333; /* Contrasting text */
-      margin: 0;
-      padding: 0;
-    }
-
-    .booking-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50vh;
-      background: linear-gradient(135deg, #e8e5dd, #d8d1c9); /* Light gradient */
-    }
-
-    .booking-box {
-      background: rgba(255, 255, 255, 0.9); /* Glassmorphism effect */
-      border: 2px solid #444; /* Strong, bold border */
-      border-radius: 15px;
-      padding: 40px;
-      text-align: center;
-      max-width: 400px;
-      position: relative;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); /* Strong shadow */
-      backdrop-filter: blur(5px); /* Glass-like effect */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .booking-box:hover {
-      transform: scale(1.1); /* Scale on hover */
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3); /* Bolder shadow */
-    }
-
-    .booking-box h2 {
-      font-family: 'Playfair Display', serif;
-      color: #b88a00; /* Bold gold text */
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-    }
-
-    .booking-box a {
-      font-weight: bold;
-      font-size: 1.1rem;
-      text-decoration: none;
-      color: #fff;
-      background-color: #b88a00; /* Gold button */
-      padding: 12px 30px;
-      border-radius: 6px;
-      display: inline-block;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .booking-box a:hover {
-      background-color: #555; /* Darker hover */
-      transform: scale(1.05);
-    }
-
-    .arrow {
-      font-size: 2.7rem;
-      color: #b88a00;
-      margin-top: 20px;
-      animation: bounce 1.5s infinite;
-    }
-
-    /* Bounce animation */
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    /* Mobile optimization */
-    @media (max-width: 768px) {
-      .booking-box {
-        width: 90%;
-        padding: 25px;
-      }
-
-      .booking-box h2 {
-        font-size: 1.8rem;
-      }
-
-      .arrow {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-
-
-<!-- Luxurious Calendly Section -->
-<div class="booking-section">
-  <div class="booking-box">
-    <h2>Book a consultation</h2>
-  <a href="book-a-consultation.html" class="btn-consultation">Book a Consultation</a>
-
-  </div>
-</div>
-
-<script src="book a consultation.html" type="text/javascript" async></script>
-</body>
-</html>
-
-
-    
-   
-        
-    </div>
-
-    
-    </p>
-  </div>
-
-</div>
-</div>
-</div>
-
-  
-
-<!-- <----------------------------------------------------------------------------------------------------------------------- -->
-
-
-
-<!-- -------------------------------2nd part services -->
-
-
-
-</div>
-</div>
-</div>
-</div>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Services - TFA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <style>
-    /* Luxurious Our Services Section */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #121212;
-    }
-
-    #services {
-      background-color: #001f3f; /* Navy blue background */
-      padding: 60px 0;
-    }
-
-    #services h2 {
-      font-family: 'Playfair Display', serif;
-      color: #FFD700; /* Gold text for the section title */
-      font-size: 42px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    #services p {
-      color: #dddddd; /* Light gray text */
-      font-size: 18px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .service-box {
-      background: #ffffff; /* Solid white background */
-      color: #000000; /* Ensure black text */
-      border: 2px solid #FFD700; /* Gold border */
-      padding: 25px;
-      width: 320px;
-      border-radius: 12px;
-      text-decoration: none;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.6s ease, box-shadow 0.6s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-      animation: standout-animation 1s ease forwards; /* Cool standout animation */
-    }
-
-    /* Standout Animation: Enlarges and stands out */
-    @keyframes standout-animation {
-      0% {
-        transform: scale(0.8) rotate(0deg);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-      }
-    }
-
-    /* Force Titles and Text to Black */
-    .service-box h3 {
-      font-family: 'Playfair Display', serif;
-      color: #000000 !important; /* Pure black title */
-      font-size: 26px;
-      margin-bottom: 12px;
-      font-weight: bold; /* Bold titles */
-    }
-
-    .service-box p {
-      color: #000000 !important; /* Pure black description */
-      font-size: 16px;
-      font-weight: normal;
-    }
-
-    /* Hover Effect: Elevation and slight rotation */
-    .service-box:hover {
-      transform: translateY(-10px) rotate(3deg); /* Upward movement with slight tilt */
-      box-shadow: 0 20px 40px rgba(255, 215, 0, 0.5); /* Gold shadow */
-    }
-
-    /* Service Box Container */
-    .service-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .service-box {
-        width: 90%;
-      }
-
-      #services h2 {
-        font-size: 32px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-
-  
-<!-- Our Services Section -->
-<section id="services">
-  <div>
-    <h2>Our Services</h2>
-    <p>Explore our wide range of management consulting services designed to help your business thrive.</p>
-  </div>
-
-  <div class="service-container">
-    <!-- Single Service Box -->
-    <a href="strategy-consulting.html" class="service-box">
-      <h3>Strategy Consulting</h3>
-      <p>Helping you define long-term goals and navigate the complexities of business growth.</p>
-    </a>
-
-    <a href="operations-consulting.html" class="service-box">
-      <h3>Operations Consulting</h3>
-      <p>Streamline processes to enhance productivity and reduce costs effectively.</p>
-    </a>
-
-    <a href="financial-advisory.html" class="service-box">
-      <h3>Financial Advisory</h3>
-      <p>Expert strategies to optimize financial health and improve capital structure.</p>
-    </a>
-  </div>
-</section>
-
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Services - TFA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Bold and Luxurious Styles */
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0; /* Lighter background with strong presence */
-      color: #333;
-    }
-
-    .service-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50vh;
-      background: linear-gradient(135deg, #e8e5dd, #d8d1c9); /* Light but strong gradient */
-    }
-
-    .service-box {
-      background: rgba(255, 255, 255, 0.9); /* Lighter glass effect */
-      border: 2px solid #444; /* Stronger, bold border */
-      border-radius: 15px;
-      padding: 40px;
-      text-align: center;
-      max-width: 320px;
-      position: relative;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); /* Stronger shadow for boldness */
-      backdrop-filter: blur(5px); /* Strong glassmorphism effect */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-box:hover {
-      transform: scale(1.1); /* Slightly stronger scaling */
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3); /* Bolder shadow on hover */
-    }
-
-    .service-box h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #b88a00; /* Bold and strong gold color */
-      margin-bottom: 25px;
-      text-transform: uppercase;
-    }
-
-    .arrow {
-      font-size: 2.7rem;
-      color: #b88a00; /* Strong gold arrow */
-      margin: 25px 0;
-      animation: bounce 1.5s infinite; /* Faster bounce for more energy */
-    }
-
-    .explore {
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px; /* Slightly bolder spacing */
-      color: #b88a00;
-    }
-
-    .explore a {
-      text-decoration: none;
-      color: #b88a00;
-      position: relative;
-      font-weight: 700; /* Bolder text */
-    }
-
-    .explore a:hover {
-      color: #222; /* Stronger hover color */
-    }
-
-    .explore a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: #b88a00;
-      transition: width 0.3s ease;
-    }
-
-    .explore a:hover::after {
-      width: 100%; /* Bold underline animation */
-      left: 0;
-      background: #222;
-    }
-
-    /* Faster Bouncing arrow animation */
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .service-box {
-        width: 90%;
-        padding: 25px;
-      }
-
-      .service-box h1 {
-        font-size: 1.8rem;
-      }
-
-      .arrow {
-        font-size: 2.2rem;
-      }
-
-      .explore {
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-<div class="service-section">
-  <div class="service-box">
-    <h1>Our Services</h1>
-    <div class="arrow">↓</div>
-    <div class="explore"><a href="our-services.html">Explore</a></div>
-  </div>
-</div>
-
-</body>
-</html>
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxurious Testimonial Section</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom Styles for Testimonial Section -->
-  <style>
-    /* Section Styling */
-    .testimonial-section {
-      background-color: #001f3f; /* Navy blue background */
-      padding: 60px 0;
-      text-align: center;
-      color: #fff; /* White text to contrast with navy blue */
-      font-family: 'Playfair Display', serif; /* Luxurious serif font */
-    }
-
-    /* Testimonial Card Styling */
-    .testimonial-card {
-      background-color: #fff; /* White background for the cards */
-      color: #333; /* Dark grey text inside the card */
-      border: 1px solid #d4af37; /* Gold border */
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15); /* Soft gold shadow */
-      transition: transform 0.3s ease-in-out;
-    }
-
-    /* Card hover effect */
-    .testimonial-card:hover {
-      transform: scale(1.05); /* Enlarge on hover */
-    }
-
-    /* User Image Styling */
-    .testimonial-img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border: 3px solid #d4af37; /* Gold border around image */
-    }
-
-    /* Rating Stars */
-    .stars {
-      color: #d4af37; /* Gold stars */
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    /* Testimonial Text Styles */
-    .testimonial-text {
-      font-style: italic;
-      font-size: 18px;
-      color: #555; /* Medium grey text */
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    /* Client Name and Designation */
-    .text-name {
-      font-weight: bold;
-      font-size: 20px;
-      color: #333; /* Dark grey for names */
-    }
-
-    .text-muted {
-      color: #777; /* Light grey for job titles */
-      font-size: 16px;
-    }
-
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
-      .testimonial-img {
-        width: 80px;
-        height: 80px;
-      }
-
-      .testimonial-text {
-        font-size: 16px;
-      }
-
-      .stars {
-        font-size: 16px;
-      }
-    }
-
-    /* Carousel Controls Styling */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      background-color: #d4af37; /* Gold background for controls */
-      border-radius: 50%;
-    }
-
-    .carousel-control-prev-icon:hover,
-    .carousel-control-next-icon:hover {
-      background-color: #fff; /* Change to white on hover */
-      color: #d4af37;
-    }
-  </style>
-</head>
-
-<body style="background-color: #001f3f; color: #333;"> <!-- Navy blue background for the entire page -->
-
-  <!-- Testimonial Section -->
-  <section class="testimonial-section">
-    <div class="container">
-      <h2 class="mb-5" style="color: #d4af37; font-weight: bold;">What People Say</h2> <!-- Luxurious gold title -->
-      
-      <!-- Testimonial Slider -->
-      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <!-- Testimonial 1 -->
-          <div class="carousel-item active">
-            <div class="testimonial-card mx-auto" style="max-width: 600px;">
-              <img src="https://via.placeholder.com/100x100?text=Ravi" class="testimonial-img" alt="Ravi Sharma">
-              <div class="stars">
-                ★★★★☆
-              </div>
-              <p class="testimonial-text">"TFA's team has an outstanding understanding of business strategies. Their insights helped us grow exponentially!"</p>
-              <h5 class="text-name">Ravi Sharma</h5>
-              <p class="text-muted">Founder, Innovate Solutions</p>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="carousel-item">
-            <div class="testimonial-card mx-auto" style="max-width: 600px;">
-              <img src="https://via.placeholder.com/100x100?text=Priya" class="testimonial-img" alt="Priya Verma">
-              <div class="stars">
-                ★★★★★
-              </div>
-              <p class="testimonial-text">"TFA transformed our business approach with their well-crafted marketing strategies. Highly recommend their services!"</p>
-              <h5 class="text-name">Priya Verma</h5>
-              <p class="text-muted">CEO, Verma Industries</p>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="carousel-item">
-            <div class="testimonial-card mx-auto" style="max-width: 600px;">
-              <img src="https://via.placeholder.com/100x100?text=Amit" class="testimonial-img" alt="Amit Patel">
-              <div class="stars">
-                ★★★★☆
-              </div>
-              <p class="testimonial-text">"The expertise at TFA was unmatched. They provided practical solutions that streamlined our business operations."</p>
-              <h5 class="text-name">Amit Patel</h5>
-              <p class="text-muted">Managing Director, Patel & Sons</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
-  
-
-</div>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with Us</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  
-    <div class="chat-container">
-      
-        <a href="https://wa.me/7709708090" target="_blank" class="whatsapp-chat">
-            <img src="Screenshot 2024-07-01 192611.png" alt="" >
-            <span>Chat with Us</span>
-        </a>
-    </div>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Here to Help</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .help-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px;
-            background-color: #fff;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin: 50px auto;
-            max-width: 800px;
-            border-radius: 10px;
-        }
-
-        .help-section img {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            border-radius: 10px;
-        }
-
-        .help-section h1 {
-            font-size: 2em;
-            color: #333;
-            margin: 20px 0;
-        }
-
-        .help-section p {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
-        .help-button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 5px;
-        }
-
-        .help-button:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-
-
-  
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Carousel | TFA</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-        }
-        .subscription-section {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #0a223d, #183d5d);
-            color: white;
-        }
-        .subscription-section h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #f4c542;
-        }
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .plan {
-            background-color: white;
-            color: #333;
-            padding: 30px;
-            margin: 0 10px;
-            min-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            scroll-snap-align: center;
-            flex: 0 0 auto;
-            text-align: left;
-        }
-        .plan h2 {
-            color: #183d5d;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        .price {
-            font-size: 2em;
-            color: #f4c542;
-        }
-        .discounted-price {
-            font-size: 1.5em;
-            text-decoration: line-through;
-            color: #999;
-        }
-        .plan ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-        .plan ul li {
-            margin: 10px 0;
-        }
-        .plan button {
-            background-color: #183d5d;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .plan button:hover {
-            background-color: #0a223d;
-        }
-
-        /* Responsive Design */
-        @media screen and (min-width: 768px) {
-            .carousel {
-                justify-content: center;
-            }
-            .plan {
-                min-width: 350px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="subscription-section">
-        <h1>Choose Your Plan</h1>
-        <div class="carousel">
-            <!-- Business Plan -->
-            <div class="plan">
-                <h2>Business</h2>
-                <p class="discounted-price">₹699.00/mo</p>
-                <p class="price">₹249.00/mo</p>
-                <ul>
-                    <li>100 websites</li>
-                    <li>200 GB NVMe storage</li>
-                    <li>Free domain & email</li>
-                    <li>Free CDN, SSL & backups</li>
-                    <li>Priority support</li>
-                </ul>
-                <button>Choose Plan</button>
-            </div>
-
-            <!-- Premium Plan -->
-            <div class="plan">
-                <h2>Premium</h2>
-                <p class="discounted-price">₹999.00/mo</p>
-                <p class="price">₹39999.00/mo</p>
-                <ul>
-                    <li>Managed Hosting</li>
-                    <li>500 GB storage</li>
-                    <li>24/7 Support</li>
-                    <li>Advanced WooCommerce</li>
-                </ul>
-                <button>Choose Plan</button>
-            </div>
-
-            <!-- Advanced Plan -->
-            <div class="plan">
-                <h2>Advanced</h2>
-                <p class="discounted-price">₹1,499.00/mo</p>
-                <p class="price">₹699.00/mo</p>
-                <ul>
-                    <li>500 websites</li>
-                    <li>1 TB NVMe storage</li>
-                    <li>Dedicated IP</li>
-                    <li>Unlimited CDN & SSL</li>
-                </ul>
-                <button>Choose Plan</button>
-            </div>
-
-            <!-- VIP Plan -->
-            <div class="plan">
-                <h2>VIP</h2>
-                <p class="discounted-price">₹2,999.00/mo</p>
-                <p class="price">₹1,299.00/mo</p>
-                <ul>
-                    <li>Unlimited websites</li>
-                    <li>Unlimited storage</li>
-                    <li>Daily backups & security</li>
-                    <li>Enterprise-level support</li>
-                </ul>
-                <button>Choose Plan</button>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
-
-
-
-  
-    <!-- Help Section -->
-    <div class="help-section">
-        <img src="men.jpg" alt="People">
-        <h1>We're Here to Help</h1>
-        <p>Our team of professionals is ready to assist you with whatever you need.</p>
-        <a href="https://wa.me/7709708090" class="help-button">Contact Us Now</a>
-    </div>
-
-</body>
-</html>
-
-
-  
-<!-- Footer ----------------------------- ------------------------------------------------------------------------>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVP</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-
-        /* Luxurious footer styling */
+        /* --- FOOTER --- */
         footer {
-            background-color: #fff; /* White background */
-            padding: 50px 20px;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
-            color: #555;
-            position: relative;
+            background: #000;
+            padding: 4rem 0;
+            border-top: 1px solid var(--grid-line);
         }
 
-        /* Footer inner wrapper */
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
+        .footer-content {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            align-items: flex-start;
         }
 
-        /* Footer columns */
-        .footer-column {
-            flex: 1;
-            margin: 15px;
-            min-width: 250px;
-            text-align: center;
-        }
+        .footer-col h4 { margin-bottom: 1.5rem; }
+        .footer-col ul li { margin-bottom: 0.8rem; color: var(--text-muted); transition: color 0.3s;}
+        .footer-col ul li:hover { color: var(--accent); }
 
-        /* Luxurious touch: add gold borders to columns */
-        .footer-column h3 {
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #d4af37; /* Gold border */
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .footer-column p, .footer-column a {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 12px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column a:hover {
-            color: #d4af37; /* Gold hover effect */
-        }
-
-        /* TFA Circular Logo */
-        .footer-column img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Contact information styling */
-        .contact-info p {
-            margin: 10px 0;
-        }
-
-        /* Social icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            color: #333;
-            font-size: 24px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #d4af37; /* Gold hover effect for social icons */
-        }
-
-        /* Bottom bar */
-        .footer-bottom {
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-            font-size: 14px;
-            color: #999;
-            border-top: 1px solid #eaeaea;
-        }
-
-        /* Responsive footer layout */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-column {
-                margin: 20px 0;
-            }
+            .nav-links { display: none; } /* Simple hide for demo, real site needs JS toggle */
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 3rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .process-steps { flex-direction: column; gap: 2rem; }
+            .process-line { display: none; }
+            .step { width: 100%; display: flex; align-items: center; gap: 1rem; text-align: left; }
+            .step-num { margin: 0; }
+            .proof-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            .cta-section h2 { font-size: 2.5rem; }
         }
-
-        /* Luxurious line above footer for aesthetic feel */
-        .luxury-line {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #d4af37; /* Gold line */
-            border-radius: 2px;
-        }
-    </style>
-</head>
-
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-
-  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Link</title>
-    <style>
-        /* Style for the WhatsApp logo */
-        .whatsapp-logo {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
-            z-index: 1000;
-        }
-
-        .whatsapp-logo img {
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-
-
-
-  
     </style>
 </head>
 <body>
 
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
 
+    <nav>
+        <div class="logo">MVP <span>//</span> CONS.</div>
+        <div class="nav-links">
+            <a href="#about">The DNA</a>
+            <a href="#services">Capabilities</a>
+            <a href="#process">Algorithm</a>
+            <a href="#proof">Proof</a>
+        </div>
+        <a href="#contact" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.8rem;">Book Briefing</a>
+        <div class="mobile-toggle">☰</div>
+    </nav>
 
-  
-    <!-- WhatsApp logo -->
-    <div class="whatsapp-logo">
-        <a href="https://api.whatsapp.com/send?phone=917709708090&text=Hi" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-        </a>
-    </div>
-
-
-
-  
-</body>
-</html>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="luxury-line"></div> <!-- Adds a luxurious golden line at the top of the footer -->
-
-        <div class="footer-container">
-
-            <!-- Column 1: About TFA with Circular Image -->
-            <div class="footer-column">
-                <img src="TFA.png" alt="TFA Logo">
-                <h3><strong></></h3>
-                <p><strong>TFA</strong> is a dynamic consulting firm that helps businesses thrive through innovative solutions and expert guidance.</p>
+    <section class="hero">
+        <div class="container hero-content reveal">
+            <span class="subtitle">Strategic Management & AI Integration</span>
+            <h1>We Don't Predict<br>The Future.<br><span style="color: var(--accent);">We Engineer It.</span></h1>
+            <p>NEXUS provides high-frequency strategy and operational infrastructure for Founders and CEOs who are ready to scale from 7 to 9 figures. Stop guessing. Start dominating.</p>
+            <a href="#contact" class="btn">Initiate Protocol</a>
+        </div>
+        
+        <div class="stats-ticker">
+            <div class="ticker-track">
+                &nbsp; +++ $500M REVENUE GENERATED FOR CLIENTS +++ AI INTEGRATION DEPLOYED +++ STRATEGY OPTIMIZED +++ 400% ROI AVERAGE +++ NEXUS CONSULTING +++ $500M REVENUE GENERATED FOR CLIENTS +++
             </div>
+        </div>
+    </section>
 
-            <!-- Column 2: Services -->
-            <div class="footer-column">
-                <center><h3>Services</h3><center>
-                <a href="services.html">Business Consulting</a>
-                <a href="services.html">Marketing Strategy</a>
-                <a href="services.html">Financial Planning</a>
-                <a href="services.html">Operational Efficiency</a>
-            </div>
-
-            <!-- Column 3: Contact Us -->
-            <div class="footer-column contact-info">
-                <h3>Contact Us</h3>
-                <p>Email: <strong>hello@thefineace.com</strong></p>
-                           
-<style>
-  .footer-icons a img {
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    transition: opacity 0.3s ease;
-    vertical-align: middle;
-    filter: grayscale(100%);
-  }
-
-  .footer-icons a:hover img {
-    opacity: 0.7;
-  }
-</style>
-
-<div class="footer-icons">
-  <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/company/thefineace/" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn-icons-png.flaticon.com/512/3669/3669739.png" alt="LinkedIn">
-  </a>
-
-  <!-- WhatsApp -->
-  <a href="https://wa.me/917709708090" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
-  </a>
-
-  <!-- Email -->
-  <a href="mailto:riya@thefineace.com" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
-  </a>
-</div>
-
-  </a>
-</div>
-
-</a>
-
-
-
-
-   
-        </a>
-    </div>
-
-</body>
-</html>
-</a>
-
+    <section id="about" class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="reveal">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="Boardroom Strategy" class="about-img">
+                </div>
+                <div class="reveal">
+                    <span class="subtitle">Who We Are</span>
+                    <h2 class="highlight-text">Your Vision is Chaotic.<br>We Bring Order.</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                        Most companies die because they run on feelings, not frameworks. You have a brilliant product, but your operations are bleeding cash and your strategy is reactive.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                        NEXUS is not a cheerleader. We are your tactical warfare unit. We audit your business, strip away the inefficiencies, integrate cutting-edge AI automation, and rebuild your foundation for massive load-bearing growth.
+                    </p>
+                    <ul style="margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ C-Suite Interim Management</li>
+                        <li style="margin-bottom: 0.5rem;">✓ AI & Automation Architecture</li>
+                        <li style="margin-bottom: 0.5rem;">✓ IPO Readiness & Exit Strategy</li>
+                    </ul>
                 </div>
             </div>
-
         </div>
+    </section>
 
-        <!-- Bottom Footer -->
-        <div class="footer-bottom">
-            <p>© 2024 The Fine Ace. All Rights Reserved.</p>
+    <section id="services" class="section" style="background: #0a0a0a;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="subtitle">Our Capabilities</span>
+                <h2>Full-Stack Corporate Evolution</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">◉</div>
+                    <h3>AI & Tech Stack Integration</h3>
+                    <p>We don't just "use" AI. We weave LLMs and automation agents into your daily workflow to reduce headcount costs by 40% while increasing output.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">▲</div>
+                    <h3>Strategic Positioning</h3>
+                    <p>Redefining your market fit. We analyze competitors, identify blue oceans, and pivot your brand narrative to command premium pricing.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">■</div>
+                    <h3>Operational Architecture</h3>
+                    <p>Building the SOPs and hiring pipelines that allow you, the Founder, to step back from day-to-day firefighting.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">◆</div>
+                    <h3>Financial War Rooms</h3>
+                    <p>Cash flow optimization, fundraising pitch deck creation, and P&L restructuring to maximize profitability.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <section id="process" class="section">
+        <div class="container reveal">
+            <div class="section-header" style="text-align: center;">
+                <span class="subtitle">The Algorithm</span>
+                <h2>How We Scale You</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-line"></div>
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h4>Deep Audit</h4>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">We tear down your current metrics to find the leaks.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h4>Strategy Map</h4>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">We deliver the 90-day execution blueprint.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h4>Deployment</h4>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">Our team integrates into yours to execute.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">04</div>
+                    <h4>Optimization</h4>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">Refining based on live data feedback loops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof" class="section">
+        <div class="container">
+            <div class="proof-grid reveal">
+                <div class="stat-item">
+                    <h3>$1B+</h3>
+                    <p>Client Valuation Growth</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Exits Facilitated</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40%</h3>
+                    <p>Avg. OpEx Reduction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>300+</h3>
+                    <p>Founders Advised</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="container reveal">
+            <span class="subtitle" style="color: #000;">Safe Hands. Dangerous Results.</span>
+            <h2>Ready to Ascend?</h2>
+            <p style="max-width: 600px; margin: 0 auto 3rem auto; color: #333;">
+                We only work with 5 new companies per quarter to ensure maximum impact. See if you qualify for our strategic partnership.
+            </p>
+            <button class="cta-btn">Schedule The Audit</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col" style="flex: 2; min-width: 300px;">
+                    <div class="logo" style="margin-bottom: 1rem;">NEXUS <span>//</span> CONS.</div>
+                    <p style="color: #555; max-width: 300px;">
+                        The premier management consulting firm for the digital age. We build the machines that build the money.
+                    </p>
+                </div>
+                <div class="footer-col" style="margin-right: 3rem;">
+                    <h4>Company</h4>
+                    <ul>
+                        <li>About</li>
+                        <li>Careers</li>
+                        <li>Case Studies</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                        <li>NDA Agreements</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 4rem; color: #333; font-size: 0.8rem; border-top: 1px solid #222; padding-top: 1rem;">
+                © 2024 NEXUS Management. All Rights Reserved. System Online.
+            </div>
+        </div>
     </footer>
 
-    <!-- FontAwesome for Social Media Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // --- CUSTOM CURSOR LOGIC ---
+        const cursorDot = document.querySelector('[data-cursor-dot]');
+        const cursorOutline = document.querySelector('[data-cursor-outline]');
 
-</body>
+        window.addEventListener("mousemove", function(e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
 
-</html>
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
 
+            // Outline follows with slight lag (animation handled by CSS transition)
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
 
-</body>
+        // Add hover effect to links/buttons to expand cursor
+        const interactiveElements = document.querySelectorAll('a, button, .service-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorOutline.style.backgroundColor = 'transparent';
+            });
+        });
 
-</html>
+        // --- SCROLL REVEAL ANIMATION ---
+        const revealElements = document.querySelectorAll('.reveal');
 
-  </div>
-  </div>
-  
- 
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15
+        });
 
-    
-  </body>
-  
-  </html>
+        revealElements.forEach(el => revealObserver.observe(el));
 
-
-
-
-
-
-
-
-  
- <footer style="
-  background-color: #0b0d17;
-  color: #f5f5f5;
-  padding: 60px 10%;
-  font-family: 'Inter', sans-serif;
-">
-  <div style="
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 40px;
-  ">
-    <!-- Logo / Brand -->
-    <div style="flex: 1 1 250px;">
-      <a href="index.html" style="text-decoration:none; color:#fff; font-weight:700; font-size:1.5rem;">
-        <span style="color:#00bcd4;">MVP</span> Consulting
-      </a>
-      <p style="margin-top:15px; color:#ccc; line-height:1.6;">
-        Empowering businesses to scale smarter with strategy, innovation, and clarity.
-      </p>
-    </div>
-
-    <!-- Quick Links -->
-    <div style="flex: 1 1 180px;">
-      <h4 style="font-weight:600; margin-bottom:15px;">Quick Links</h4>
-      <ul style="list-style:none; padding:0; line-height:2;">
-        <li><a href="#about" style="color:#ccc; text-decoration:none;">About Us</a></li>
-        <li><a href="#services" style="color:#ccc; text-decoration:none;">Services</a></li>
-        <li><a href="#mvp" style="color:#ccc; text-decoration:none;">MVP Way</a></li>
-        <li><a href="#contact" style="color:#ccc; text-decoration:none;">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact -->
-    <div style="flex: 1 1 220px;">
-      <h4 style="font-weight:600; margin-bottom:15px;">Contact</h4>
-      <p style="color:#ccc; margin:0;">📍 Pune, India</p>
-      <p style="color:#ccc; margin:5px 0;">✉️ hello@mvpconsulting.com</p>
-      <p style="color:#ccc;">📞 +91 98765 43210</p>
-    </div>
-
-    <!-- Socials -->
-    <div style="flex: 1 1 180px;">
-      <h4 style="font-weight:600; margin-bottom:15px;">Follow Us</h4>
-      <div style="display:flex; gap:15px;">
-        <a href="#" style="color:#ccc; font-size:1.2rem;">🌐</a>
-        <a href="#" style="color:#ccc; font-size:1.2rem;">💼</a>
-        <a href="#" style="color:#ccc; font-size:1.2rem;">📸</a>
-        <a href="#" style="color:#ccc; font-size:1.2rem;">🐦</a>
-      </div>
-    </div>
-  </div>
-
-  <hr style="border: none; border-top: 1px solid #222; margin: 40px 0;">
-
-  <p style="text-align:center; color:#777; font-size:0.9rem;">
-    © 2025 Myventurepartners. All Rights Reserved.
-  </p>
-</footer>
-
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('menu-toggle').addEventListener('click', ()=>{
-      document.getElementById('nav').classList.toggle('active');
-    });
-
-    // Scroll animations
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    },{threshold:0.1});
-    sections.forEach(sec=>{
-      sec.style.opacity=0;
-      sec.style.transform='translateY(40px)';
-      sec.style.transition='all 1s ease';
-      observer.observe(sec);
-    });
-  </script>
+        // --- SMOOTH SCROLL FOR ANCHOR LINKS ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
