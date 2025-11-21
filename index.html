@@ -350,6 +350,404 @@
         </div>
     </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP | Strategic Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THE DAVOS AESTHETIC --- */
+        
+        :root {
+            --void: #050505;
+            --onyx: #121212;
+            --slate: #1e2024;
+            --text-primary: #e0e0e0;
+            --text-secondary: #8a8a8a;
+            --bronze: #a88b60; /* The color of old money */
+            --bronze-glow: rgba(168, 139, 96, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--void);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif; /* Clean, modern, legible */
+            overflow-x: hidden;
+        }
+
+        /* BACKGROUND FOG ANIMATION */
+        .fog-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
+            overflow: hidden;
+        }
+
+        .fog-layer {
+            position: absolute;
+            width: 200%; height: 200%;
+            background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/img/fog1.png') repeat;
+            animation: moveFog 60s linear infinite;
+            opacity: 0.3;
+        }
+
+        .fog-layer.two {
+            background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/img/fog2.png') repeat;
+            animation: moveFog 40s linear infinite reverse;
+            opacity: 0.2;
+        }
+
+        @keyframes moveFog { 0% { transform: translate(0, 0); } 100% { transform: translate(-50%, -50%); } }
+
+        /* --- STOCK TICKER (Symbolizes Finance/Business) --- */
+        .ticker-wrap {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 40px;
+            background: var(--onyx);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 100;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker {
+            display: flex;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker-item {
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 50px;
+            white-space: nowrap;
+        }
+
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        /* --- MAIN STAGE --- */
+        .executive-section {
+            padding: 180px 10vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* TYPOGRAPHY */
+        .label-gold {
+            color: var(--bronze);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+            padding-left: 3px;
+            border-left: 1px solid var(--bronze);
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif; /* The "Expensive" Font */
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            color: #fff;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        h1 span {
+            font-style: normal;
+            font-weight: 600;
+            display: block;
+            color: var(--text-primary);
+        }
+
+        .intro-p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            line-height: 1.8;
+            margin-bottom: 80px;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            padding-left: 20px;
+        }
+
+        /* --- THE PILLARS (THE PROCESS) --- */
+        .pillars-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2px; /* Tight gap for architectural feel */
+            position: relative;
+        }
+
+        .pillar {
+            flex: 1;
+            background: linear-gradient(180deg, rgba(30,32,36,0.4) 0%, rgba(10,10,10,0) 100%);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-left: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 30px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: none; /* We use custom cursor */
+            min-height: 500px;
+        }
+
+        .pillar:hover {
+            background: linear-gradient(180deg, rgba(168, 139, 96, 0.05) 0%, rgba(10,10,10,0) 100%);
+            border-top: 1px solid var(--bronze);
+        }
+
+        .step-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: rgba(255,255,255,0.05);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transition: color 0.5s;
+        }
+
+        .pillar:hover .step-number {
+            color: var(--bronze);
+            opacity: 0.4;
+        }
+
+        .pillar-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 100px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .pillar-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* --- THE "GOLD CARD" WHATSAPP --- */
+        .access-card {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 280px;
+            height: 70px;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 999;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .access-card:hover {
+            border-color: var(--bronze);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transform: translateY(-5px);
+        }
+
+        .card-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-label {
+            color: var(--bronze);
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .card-action {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .chip {
+            width: 35px;
+            height: 25px;
+            background: linear-gradient(135deg, #d4af37, #a88b60);
+            border-radius: 4px;
+            position: relative;
+            opacity: 0.8;
+        }
+        .chip::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 0; width: 100%; height: 1px; background: rgba(0,0,0,0.3);
+        }
+
+        /* CUSTOM MOUSE FOLLOWER */
+        .mouse-light {
+            position: fixed;
+            top: 0; left: 0;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 60%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .pillars-container { flex-direction: column; }
+            .pillar { min-height: auto; padding: 40px 20px; }
+            h1 { font-size: 2.8rem; }
+            .access-card { width: 60px; height: 60px; border-radius: 50%; justify-content: center; padding: 0; right: 20px; bottom: 20px; background: var(--bronze); }
+            .card-text { display: none; }
+            .chip { width: 20px; height: 20px; background: white; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">MVP INDEX: ▲ 4.2%</div>
+            <div class="ticker-item">GLOBAL STRATEGY DEPLOYED</div>
+            <div class="ticker-item">MARKET VOLATILITY: HIGH</div>
+            <div class="ticker-item">OPPORTUNITY: OPTIMAL</div>
+            <div class="ticker-item">MVP INDEX: ▲ 4.2%</div>
+            <div class="ticker-item">GLOBAL STRATEGY DEPLOYED</div>
+            <div class="ticker-item">MARKET VOLATILITY: HIGH</div>
+            <div class="ticker-item">OPPORTUNITY: OPTIMAL</div>
+        </div>
+    </div>
+
+    <div class="fog-container">
+        <div class="fog-layer"></div>
+        <div class="fog-layer two"></div>
+    </div>
+    <div class="mouse-light" id="light"></div>
+
+    <a href="https://wa.me/917709708090?text=hey%20MVP%20show%20me%20your%20process" class="access-card" target="_blank">
+        <div class="card-text">
+            <span class="card-label">Priority Access</span>
+            <span class="card-action">Contact Partner</span>
+        </div>
+        <div class="chip"></div>
+    </a>
+
+    <section class="executive-section">
+        
+        <span class="label-gold">The Methodology</span>
+        <h1>Structured for <br><span>Asymmetric Returns.</span></h1>
+        <p class="intro-p">
+            In a volatile economy, standard consulting is a liability. We deploy a proprietary three-stage architecture designed to secure market dominance.
+        </p>
+
+        <div class="pillars-container">
+            
+            <div class="pillar">
+                <div class="step-number">01</div>
+                <h3 class="pillar-title">The Audit</h3>
+                <p class="pillar-desc">
+                    We do not guess. We strip your operations down to the data layer. Using forensic analytics, we identify the friction points costing you revenue.
+                </p>
+            </div>
+
+            <div class="pillar">
+                <div class="step-number">02</div>
+                <h3 class="pillar-title">The Architecture</h3>
+                <p class="pillar-desc">
+                    We build the "Living Strategy." A dynamic operating model that adapts to market shifts in real-time, replacing static 5-year plans.
+                </p>
+            </div>
+
+            <div class="pillar">
+                <div class="step-number">03</div>
+                <h3 class="pillar-title">The Deployment</h3>
+                <p class="pillar-desc">
+                    Execution. We embed a fractional leadership team into your company to oversee the rollout, ensuring the strategy survives contact with reality.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        // --- SUBTLE MOUSE LIGHTING EFFECT ---
+        const light = document.getElementById('light');
+        
+        document.addEventListener('mousemove', (e) => {
+            // Slight delay logic for smoothness (Lerp)
+            setTimeout(() => {
+                light.style.left = e.clientX + 'px';
+                light.style.top = e.clientY + 'px';
+            }, 50);
+        });
+
+        // --- ANIMATE ELEMENTS ON SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Staggered animation
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const pillars = document.querySelectorAll('.pillar');
+        pillars.forEach(p => {
+            p.style.opacity = '0';
+            p.style.transform = 'translateY(50px)';
+            observer.observe(p);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+    
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-col">
