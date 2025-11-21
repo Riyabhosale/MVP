@@ -355,375 +355,238 @@
 
 
 
-
-
-
-
-
-
-
-<!DOCTYPE html>
-
+<style>
+    /* --- NEW SECTION THEME: DARK ARCHITECTURE --- */
     
-    <section>
-    <style>
-        /* --- THE DAVOS AESTHETIC --- */
+    .obsidian-section-wrapper {
+        position: relative;
+        background-color: #181a1f; /* Deep Slate Background */
+        color: #f3f4f6; /* Off-White Text */
+        padding: 120px 8%;
+        overflow: hidden;
+    }
+
+    /* Architectural Grid Background */
+    .grid-overlay-dark {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    /* Variable Overrides for Dark Mode */
+    .obsidian-section-wrapper .overline-dark {
+        font-size: 0.75rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #c5a059; /* Muted Gold Accent */
+        margin-bottom: 20px;
+        display: block;
+        transition: all 0.8s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    .obsidian-section-wrapper h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.1;
+        font-weight: 700;
+        margin-bottom: 50px;
+        color: #ffffff;
+        transition: all 0.8s 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .obsidian-section-wrapper h2 span {
+        color: #c5a059; /* Gold Accent */
+        font-style: italic;
+    }
+
+    /* PROCESS SECTION (The Grid) */
+    .obsidian-process-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* Asymmetric grid maintained */
+        gap: 80px;
+        position: relative;
+        z-index: 1; /* Above the grid background */
+    }
+    
+    .obsidian-process-header {
+        max-width: 400px;
+    }
+
+    .obsidian-process-header p {
+        color: #b0b0b0;
+        font-size: 1rem;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    /* THE STEP CARDS */
+    .obsidian-steps-container {
+        display: grid;
+        gap: 40px;
+    }
+
+    .obsidian-step-card {
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle dark border */
+        padding-bottom: 30px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s, transform 1s;
+    }
+
+    .obsidian-step-card:last-child {
+        border-bottom: none;
+    }
+
+    .obsidian-step-number {
+        font-size: 4rem;
+        font-weight: 300;
+        color: #c5a059; /* Gold Accent */
+        margin-right: 40px;
+        line-height: 1;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .obsidian-step-content h3 {
+        font-size: 1.5rem;
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+
+    .obsidian-step-content p {
+        color: #b0b0b0;
+        font-size: 0.95rem;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    /* JAVASCRIPT ANIMATION CLASS */
+    .reveal-visible-dark {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    @media (max-width: 768px) {
+        .obsidian-process-grid { grid-template-columns: 1fr; gap: 40px; }
+        .obsidian-step-number { margin-right: 20px; font-size: 3rem; }
+    }
+
+</style>
+
+<section class="obsidian-section-wrapper">
+    <div class="grid-overlay-dark"></div>
+
+    <div class="obsidian-process-grid">
         
-      
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--void);
-            color: var(--text-primary);
-            font-family: 'Montserrat', sans-serif; /* Clean, modern, legible */
-            overflow-x: hidden;
-        }
-
-        /* BACKGROUND FOG ANIMATION */
-        .fog-container {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
-            overflow: hidden;
-        }
-
-        .fog-layer {
-            position: absolute;
-            width: 200%; height: 200%;
-            background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/img/fog1.png') repeat;
-            animation: moveFog 60s linear infinite;
-            opacity: 0.3;
-        }
-
-        .fog-layer.two {
-            background: url('https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/img/fog2.png') repeat;
-            animation: moveFog 40s linear infinite reverse;
-            opacity: 0.2;
-        }
-
-        @keyframes moveFog { 0% { transform: translate(0, 0); } 100% { transform: translate(-50%, -50%); } }
-
-        /* --- STOCK TICKER (Symbolizes Finance/Business) --- */
-        .ticker-wrap {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 40px;
-            background: var(--onyx);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            z-index: 100;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        .ticker {
-            display: flex;
-            animation: ticker 30s linear infinite;
-        }
-
-        .ticker-item {
-            color: var(--text-secondary);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-right: 50px;
-            white-space: nowrap;
-        }
-
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-
-        /* --- MAIN STAGE --- */
-        .executive-section {
-            padding: 180px 10vw;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-
-        /* TYPOGRAPHY */
-        .label-gold {
-            color: var(--bronze);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            display: block;
-            padding-left: 3px;
-            border-left: 1px solid var(--bronze);
-        }
-
-        h1 {
-            font-family: 'Cormorant Garamond', serif; /* The "Expensive" Font */
-            font-size: clamp(3rem, 5vw, 5rem);
-            font-weight: 400;
-            line-height: 1.1;
-            color: #fff;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        h1 span {
-            font-style: normal;
-            font-weight: 600;
-            display: block;
-            color: var(--text-primary);
-        }
-
-        .intro-p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 500px;
-            line-height: 1.8;
-            margin-bottom: 80px;
-            border-left: 1px solid rgba(255,255,255,0.1);
-            padding-left: 20px;
-        }
-
-        /* --- THE PILLARS (THE PROCESS) --- */
-        .pillars-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 2px; /* Tight gap for architectural feel */
-            position: relative;
-        }
-
-        .pillar {
-            flex: 1;
-            background: linear-gradient(180deg, rgba(30,32,36,0.4) 0%, rgba(10,10,10,0) 100%);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-left: 1px solid rgba(255,255,255,0.05);
-            padding: 60px 30px;
-            position: relative;
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            cursor: none; /* We use custom cursor */
-            min-height: 500px;
-        }
-
-        .pillar:hover {
-            background: linear-gradient(180deg, rgba(168, 139, 96, 0.05) 0%, rgba(10,10,10,0) 100%);
-            border-top: 1px solid var(--bronze);
-        }
-
-        .step-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            color: rgba(255,255,255,0.05);
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            transition: color 0.5s;
-        }
-
-        .pillar:hover .step-number {
-            color: var(--bronze);
-            opacity: 0.4;
-        }
-
-        .pillar-title {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 100px;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .pillar-desc {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* --- THE "GOLD CARD" WHATSAPP --- */
-        .access-card {
-            position: fixed;
-            bottom: 50px;
-            right: 50px;
-            width: 280px;
-            height: 70px;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 999;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .access-card:hover {
-            border-color: var(--bronze);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            transform: translateY(-5px);
-        }
-
-        .card-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-label {
-            color: var(--bronze);
-            font-size: 0.6rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .card-action {
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .chip {
-            width: 35px;
-            height: 25px;
-            background: linear-gradient(135deg, #d4af37, #a88b60);
-            border-radius: 4px;
-            position: relative;
-            opacity: 0.8;
-        }
-        .chip::after {
-            content: '';
-            position: absolute;
-            top: 50%; left: 0; width: 100%; height: 1px; background: rgba(0,0,0,0.3);
-        }
-
-        /* CUSTOM MOUSE FOLLOWER */
-        .mouse-light {
-            position: fixed;
-            top: 0; left: 0;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 60%);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .pillars-container { flex-direction: column; }
-            .pillar { min-height: auto; padding: 40px 20px; }
-            h1 { font-size: 2.8rem; }
-            .access-card { width: 60px; height: 60px; border-radius: 50%; justify-content: center; padding: 0; right: 20px; bottom: 20px; background: var(--bronze); }
-            .card-text { display: none; }
-            .chip { width: 20px; height: 20px; background: white; }
-        }
-
-    </style>
-</head>
-<body>
-
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item">MVP INDEX: ▲ 4.2%</div>
-            <div class="ticker-item">GLOBAL STRATEGY DEPLOYED</div>
-            <div class="ticker-item">MARKET VOLATILITY: HIGH</div>
-            <div class="ticker-item">OPPORTUNITY: OPTIMAL</div>
-            <div class="ticker-item">MVP INDEX: ▲ 4.2%</div>
-            <div class="ticker-item">GLOBAL STRATEGY DEPLOYED</div>
-            <div class="ticker-item">MARKET VOLATILITY: HIGH</div>
-            <div class="ticker-item">OPPORTUNITY: OPTIMAL</div>
+        <div class="obsidian-process-header">
+            <span class="overline-dark" id="dark-overline">THE MVP METHODOLOGY</span>
+            <h2 id="dark-h2">The Discipline of <span>Architecture.</span></h2>
+            <p id="dark-summary">
+                A high-fidelity system that delivers tangible outcomes. The sequence is non-negotiable, the results are guaranteed.
+            </p>
         </div>
-    </div>
 
-    <div class="fog-container">
-        <div class="fog-layer"></div>
-        <div class="fog-layer two"></div>
-    </div>
-    <div class="mouse-light" id="light"></div>
-
-    <a href="https://wa.me/917709708090?text=hey%20MVP%20show%20me%20your%20process" class="access-card" target="_blank">
-        <div class="card-text">
-            <span class="card-label">Priority Access</span>
-            <span class="card-action">Contact Partner</span>
-        </div>
-        <div class="chip"></div>
-    </a>
-
-    <section class="executive-section">
-        
-        <span class="label-gold">The Methodology</span>
-        <h1>Structured for <br><span>Asymmetric Returns.</span></h1>
-        <p class="intro-p">
-            In a volatile economy, standard consulting is a liability. We deploy a proprietary three-stage architecture designed to secure market dominance.
-        </p>
-
-        <div class="pillars-container">
+        <div class="obsidian-steps-container" id="dark-steps-container">
             
-            <div class="pillar">
-                <div class="step-number">01</div>
-                <h3 class="pillar-title">The Audit</h3>
-                <p class="pillar-desc">
-                    We do not guess. We strip your operations down to the data layer. Using forensic analytics, we identify the friction points costing you revenue.
-                </p>
+            <div class="obsidian-step-card">
+                <div class="obsidian-step-number">01</div>
+                <div class="obsidian-step-content">
+                    <h3>Data Triangulation Phase</h3>
+                    <p>Rigorous, forensic assessment using proprietary datasets. We define the true problem, eliminating corporate bias.</p>
+                </div>
             </div>
 
-            <div class="pillar">
-                <div class="step-number">02</div>
-                <h3 class="pillar-title">The Architecture</h3>
-                <p class="pillar-desc">
-                    We build the "Living Strategy." A dynamic operating model that adapts to market shifts in real-time, replacing static 5-year plans.
-                </p>
+            <div class="obsidian-step-card">
+                <div class="obsidian-step-number">02</div>
+                <div class="obsidian-step-content">
+                    <h3>Hypothesis Architecture</h3>
+                    <p>Rapid prototyping of solutions in a controlled environment. We pressure-test strategic options before deployment.</p>
+                </div>
             </div>
 
-            <div class="pillar">
-                <div class="step-number">03</div>
-                <h3 class="pillar-title">The Deployment</h3>
-                <p class="pillar-desc">
-                    Execution. We embed a fractional leadership team into your company to oversee the rollout, ensuring the strategy survives contact with reality.
-                </p>
+            <div class="obsidian-step-card">
+                <div class="obsidian-step-number">03</div>
+                <div class="obsidian-step-content">
+                    <h3>Embedded Deployment</h3>
+                    <p>Our team integrates into your operations, translating strategy into action and installing the necessary infrastructure.</p>
+                </div>
+            </div>
+
+            <div class="obsidian-step-card">
+                <div class="obsidian-step-number">04</div>
+                <div class="obsidian-step-content">
+                    <h3>Velocity Transfer</h3>
+                    <p>Final handover includes long-term monitoring and training, ensuring your teams self-correct and grow independently.</p>
+                </div>
             </div>
 
         </div>
+    </div>
+</section>
 
-    </section>
+<script>
+    // --- JAVASCRIPT: SCROLL REVEAL (for dark section) ---
+    
+    // Header Reveal
+    document.addEventListener('DOMContentLoaded', () => {
+        // Apply initial hidden state for header elements
+        document.getElementById('dark-overline').style.opacity = '0';
+        document.getElementById('dark-h2').style.opacity = '0';
+        document.getElementById('dark-summary').style.opacity = '0';
+        document.getElementById('dark-overline').style.transform = 'translateY(20px)';
+        document.getElementById('dark-h2').style.transform = 'translateY(20px)';
+        document.getElementById('dark-summary').style.transform = 'translateY(20px)';
 
-    <script>
-        // --- SUBTLE MOUSE LIGHTING EFFECT ---
-        const light = document.getElementById('light');
-        
-        document.addEventListener('mousemove', (e) => {
-            // Slight delay logic for smoothness (Lerp)
-            setTimeout(() => {
-                light.style.left = e.clientX + 'px';
-                light.style.top = e.clientY + 'px';
-            }, 50);
-        });
-
-        // --- ANIMATE ELEMENTS ON SCROLL ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+        // Function to reveal header elements
+        const revealHeader = (entries, observer) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Staggered animation
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 200);
+                    document.getElementById('dark-overline').classList.add('reveal-visible-dark');
+                    document.getElementById('dark-h2').classList.add('reveal-visible-dark');
+                    document.getElementById('dark-summary').classList.add('reveal-visible-dark');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        };
 
-        const pillars = document.querySelectorAll('.pillar');
-        pillars.forEach(p => {
-            p.style.opacity = '0';
-            p.style.transform = 'translateY(50px)';
-            observer.observe(p);
+        const headerObserver = new IntersectionObserver(revealHeader, { threshold: 0.1 });
+        headerObserver.observe(document.querySelector('.obsidian-process-header'));
+    });
+
+    // Step Cards Scroll Animation (Staggered Reveal)
+    const stepObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Find its actual index within the original list, not the entries list
+                const allCards = Array.from(document.querySelectorAll('.obsidian-step-card'));
+                const originalIndex = allCards.indexOf(entry.target);
+                
+                setTimeout(() => {
+                    entry.target.classList.add('reveal-visible-dark');
+                }, originalIndex * 250); // Staggered by original index
+                observer.unobserve(entry.target);
+            }
         });
-    </script>
-</section>
+    }, { 
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    const stepCards = document.querySelectorAll('.obsidian-step-card');
+    stepCards.forEach(card => {
+        stepObserver.observe(card);
+    });
+</script>
+
+
+
+
+
 
 
 
